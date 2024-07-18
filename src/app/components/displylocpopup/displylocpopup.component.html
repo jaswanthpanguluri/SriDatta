@@ -1,0 +1,4 @@
+<section class="fixedpopup" *ngIf="showpopup">
+
+    <app-set-loc (selectClose)="closepopup()"  (selectEvent)="selectLoc()" [env]="'noloc'"></app-set-loc>
+</section>

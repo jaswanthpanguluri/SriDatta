@@ -1,0 +1,13 @@
+<header>
+    <!-- *ngIf="scrollingMessage" -->
+    <app-topheader  [topList]="topList" [scrolling]="scrollingOn"
+        [scrollingMessage]="scrollingMessage"></app-topheader>
+    <app-midheader *ngIf="searchList" [searchList]="searchList"></app-midheader>
+    <app-mainnav  [class.fixed-top]="isScrolled" *ngIf="categoryList && menuList" [menuList]="menuList" [categoryList]="categoryList"></app-mainnav>
+
+</header>
+<ng-container>
+    <app-displylocpopup></app-displylocpopup>
+</ng-container>
+
+<app-sticky-ribbon *ngIf="showribbon" [count]="notificationsCount"></app-sticky-ribbon>
