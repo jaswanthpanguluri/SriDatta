@@ -1,0 +1,58 @@
+@import "../../../../styles/styles";
+
+.topheader {
+  background: map-get($colors, primary);
+  color: map-get($colors, white);
+  @include transition(all, 0.3s ease);
+  padding: 5px 0;
+
+  @include max(map-get($breakpoints, "lg")) {
+    display: none;
+  }
+  p {
+    font-size: $fsize - 1;
+  }
+
+  .offers {
+    display: flex;
+    padding-top: 0px;
+    // @include minMax(map-get($breakpoints, "xs"), map-get($breakpoints, "sm")){
+    //   display: none;
+    // }
+
+    .h6 {
+      font-size: $fsize + 1;
+      padding-top: 2px;
+    }
+    p {
+      font-size: $fsize - 1;
+    }
+  }
+  .nav {
+    .nav-link {
+      color: map-get($colors, white);
+      text-transform: uppercase;
+      font-size: $fsize - 2;
+    }
+  }
+}
+
+.offers * {
+  line-height: 1;
+}
+
+.header-contacts {
+  display: flex;
+  a {
+    font-size: $fsize - 1;
+    color: map-get($colors, white);
+    margin-right: 25px;
+    display: flex;
+
+    .icomoon{
+      margin:-1px 5px 0 0;
+      display: inline-block;
+      align-self: center;
+    }
+  }
+}

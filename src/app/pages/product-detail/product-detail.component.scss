@@ -1,0 +1,243 @@
+@import "../../../styles/styles";
+
+.product-detail-carousel {
+  .carousel-indicators {
+    width: 85px;
+    margin: 0;
+    position: relative;
+    display: block;
+
+    button {
+      width: 80px;
+      height: 80px;
+      background: None;
+      text-indent: 0;
+      border: 0;
+      margin: 0 5px 5px 0;
+
+      img {
+        height: 80px;
+      }
+    }
+  }
+}
+
+.safe-instruction {
+  background: map-get($colors, lightblue);
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+
+  .safe-inner {
+    width: 100%;
+    height: 100%;
+    border: 1px solid map-get($colors, lightgray);
+    height: 132px;
+    border-radius: 15px;
+
+    article {
+      width: 65%;
+      padding: 20px 0 0 25px;
+      h3 {
+        font-size: $fsize;
+      }
+      p {
+        color: map-get($colors, gray);
+        padding-top: 10px;
+        font-size: $fsize - 3;
+      }
+    }
+
+    img {
+      height: 158px;
+      position: absolute;
+      right: 10%;
+      top: 35px;
+    }
+  }
+}
+
+.product-detail-right {
+  font-size: $fsize - 1;
+  h1 {
+    font-size: $fsize + 7;
+
+    @include max(map-get($breakpoints, "sm")) {
+      font-size: $fsize + 3;
+    }
+  }
+  .price {
+    .offer-price {
+      font-size: $fsize * 2;
+
+      @include max(map-get($breakpoints, "sm")) {
+        font-size: $fsize * 2;
+      }
+    }
+  }
+  .basic-features,
+  .form-select {
+    font-size: $fsize - 1;
+
+    @include max(map-get($breakpoints, "sm")) {
+      font-size: $fsize - 2;
+    }
+  }
+}
+
+.product-info {
+  margin-top: 40px;
+
+  article {
+    h3 {
+      font-size: $fsize + 7;
+      border-bottom: 1px dashed map-get($colors, primary);
+    }
+  }
+  .list-style-desc {
+    li {
+      list-style-type: disc;
+      margin-left: 22px;
+      margin-bottom: 5px;
+      font-size: $fsize - 2;
+
+      @include max(map-get($breakpoints, "sm")) {
+        font-size: $fsize - 3;
+      }
+    }
+  }
+}
+
+.ranger-col {
+  width: 428px;
+  height: 10px;
+  border: 1px solid map-get($colors, lightengrayborder);
+  margin-left: 10px;
+  border-radius: 5px;
+
+  .range-col-width {
+    height: 10px;
+    border: 1px solid map-get($colors, darkyellow);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+  }
+}
+.right-sidewrap {
+  position: relative;
+}
+.tagbadge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 10px;
+  color: #ffffff;
+  padding: 3px 5px 2px 5px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  z-index: 99;
+}
+.greencls {
+  background: green;
+}
+.errorcls {
+  background: #ff0000;
+}
+.clr-green {
+  color: green;
+}
+.bluecls {
+  background: #005bc2;
+}
+
+.product-detail-tab {
+  background: map-get($colors, lightblue);
+  min-height: 420px;
+
+  .nav-link {
+    text-transform: uppercase;
+    color: map-get($colors, black);
+    background: map-get($colors, white);
+    font-weight: map-get($font-weights, "medium");
+    border: none !important;
+    border-radius: 0;
+    font-size: $fsize - 2;
+
+    @include max(map-get($breakpoints, "xl")) {
+      width: 50%;
+      font-size: $fsize - 4;
+      padding: 10px;
+      border-radius: 0;
+    }
+  }
+  .nav-link.active {
+    background: map-get($colors, darkyellow);
+    color: map-get($colors, black);
+    font-weight: map-get($font-weights, "medium");
+    border: none !important;
+  }
+
+  h5 {
+    border-bottom: 1px dashed map-get($colors, primary);
+  }
+}
+
+.price .icomoon {
+  font-size: 20px;
+}
+
+.eggless {
+  .icomoon {
+    font-size: $fsize - 3;
+    margin-left: 5px;
+  }
+}
+
+.breadcrumb a {
+  cursor: pointer;
+}
+.is-invalid {
+  border: 1px solid red;
+}
+
+.addtocart-btn {
+  .default-btn {
+    @include max(map-get($breakpoints, "sm")) {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      z-index: 9999;
+      margin: 0;
+      padding: 10px;
+      left: 0;
+      right: 0;
+    }
+  }
+  .displaytime {
+    // background:map-get($colors, lightgreen);
+    color: map-get($colors, green);
+    line-height: 12px;
+    background: #f6ff00;
+    @include max(map-get($breakpoints, "sm")) {
+      text-align: center;
+      display: inline-block;
+    }
+  }
+}
+
+.form-group {
+  .form-select {
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+app-noproducts-found {
+  text-align: center;
+}
+
+.form-select {
+  font-family: sans-serif;
+}

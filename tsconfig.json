@@ -1,33 +1,43 @@
-/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
-/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": false,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
+    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
+    "target": "es2017",
+    "module": "es2020",
     "lib": [
-      "ES2022",
+      "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@directive/*": ["src/app/core/directives/*"],
+      "@guard/*": ["src/app/core/guards/*"],
+      "@interceptor/*": ["src/app/core/interceptors/*"],
+      "@pipe/*": ["src/app/core/pipes/*"],
+      "@service/*": ["src/app/core/services/*"],
+      "@custom-validator/*": ["src/app/core/validators/*"],
+      "@model/*": ["src/app/core/models/*"],
+      "@store/*": ["src/app/core/store/*"],
+      "@feature/*": ["src/app/features/*"],
+      "@page/*": ["src/app/pages/*"],
+      "@shared/*": ["src/app/shared/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictPropertyInitialization": false
   }
 }

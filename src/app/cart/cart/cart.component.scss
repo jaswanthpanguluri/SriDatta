@@ -1,0 +1,152 @@
+@import "../../../styles/styles";
+
+.location-date-time {
+  p {
+    font-size: $fsize;
+
+    @include max(map-get($breakpoints, "sm")) {
+      font-size: $fsize - 2;
+    }
+  }
+}
+
+.btnsec {
+  .value-button {
+    display: inline-block;
+    border: 1px solid map-get($colors, lightprimary);
+    margin: 0px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #decrease {
+    border-radius: 3px;
+    margin-top: -2px;
+  }
+  #increase {
+    border-radius: 3px;
+    margin-top: -2px;
+  }
+  #input-wrap {
+    margin: 0px;
+    padding: 0px;
+  }
+  #number {
+    text-align: center;
+    border: 1px solid map-get($colors, lightprimary);
+    border-radius: 3px;
+    margin: 0px 3px;
+    width: 34px;
+    height: 25px;
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.title-ofproduct {
+  font-size: $fsize;
+
+  @include max(map-get($breakpoints, "md")) {
+    font-size: $fsize - 2;
+  }
+}
+
+.item-title {
+  p {
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    a {
+      font-size: $fsize - 2;
+    }
+  }
+}
+.product-item-figure {
+  img {
+    height: auto;
+  }
+}
+
+.width100p {
+  width: 100%;
+}
+
+.list-style-desc {
+  li {
+    font-size: $fsize - 1;
+    padding: 2px 0;
+  }
+}
+
+.AddonsProducts {
+  .modal-body {
+    height: calc(100vh - 201px);
+    overflow-y: auto;
+  }
+}
+
+.noproduct {
+  text-align: center;
+  font-size: 23px;
+  & div {
+    display: block;
+    text-align: center;
+    margin: 20px 0 0 0;
+  }
+}
+
+.smallimg {
+  height: 30px;
+
+  @include max(map-get($breakpoints, "sm")) {
+    height: 25px;
+  }
+}
+
+.cbtn {
+  border: 1px solid #bf0067 !important;
+}
+.modalimgwrap {
+  text-align: center;
+}
+.modalimg {
+  max-width: 100%;
+}
+
+.btn-checkout {
+  @include max(map-get($breakpoints, "md")) {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 999;
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
+.leftstock{
+  font-size: 12px;
+    color: #bf0067;
+    
+    padding-top: 7px;
+    display: inline-block;
+}

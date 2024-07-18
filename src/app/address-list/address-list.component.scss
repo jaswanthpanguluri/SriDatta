@@ -1,0 +1,29 @@
+.selected .card {
+  background: #f8f8f8;
+  border-color: green;
+}
+
+.form-floating {
+  margin-bottom: 15px;
+}
+
+textarea {
+  min-height: 100px !important;
+}
+.addresscount {
+  text-align: right;
+  font-size: 12px;
+}
+.static-page {
+  text-align: center;
+}
+.errormatch {
+  font-size: 13px;
+  color: #aa0400;
+  font-weight: 600;
+}
+
+.dummyform{    border: 1px solid #ccc;
+  border-radius: 6px; background: #f7f7f7;
+  min-height: 58px; padding: 5px 10px; & label{     font-size: 14px;
+    color: #979191;}}
