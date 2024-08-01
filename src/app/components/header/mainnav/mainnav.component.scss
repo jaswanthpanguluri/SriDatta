@@ -26,7 +26,7 @@
       margin: 0 auto;
     }
     .nav-item {
-      &c {
+      & {
         .nav-link {
           @include max(map-get($breakpoints, "md")) {
             background: map-get($colors, primary);
@@ -47,7 +47,7 @@
   .nav-item {
     &.selected {
       .nav-link {
-        color: map-get($colors, primary);
+        // color: map-get($colors, primary);
         // background: map-get($colors, primary);
         // // margin-right: 25px;
 
@@ -74,7 +74,7 @@
       }
 
       &:hover {
-        color: map-get($colors, primary);
+        color: map-get($colors, black);
       }
     }
     .spllink {
@@ -144,7 +144,7 @@
 
         &:hover {
           color: map-get($colors, white);
-          background: map-get($colors, primary);
+          background: map-get($colors, black);
 
           .new {
             background: map-get($colors, white);
@@ -156,7 +156,7 @@
     .main-div-links > div {
       border-right: 1px solid map-get($colors, lightgray);
       min-width: 225px;
-      min-height: 400px;
+     
 
       @include max(map-get($breakpoints, "lg")) {
         min-height: auto;

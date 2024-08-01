@@ -18,7 +18,7 @@
       left: 50px;
     }
     .brand-logo {
-      width: 150px;
+      width: 200px;
 
       @include max(map-get($breakpoints, "sm")) {
         width: 90px;

@@ -47,8 +47,6 @@ export class HomeComponent implements OnInit{
     this.addCanonicalLink();
 
 //localStorage.setItem('currency', 'INR')
-
-
 this.city=localStorage.getItem('city')
 this.countryname=localStorage.getItem('country');
 this.currency=localStorage.getItem('currency');
@@ -57,8 +55,7 @@ if(this.city)
 {
     this.getProducts();
 }
-  }
- 
+}
 
   getBanners(): void {
     this.addLoader();
@@ -74,25 +71,19 @@ if(this.city)
 
   private addCanonicalLink() {
 
-
     const canonicalLink: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
     if (canonicalLink) {
       canonicalLink.href = 'https://www.countryoven.com';
     }
     else {
-
       const link: HTMLLinkElement = this.renderer.createElement('link');
       link.rel = 'canonical';
-
 
       link.href = 'https://www.countryoven.com'; // Replace with your canonical URL
       this.renderer.appendChild(document.head, link);
     }
-
-
   }
 
-  
   getProducts(): void {
     this.addLoader();
     const data={
@@ -108,12 +99,10 @@ if(this.city)
         })
   }
 
-
 gotoroute( t:any, pname:any)
 {
 
 let c=localStorage.getItem('city')?.toLowerCase();   
-
 
   if(t == 'C')
   {
@@ -155,6 +144,25 @@ let c=localStorage.getItem('city')?.toLowerCase();
 
 
 }
+
+advbanner01:string="../assets/images/advbanner01.jpg";
+advbanner02:string="../assets/images/advbanner02.jpg";
+videoAdv:string="../assets/images/video-adv.jpg";
+videoImgTwo:string="../assets/images/video-img-two.jpg";
+womenJewelleryImg:string="../assets/images/women-jewellery-img.jpg";
+menJewelleryImg:string="../assets/images/men-jewellery-img.jpg";
+fullBannerImg:string="../assets/images/fullbanner-footer.jpg";
+
+homeVideos=[
+  {imageUrl: '../assets/images/videos-images/video01.jpg'},  
+  {imageUrl: '../assets/images/videos-images/video02.jpg'},  
+  {imageUrl: '../assets/images/videos-images/video03.jpg'},  
+  {imageUrl: '../assets/images/videos-images/video04.jpg'},  
+  {imageUrl: '../assets/images/videos-images/video05.jpg'},  
+  {imageUrl: '../assets/images/videos-images/video01.jpg'},  
+];
+
+
 
 
 

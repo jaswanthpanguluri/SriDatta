@@ -1,47 +1,6 @@
-<section class="footer">
-    <a (click)="scrollToTop()" class="movetop shadow"  [ngClass]="{'show': shouldShowArrow}"> <span class="icon-top icomoon"></span></a>
-    <div class="top-footer d-none d-lg-block">
-        <div class="custom-container">
-            <div class="row"> 
-                <div class="col-md-3 col-6">
-                    <div class="d-flex top-footer-col">
-                        <div class="align-self-center"><span class="icon-delivery-truck icomoon"></span></div>
-                        <div class="ps-3 align-self-center">
-                            <h3 class="h5 font-fbold pb-1">Excellence Delivered</h3>
-                            <p>Trusted since 1993</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="d-flex top-footer-col">
-                        <div class="align-self-center"><span class="icon-comment icomoon"></span></div>
-                        <div class="ps-3 align-self-center">
-                            <h4 class="h5 font-fbold pb-1">Two Million +</h4>
-                            <p>Happy Active Customers</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="d-flex top-footer-col">
-                        <div class="align-self-center"><span class="icon-satisfaction icomoon"></span></div>
-                        <div class="ps-3 align-self-center">
-                            <h5 class="h5 font-fbold pb-1">Your Satisfaction</h5>
-                            <p>is our No.1 Priority</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-6">
-                    <div class="d-flex top-footer-col">
-                        <div class="align-self-center"><span class="icon-product-research icomoon"></span></div>
-                        <div class="ps-3 align-self-center">
-                            <h5 class="h5 font-fbold pb-1">Top Selling Products</h5>
-                            <p>10,000 + </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="footer pt-5">
+    <a (click)="scrollToTop()" class="movetop shadow" [ngClass]="{'show': shouldShowArrow}"> <span
+            class="icon-top icomoon"></span></a>
 
     <div class="bottom-footer">
         <div class="custom-container">
@@ -62,128 +21,34 @@
                                 </div>
                             </div>
                         </ng-container>
-
-
-                        <!-- <div class="links-col">
-                            <h5 class="h5 text-uppercase font-extrabold">Customer Services</h5>
-                            <div class="links">
-                                <a href="javascript:void(0)">Customize a Cake</a>
-                                <a href="javascript:void(0)">Corporate Orders</a>
-                                <a href="javascript:void(0)">Referral Program</a>
-                                <a href="javascript:void(0)">Support</a>
-                                <a href="javascript:void(0)">Help</a>
-                            </div>
-                        </div>
-                        <div class="links-col">
-                            <h5 class="h5 text-uppercase font-extrabold">Help</h5>
-                            <div class="links">
-                                <a href="javascript:void(0)">FAQ’s</a>
-                                <a href="javascript:void(0)">Shipping / Delivery</a>
-                                <a href="javascript:void(0)">Delivery Cities</a>
-                                <a href="javascript:void(0)">Return Policy</a>
-                                <a href="javascript:void(0)">Privacy Policy</a>
-                            </div>
-                        </div>
-                        <div class="links-col">
-                            <h5 class="h5 text-uppercase font-extrabold">Gift's by City</h5>
-                            <div class="links">
-                                <a href="javascript:void(0)">Hyderabad</a>
-                                <a href="javascript:void(0)">Bengaluru</a>
-                                <a href="javascript:void(0)">Vizag</a>
-                                <a href="javascript:void(0)">Vijayawada</a>
-                                <a href="javascript:void(0)">Chennai</a>
-                                <a href="javascript:void(0)" class="morelink font-bold">More Cities....</a>
-                            </div>
-                        </div>
-                        <div class="links-col">
-                            <h5 class="h5 text-uppercase font-extrabold">Occasions</h5>
-                            <div class="links">
-                                <a href="javascript:void(0)">1st Anniversary Gifts</a>
-                                <a href="javascript:void(0)">25th Anniversary Gifts</a>
-                                <a href="javascript:void(0)">1st Birthday Cakes</a>
-                                <a href="javascript:void(0)">Birthday Cakes</a>
-                                <a href="javascript:void(0)">Anniversary Cakes</a>
-                                <a href="javascript:void(0)" class="morelink font-bold">More Occasions....</a>
-                            </div>
-                        </div>
-                        <div class="links-col">
-                            <h5 class="h5 text-uppercase font-extrabold">Sitemap</h5>
-                            <div class="links">
-                                <a href="javascript:void(0)">Category Sitemap</a>
-                                <a href="javascript:void(0)">Subcategory Sitemap</a>
-                                <a href="javascript:void(0)">Occasion Sitemap</a>
-                                <a href="javascript:void(0)">Special Sitemap</a>
-                                <a href="javascript:void(0)">Product Detail Sitemap</a>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h5 class="h5 text-uppercase font-extrabold pb-0">News Letter</h5>
-                    <p><small>Get updates on promotions and offers coupons</small></p>
-                    <form [formGroup]="form" (ngSubmit)="subscribe()">
-                        <div class="form-group d-flex newsletter mb-4 shadow">
-                            <input type="text" class="form-control border-0 rounded-0" name="" placeholder="Your Email"
-                                [ngClass]="{'is-invalid' : form.get('emailId')!.invalid && form.get('emailId')!.touched}"
-                                formControlName="emailId">
-                            <button class="color-btn text-uppercase border-0 rounded-0" type="submit"
-                                [disabled]="!form.valid">Subscribe</button>
-                        </div>
-                    </form>
-
-                </div>
-                <div class="col-md-4 align-self-center">
-                    <div class="text-end">
-                        <img src="assets/images/footer-cards.png" alt="" class="payment-img" />
-                    </div>
-                </div>
-                <div class="col-md-4 align-self-center">
-                    <div class="footer-mainlinks pt-3 text-center" *ngIf="footerlinks && footerlinks[0]">
-                        <ng-container *ngFor="let sm of footerlinks[0].footerLinks">
-                            <ng-container *ngIf="sm.title !='Blog'">
-                                <a href="javascript:void(0)" [routerLink]="sm.seoTitle"
-                                    class="">{{sm.title}}</a>
-                            </ng-container>
-                            <ng-container *ngIf="sm.title=='Blog'">
-                                <a [href]="'https://' + sm.seoTitle" target="_blank"
-                                    class="font-semibold">{{sm.title}}</a>
-                            </ng-container>
-                        </ng-container>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <section class="end-footer pb-2">
+    <section class="end-footer">
         <div class="custom-container">
             <div class="row">
-                <div class="col-md-6 align-self-center">
-                    <p class="text-black copylink small">© CountryOven 2024. All Rights Reserved.</p>
-                </div>
-                <div class="col-md-6 text-end">
-                    <div class="footer-social">
-                      <a href="https://www.facebook.com/countryovenbakeries/" target="_blank"
-                         class="d-inline-block p-3">
-                        <span class="icon-fb icomoon"></span>
-                      </a>
-                        <a href="https://twitter.com/CountryOven93" target="_blank" class="d-inline-block p-3">
+                <div class="col-md-6 ps-0">
+                    <div class="footer-social d-flex">
+                        <a href="" target="_blank" class="d-flex">
+                            <span class="icon-fb icomoon"></span>
+                        </a>
+                        <a href="" target="_blank" class="d-flex">
                             <span class="icon-twitter icomoon"></span>
                         </a>
 
-                        <a href="https://in.pinterest.com/CountryOven4U/" target="_blank" class="d-inline-block p-3">
+                        <a href="" target="_blank" class="d-flex">
                             <span class="icon-pinterest icomoon"></span>
                         </a>
-                        <a href="https://www.instagram.com/countryovenbakers/" target="_blank"
-                            class="d-inline-block p-3">
+                        <a href="" target="_blank" class="d-flex">
                             <span class="icon-instagram icomoon"></span>
                         </a>
-                        <a href="https://countryovenglobal.blogspot.com/" target="_blank" class="d-inline-block p-3">
-                            <span class="icon-Blogspot icomoon"></span>
-                        </a>
                     </div>
+                </div>
+                <div class="col-md-6 align-self-center text-end">
+                    <p class="text-black copylink small">©2024 Sri Datta Jewellery. All Rights Reserved</p>
                 </div>
             </div>
         </div>

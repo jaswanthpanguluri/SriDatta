@@ -1,8 +1,8 @@
 @import "../../../../styles/styles";
 
 .topheader {
-  background: map-get($colors, primary);
-  color: map-get($colors, white);
+  background: map-get($colors, silverprimarylight);
+  color: map-get($colors, darkgray);
   @include transition(all, 0.3s ease);
   padding: 5px 0;
 
@@ -30,9 +30,10 @@
   }
   .nav {
     .nav-link {
-      color: map-get($colors, white);
+      color: map-get($colors, darkgray);
       text-transform: uppercase;
       font-size: $fsize - 2;
+      font-weight: map-get($font-weights, semibold);
     }
   }
 }

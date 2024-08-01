@@ -1,11 +1,13 @@
-<section class="category-banners">
-    <div class="section-title">
-        <h5 class="h5 font-bold">Find Gifts For your Loved Ones</h5>
-        <P>Celebrate with Surprise Your Loved Ones</P>
+<section class="category-banners mt-4">
+    <div class="title-section-div text-center py-4">
+        <h2 class="section-title d-inline-block font-semibold position-relative">Sri Datta Jewellery</h2>
     </div>
     <div class="custom-container">
-        <div class="row pt-4 g-2">
-            <ng-container *ngFor="let sb of smallBanners">
+        <div class="row pt-4 g-2 justify-content-center">
+            <div class="col-md-10 text-center">
+                <img src="../assets/images/slidegallery.png" class="img-fluid w-100">
+            </div>
+            <!-- <ng-container *ngFor="let sb of smallBanners">
                 <div class="col-md-6" [ngClass]="{'col-md-6': !sb.isSmall, 'col-6 col-md-3' : sb.isSmall }">
                     <div class="category-banner-item position-relative"  (click)="gotoroute(sb.type, sb.seoName)">
                         <figure>
@@ -22,7 +24,36 @@
                         </article>
                     </div>
                 </div>
-            </ng-container>          
+            </ng-container>           -->
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-12">
+                <div class="title-section-div text-center py-4">
+                    <h2 class="section-title d-inline-block font-semibold position-relative">Our Collections</h2>
+                </div>
+                <figure>
+                    <a href="javascript:void(0)">
+                        <img [src]="ourcollectionsBanner" alt="" class="img-fluid w-100">
+                    </a>
+                </figure>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <a href="javascript:void(0)">
+                    <img [src]="viewcollection01" alt="" class="img-fluid w-100">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="javascript:void(0)">
+                    <img [src]="viewcollection02" alt="" class="img-fluid w-100">
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="javascript:void(0)">
+                    <img [src]="viewcollection03" alt="" class="img-fluid w-100">
+                </a>
+            </div>
         </div>
     </div>
 </section>

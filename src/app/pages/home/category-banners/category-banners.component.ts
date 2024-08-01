@@ -16,6 +16,11 @@ export class CategoryBannersComponent implements OnInit {
     
   }
 
+  ourcollectionsBanner:string="../assets/images/ourcollections-banner.jpg";
+  viewcollection01:string="../assets/images/viewcollection01.jpg";
+  viewcollection02:string="../assets/images/viewcollection02.jpg";
+  viewcollection03:string="../assets/images/viewcollection03.jpg";
+
 
 
   gotoroute( t:any, pname:any)
