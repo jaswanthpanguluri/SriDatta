@@ -1,7 +1,8 @@
 @import "../../../../styles/styles";
 
 .mid-header {
-  background: map-get($colors, lightgradient);
+  // background: map-get($colors, lightgradient);
+  background:map-get($colors, silverprimarylight);
   @include transition(all, 0.2s ease);
   padding:10px 0;
    
@@ -11,7 +12,7 @@
       left: 40px;
     }
     .brand-logo {
-      max-width: 130px;
+      max-width: 200px;
 
       @include max(map-get($breakpoints, "lg")) {
         width: 65px;
@@ -100,8 +101,14 @@
       right: 0;
       width: 65%;
     }
+    .rt-icon{
+      height: 42px;
+    }
+    .rt-title{
+      height: 20px;
+    }
     a {
-      width: 45px;
+      // width: 45px;
       margin: 0 15px;
       position: relative;
 
@@ -113,7 +120,7 @@
       .badge {
         top: 0;
         right: 0;
-        background: map-get($colors, primary);
+        background: map-get($colors, black);
         border-radius: 50%;
         width: 22px;
         height: 22px;
@@ -131,7 +138,7 @@
       }
     }
     .icomoon {
-      font-size: $fsize * 2 + 8;
+      font-size: $fsize * 2;
       position: relative;
       top: 6px;
 
@@ -141,7 +148,7 @@
       }
     }
     small {
-      color: map-get($colors, primary);
+      color: map-get($colors, black);
       font-size: $fsize - 3;
 
       @include max(map-get($breakpoints, "lg")) {

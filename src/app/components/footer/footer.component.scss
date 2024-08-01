@@ -1,7 +1,7 @@
 @import "../../../styles/styles.scss";
 
 .footer {
-  background: map-get($colors, lightgradient);
+  background: map-get($colors, silverprimarylight);
   @include max(map-get($breakpoints, "sm")) {
     padding-bottom: 20px;
   }
@@ -25,7 +25,7 @@
       bottom: 45px;
     }
 
-    &.show{
+    &.show {
       opacity: 1;
     }
     &:hover {
@@ -41,49 +41,19 @@
       color: map-get($colors, primary);
     }
   }
-  .top-footer {
-    background: map-get($colors, primary);
-    padding: 10px 0;
-    margin-top: 50px;
 
-    .top-footer-col {
-      color: map-get($colors, white);
-
-      @include max(map-get($breakpoints, "sm")) {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      .h5 {
-        font-size: $fsize + 3;
-
-        @include max(map-get($breakpoints, "md")) {
-          font-size: $fsize - 2;
-        }
-      }
-      p {
-        font-size: $fsize - 1;
-
-        @include max(map-get($breakpoints, "md")) {
-          font-size: $fsize - 4;
-        }
-      }
-
-      .icomoon {
-        font-size: $fsize * 3;
-      }
-    }
-  }
   .bottom-footer {
     margin-bottom: 15px;
-    @include max(map-get($breakpoints, "sm")){
-      margin-top:20px;
+    @include max(map-get($breakpoints, "sm")) {
+      margin-top: 20px;
     }
-    .custom-container {
-      border-bottom: 1px solid map-get($colors, primary);
-    }
+
     .h5 {
       font-size: $fsize + 1;
-      padding-bottom: 15px;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+      font-weight: map-get($font-weights, semibold);
+      border-bottom: 1px solid map-get($colors, lightgreen);
 
       @include max(map-get($breakpoints, "md")) {
         font-size: $fsize - 1;
@@ -114,14 +84,14 @@
           @include transition(all, 0.2s ease);
           font-size: $fsize - 1;
           display: block;
-          padding: 5px 0;
+          padding: 10px 0;
 
           @include max(map-get($breakpoints, "sm")) {
             font-size: $fsize - 2;
           }
 
           &:hover {
-            color: map-get($colors, primary);
+            color: map-get($colors, black);
           }
         }
         .morelink {
@@ -129,12 +99,7 @@
         }
       }
     }
-    .newsletter {
-      .form-control {
-        border: none;
-        background: map-get($colors, white);
-      }
-    }
+
     .footer-mainlinks {
       a {
         display: inline-block;
@@ -152,14 +117,21 @@
     }
   }
   .end-footer {
+    background: #fadcdc;
+    padding: 15px 0 15px 0;
     .footer-social {
       a {
         color: map-get($colors, black);
         border-radius: 5px;
         @include transition(all, 0.2s ease);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         &:hover {
-          background: map-get($colors, primary);
+          background: map-get($colors, black);
           color: map-get($colors, white);
         }
       }

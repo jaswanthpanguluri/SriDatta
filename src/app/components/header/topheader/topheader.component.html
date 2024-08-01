@@ -1,27 +1,9 @@
 <section class="topheader">
     <div class="custom-container">
         <div class="row justify-content-md-end">
-            <div class="col-lg-7 d-none">
+            <div class="col-lg-7">
                 <div class="header-contacts">
-                    <a target="_blank" href="https://api.whatsapp.com/send?phone=+919848155830&text=Hi"
-                        class="sticky-ribbon-link wapp">
-                        <span class="icon-whatsapp icomoon"></span>
-                        Whatsapp
-                    </a>
-
-                    <a href="#contactpop" class="sticky-ribbon-link call-customercare">
-                        <span class="icon-call icomoon"></span>
-                        +91 98481 55830
-                    </a>
-                    <a href="content/contactus" class="sticky-ribbon-link msg">
-                        <span class="icon-email icomoon"></span>
-                        Contact us
-                    </a>
-                    <a routerLink="/notifications" class="sticky-ribbon-link notifications">
-                        <span class="icon-notification icomoon"></span>
-                        Notifications
-                    </a>
-
+                   <p>Welcome to Sridatta Jewellers</p>
                 </div>
                 <div class="offers d-none">
                     <!-- <h6 class="h6 font-bold">Offers: </h6> -->
@@ -41,9 +23,15 @@
             </div>
             <div class="col-lg-5 ">
                 <ul class="nav justify-content-md-end">
-                    <li class="nav-item" *ngFor="let menu of topList">
+                    <!-- <li class="nav-item" *ngFor="let menu of topList">
                         <a class="nav-link py-0" (click)="gotoroute(menu.type, menu.seoTitle)"
                             href="javascript:void(0)">{{menu.title}}</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="tel:1800-2661-445"><span class="icon-phone"></span> 1800-2661-445</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="javascript:void(0)">SCHEDULE STORE APPOINTMENT</a>
                     </li>
                 </ul>
             </div>

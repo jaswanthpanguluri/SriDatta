@@ -2,41 +2,21 @@
 
 .app-product-item {
   height: 100%;
-  @include transition(all, 0.2s ease);
-  border-radius: 10px;
-  @include max(map-get($breakpoints, "md")) {
-    border-radius: 10px;
+  @include transition(all, 0.2s ease); 
+  @include max(map-get($breakpoints, "md")) {   
     height: auto;
-  }
-  border: 1px solid map-get($colors, lightgray);
+  }  
   .product-item-figure {
     position: relative;
     width: 100%;
     overflow: hidden;
     img {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      @include transition(all, 0.2s ease);
-      // height: 440px;
-      // object-fit: cover;
+      border-radius: 10px;
+      @include transition(all, 0.2s ease);     
       @include max(map-get($breakpoints, "sm")) {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        // height: 160px;
-      }
-      @include minMax(
-        map-get($breakpoints, "sm"),
-        map-get($breakpoints, "lg")
-      ) {
-        // height: 240px;
-      }
-      @include minMax(
-        map-get($breakpoints, "lg"),
-        map-get($breakpoints, "xxl")
-      ) {
-        // height: 300px;
-      }
-     
+        border-radius: 10px;
+      }    
+      
     }
     .seller-label {
       position: absolute;
@@ -79,30 +59,9 @@
         color: map-get($colors, darkgray);
       }
     }
-
-    .item-footer {
-      font-size: $fsize - 2;
-      @include max(map-get($breakpoints, "md")) {
-        font-size: $fsize - 4;
-      }
-      .icomoon {
-        color: map-get($colors, primary);
-        margin-right: 5px;
-      }
-      .deliver-date {
-        p {
-          color: map-get($colors, black);
-
-          span {
-            color: map-get($colors, primary);
-          }
-        }
-      }
-    }
   }
   &:hover {
     @include box-shadow(0, 3px, 8px, lighten(map-get($colors, gray), 20%));
-
     .item-title {
       margin-top: -15px;
     }
