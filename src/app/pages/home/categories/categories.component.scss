@@ -1,60 +1,27 @@
 @import "../../../../styles/styles";
 
 .home-categories {
-  .flex-categories {
-    @include max(map-get($breakpoints, "md")){
-      overflow-x: auto;
+  .cat-figure {
+    img {
+      height: 100%;
+      width: 100%;
     }
-    .category-col {
-      text-align: center;
-      display: inline-block;
-      @include transition(all, 0.3s ease);
-      margin:10px 15px;     
-      
-      img {
-        width: 70px;
-        height: auto;
-        @include minMax(
-          map-get($breakpoints, "xs"),
-          map-get($breakpoints, "sm")
-        ) {
-          width: 40px;
-          min-width: auto;
-        }
+  }
+}
 
-        @include minMax(
-          map-get($breakpoints, "sm"),
-          map-get($breakpoints, "lg")
-        ) {
-          width: 60px;
-          min-width: auto;
-        }
+.highlets {
+  background:map-get($colors, silverprimarylight);
+  .highlet-item {
+    padding: 0 25px;    
+    width: calc(100% / 8);
+    border-right:1px solid map-get($colors, lightengrayborder);
+    .icon-item {
+      .icomoon {
+        font-size: clamp(2rem, 5vw, 5rem);
       }
-      h6 {
-        color: map-get($colors, black);       
-
-        @include minMax(
-          map-get($breakpoints, "xs"),
-          map-get($breakpoints, "sm")
-        ) {
-          font-size: 11px;
-          text-transform: capitalize;
-          text-wrap: nowrap;
-        }
-        @include minMax(
-          map-get($breakpoints, "sm"),
-          map-get($breakpoints, "lg")
-        ) {
-          font-size: 13px;
-          text-transform: capitalize;
-        }
-      }
-
-      &:hover {
-        h6 {
-          color: map-get($colors, primary);
-        }
-      }
+    }
+    p{
+      font-size:$fsize - 1;
     }
   }
 }

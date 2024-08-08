@@ -32,7 +32,7 @@ body {
 }
 
 .custom-container {
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
 
   @include max(map-get($breakpoints, "sm")) {
@@ -47,9 +47,8 @@ body {
 .default-btn {
   font-size: $fsize;
   text-align: center;
-  padding: 10px 15px 10px 15px;
-  @include transition(all, 0.3s ease);
-  border-radius: 5px;
+  padding: 10px 25px 10px 25px;
+  @include transition(all, 0.3s ease); 
   position: relative;
 
   @include max(map-get($breakpoints, "sm")) {
@@ -58,7 +57,7 @@ body {
 }
 
 .color-btn {
-  background: map-get($colors, primary);
+  background: map-get($colors, black);
   color: map-get($colors, white);
   @extend .default-btn;
 
@@ -478,7 +477,7 @@ header.fixed-top {
   top: calc(50% - 90px);
   right: 0;
   z-index: 9999;
-  display: block;
+  display: none;
   // @include box-shadow(0, 0, 10px, map-get($colors, gray));
 
   // @include min(map-get($breakpoints, "lg")) {
@@ -798,6 +797,32 @@ header.fixed-top {
       &:focus{
         box-shadow: none;        
       }
+    }
+  }
+}
+
+.title-section-div{
+  h2{
+    font-size: clamp(1.3rem, 1.6vw, 1.6rem);
+    
+    &:before{
+      content: "\e909";
+      font-family: 'icomoon' !important;
+      position: absolute;
+      left:-70px;
+      top:2px;
+      font-size:25px;
+      color:map-get($colors, gray);
+    }
+    &:after{
+      content: "\e909";
+      font-family: 'icomoon' !important;
+      position: absolute;
+      right:-70px;
+      top:2px;
+      font-size:25px;
+      color:map-get($colors, gray);
+      transform: rotate(-180deg);
     }
   }
 }
