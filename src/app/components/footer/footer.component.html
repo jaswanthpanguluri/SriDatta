@@ -7,7 +7,7 @@
             <div class="row py-3">
                 <div class="col-lg-12">
                     <div class="d-flex parent-links" *ngIf="footerlinks">
-                        <ng-container *ngFor="let menu of footerlinks.slice(1,footerlinks.length)">
+                        <ng-container *ngFor="let menu of footerlinks.slice(0,footerlinks.length)">
                             <div class="links-col">
                                 <h5 class="h5 text-uppercase font-semibold d-flex d-lg-block justify-content-between justify-content-md-start"
                                     (click)="toggleLinks(menu);">
