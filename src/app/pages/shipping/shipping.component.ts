@@ -9,10 +9,10 @@ import { Title, Meta } from '@angular/platform-browser';
 export class ShippingComponent {
   constructor(private titleService:Title, private meta:Meta)
   {
-    this.titleService.setTitle('Country Oven - Shipping & Deliver');
-    this.meta.updateTag({ name: 'description',  content: 'Country Oven - Shipping & Deliver' });
-    this.meta.updateTag({ name: 'keywords',  content: 'Country Oven - Shipping & Deliver' });
-    this.meta.updateTag({ name: 'classification',  content: 'Country Oven - Shipping & Deliver' });
+    this.titleService.setTitle('Sri Datta - Shipping & Deliver');
+    this.meta.updateTag({ name: 'description',  content: 'Sri Datta - Shipping & Deliver' });
+    this.meta.updateTag({ name: 'keywords',  content: 'Sri Datta - Shipping & Deliver' });
+    this.meta.updateTag({ name: 'classification',  content: 'Sri Datta - Shipping & Deliver' });
   
   }
 }

@@ -19,10 +19,10 @@ export class CorporateOrdersComponent implements OnInit {
     private renderer:Renderer2, private fb: FormBuilder, private _crud:CurdService, private route:Router)
   {
 
-    this.title.setTitle('Corporate Orders | Business Promotional Cakes In India CountryOven');
-    this.meta.updateTag({ name: 'description',  content: 'Looking for Best Business Promotional Cakes In India CountryOven ? Here at Ferns N Petals, We offer the best Promotional Combos, Confectionery, and Snacks.' });
+    this.title.setTitle('Corporate Orders | Business Promotional Cakes In India SriDatta');
+    this.meta.updateTag({ name: 'description',  content: 'Looking for Best Business Promotional Cakes In India SriDatta ? Here at Ferns N Petals, We offer the best Promotional Combos, Confectionery, and Snacks.' });
     this.meta.updateTag({ name: 'keywords',  content: 'cakes in Hyderabad, cakes in India, customize cakes, customized cakes, customize a cake' });
-    this.meta.updateTag({ name: 'classification',  content: 'Country Oven - CorporateOrders' });
+    this.meta.updateTag({ name: 'classification',  content: 'Sri Datta - CorporateOrders' });
   
   
 
