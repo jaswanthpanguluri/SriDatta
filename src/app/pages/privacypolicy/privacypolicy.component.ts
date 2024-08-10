@@ -10,10 +10,10 @@ export class PrivacypolicyComponent {
 
   constructor(private titleService:Title, private meta:Meta)
   {
-    this.titleService.setTitle('Country Oven -  PrivacyPolicy');
-    this.meta.updateTag({ name: 'description',  content: 'Country Oven - PrivacyPolicy' });
-    this.meta.updateTag({ name: 'keywords',  content: 'Country Oven - PrivacyPolicy' });
-    this.meta.updateTag({ name: 'classification',  content: 'Country Oven - PrivacyPolicy' });
+    this.titleService.setTitle('Sri Datta -  PrivacyPolicy');
+    this.meta.updateTag({ name: 'description',  content: 'Sri Datta - PrivacyPolicy' });
+    this.meta.updateTag({ name: 'keywords',  content: 'Sri Datta - PrivacyPolicy' });
+    this.meta.updateTag({ name: 'classification',  content: 'Sri Datta - PrivacyPolicy' });
   
   }
 }

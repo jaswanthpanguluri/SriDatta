@@ -26,9 +26,9 @@ export class FranchisesComponent {
     
     
       this.titleService.setTitle('Cakes, Florist Shop Franchise Business Opportunities | country oven');
-      this.meta.updateTag({ name: 'description',  content: 'Country Oven offer cakes, florist, combos, confectionery and gift shop Franchise Business opportunities in India - Inquire for low-cost.' });
-      this.meta.updateTag({ name: 'keywords',  content: 'Country Oven-CouponPartnerscakes, florist, combos, gifts, confectionery' });
-      this.meta.updateTag({ name: 'classification',  content: 'Country Oven offer cakes, florist, combos, confectionery and gift shop Franchise Business opportunities in India - Inquire for low-cost.' });
+      this.meta.updateTag({ name: 'description',  content: 'Sri Datta offer cakes, florist, combos, confectionery and gift shop Franchise Business opportunities in India - Inquire for low-cost.' });
+      this.meta.updateTag({ name: 'keywords',  content: 'Sri Datta-CouponPartnerscakes, florist, combos, gifts, confectionery' });
+      this.meta.updateTag({ name: 'classification',  content: 'Sri Datta offer cakes, florist, combos, confectionery and gift shop Franchise Business opportunities in India - Inquire for low-cost.' });
     
     
 

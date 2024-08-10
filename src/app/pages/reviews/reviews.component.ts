@@ -18,10 +18,10 @@ export class ReviewsComponent implements OnInit {
 constructor(private titleService:Title, private meta:Meta, private toastr: ToastrService, private _crud:CurdService, private route:Router)
 {
   
-  this.titleService.setTitle('Reviews of Country Oven - Ratings Reviews');
-  this.meta.updateTag({ name: 'description',  content: 'Country Oven - OurStoresCountry Oven Satisfy Customers in Hyderabad India!We prepare Best cakes,florists, gifts as per your Convenient Time.Customers give Good Reviews Rating.' });
-  this.meta.updateTag({ name: 'keywords',  content: 'keywords" content="Countryoven Reviews, Countryoven Rating, Countryoven Ratings, Country Oven Reviews, Reviews' });
-  this.meta.updateTag({ name: 'classification',  content: 'Country Oven Satisfy Customers in Hyderabad India!We prepare Best cakes,florists, gifts as per your Convenient Time.Customers give Good Reviews Rating.' });
+  this.titleService.setTitle('Reviews of Sri Datta - Ratings Reviews');
+  this.meta.updateTag({ name: 'description',  content: 'Sri Datta - OurStoresCountry Oven Satisfy Customers in Hyderabad India!We prepare Best cakes,florists, gifts as per your Convenient Time.Customers give Good Reviews Rating.' });
+  this.meta.updateTag({ name: 'keywords',  content: 'keywords" content="Countryoven Reviews, Countryoven Rating, Countryoven Ratings, Sri Datta Reviews, Reviews' });
+  this.meta.updateTag({ name: 'classification',  content: 'Sri Datta Satisfy Customers in Hyderabad India!We prepare Best cakes,florists, gifts as per your Convenient Time.Customers give Good Reviews Rating.' });
   if(localStorage.getItem('email'))
   {
    

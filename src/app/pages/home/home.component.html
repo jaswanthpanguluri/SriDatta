@@ -9,8 +9,8 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let b of banners; let i = index" [class.active]="i === 0">
-                <img [src]="b.imageName" [alt]="b.seoName" (click)="gotoroute(b.type, b.seoName)"
-                    class="img-fluid w-100">
+                <img [src]="b.imageName" [alt]="b.seoName" (error)="onImageError($event)"
+                    (click)="gotoroute(b.type, b.seoName)" class="img-fluid w-100">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -59,7 +59,7 @@
 </ng-container>
 
 
-<section class="home-videos">
+<section class="home-videos d-none">
     <div class="custom-container">
         <div class="row">
             <div class="col-lg-2 col-md-4" *ngFor="let videoItem of homeVideos">
@@ -82,14 +82,9 @@
 <section class="adv-banners mt-5">
     <div class="custom-container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" *ngFor="let videoItem of promotionBanner">
                 <a href="javascript:void(0)">
-                    <img [src]="advbanner01" alt="" class="img-fluid w-100">
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a href="javascript:void(0)">
-                    <img [src]="advbanner02" alt="" class="img-fluid w-100">
+                    <img [src]="videoItem.imageName" alt="" class="img-fluid w-100">
                 </a>
             </div>
         </div>
@@ -120,30 +115,17 @@
     </div>
 </section>
 
-<section class="mennwomen-jewellery mt-5">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-md-6">
+<div class="row pt-5">
+    <ng-container *ngFor="let sb of shopByGender">
+        <div [ngClass]="{'mt-4 col-md-12': !sb.isSmall, 'col-md-6' : sb.isSmall }">
+            <figure>
                 <a href="javascript:void(0)">
-                    <img [src]="womenJewelleryImg" alt="" class="img-fluid w-100">
+                    <img [src]="sb.imageName" alt="" class="img-fluid w-100">
                 </a>
-            </div>
-            <div class="col-md-6">
-                <a href="javascript:void(0)">
-                    <img [src]="menJewelleryImg" alt="" class="img-fluid w-100">
-                </a>
-            </div>
+            </figure>
         </div>
-    </div>
-</section>
-
-<section class="full-banner mt-5">
-    <div class="custom-container">
-        <a href="javascript:void(0)">
-            <img [src]="fullBannerImg" alt="" class="img-fluid w-100">
-        </a>
-    </div>
-</section>
+    </ng-container>
+</div>
 
 <section class="about-store mt-5">
     <div class="custom-container ">
@@ -156,8 +138,10 @@
                     <div class="col-md-8">
                         <article class="position-relative">
                             <h3 class="font-semibold pb-3">An Enduring Legacy</h3>
-                            <p class="font-regular">Sri Datta, The Fine Diamond Jewellery Destination, immerses you in an atmosphere of fine
-                                aesthetics, showcasing jewellery that is resonant with Indian tradition and inspired by a
+                            <p class="font-regular">Sri Datta, The Fine Diamond Jewellery Destination, immerses you in
+                                an atmosphere of fine
+                                aesthetics, showcasing jewellery that is resonant with Indian tradition and inspired by
+                                a
                                 rich Belgian legacy. Every Sri Datta across India evokes elegance and style, with the
                                 interiors, an ode to exceptional finesse, global tastes and refined sensibilities.</p>
                         </article>
