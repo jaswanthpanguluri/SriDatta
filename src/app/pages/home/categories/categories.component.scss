@@ -1,0 +1,27 @@
+@import "../../../../styles/styles";
+
+.home-categories {
+  .cat-figure {
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.highlets {
+  background:map-get($colors, silverprimarylight);
+  .highlet-item {
+    padding: 0 25px;    
+    width: calc(100% / 8);
+    border-right:1px solid map-get($colors, lightengrayborder);
+    .icon-item {
+      .icomoon {
+        font-size: clamp(2rem, 5vw, 5rem);
+      }
+    }
+    p{
+      font-size:$fsize - 1;
+    }
+  }
+}

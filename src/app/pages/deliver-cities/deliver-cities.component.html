@@ -1,0 +1,64 @@
+<section class="subpage">
+    <div class="container">
+        <!-- bread crumb-->
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb" class="align-self-center py-3">
+                    <ol class="breadcrumb pb-0 mb-0">
+                        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Delivery Cities</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!--/ bread crumb-->
+        <div class="static-page">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="h5 font-bold">Delivery Cities in India</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-wrap cities-list">
+                                <a href="javascript:void(0)" [routerLink]="'/' + cityitem +'/platinum-online'" class="btn small rounded-pill me-2 mb-2" *ngFor="let cityitem of deliveryCities">{{cityitem}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border mb-3">
+                        <div class="card-header">Mail Us</div>
+                        <div class="card-body">
+                            <p>Happy to help you. Please mail us on</p>
+                            <p class="pb-0"><a href="mailto:contact@sridutta.com"
+                                    class="font-primary font-bold">contact@sridutta.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card border mb-3">
+                        <div class="card-header">Call us</div>
+                        <div class="card-body">
+                            <p>Delighted to Serve you.</p>
+                            <ul>
+                              <li>USA: (+1)732 790 0578, (+1)248 275 5368</li>
+                              <li>Canada: +1 416 628 1206</li>
+                              <li>UK: +44 - 207 101 9225</li>
+                              <li>AUS: +61 - 3 - 99883814</li>
+                              <li>IND:+91 9848155830, +91 9848155816</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card border mb-3">
+                        <div class="card-header">Address</div>
+                        <div class="card-body">
+                            <p class="pb-0">
+                              <a href="/content/ourstores" class="font-primary font-bold">Check out our stores in USA and India.</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

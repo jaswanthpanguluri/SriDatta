@@ -1,0 +1,29 @@
+<div class="app-product-item">
+    <figure class="product-item-figure">
+        <!-- <a [routerLink]="'/product-detail/' + Productvalue.seoProductName" > -->
+        <a [routerLink]="'/'+city + '/send-online/' + Productvalue.seoProductName">
+            <!-- hyderabad/send-online/ -->
+            <img src="{{Productvalue.imageURL}}" alt="{{Productvalue.altProductName}}" title="{{Productvalue.altProductName}}" class="img-fluid w-100">
+            <span class="tagbadge" *ngIf="tagMsg" [class]="tagClass">{{tagMsg}}</span>
+        </a>
+        <!-- <span class="seller-label">{{Productvalue.productName}}</span> -->
+    </figure>
+    <div class="item-title p-2 p-md-3 bg-white">
+        <h5 class="text-center">
+            <a [routerLink]="'/'+city + '/send-online/' + Productvalue.seoProductName"
+                href="javascript:void(0)">{{Productvalue.productName}}</a>
+        </h5>
+        <div class="price d-flex py-md-2 justify-content-center">
+            <div class="offer-price font-semibold"><span class="icomoon font-semibold"
+                    [class]="currencyClass"></span>{{Productvalue.dicountPrice}}</div>
+            <ng-container *ngIf="Productvalue.discount > 0">
+                <div class="mrp font-semibold align-self-center px-2">
+                    <span class="icon-issr icomoon font-semibold"
+                        [class]="currencyClass"></span>{{Productvalue.productPrice}}
+                </div>
+                <div class="offer-percentage align-self-center "><small
+                        class="font-semibold">{{Productvalue.discount}}%</small></div>
+            </ng-container>
+        </div>        
+    </div>
+</div>

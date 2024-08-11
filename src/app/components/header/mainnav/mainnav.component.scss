@@ -1,0 +1,298 @@
+@import "../../../../styles/styles";
+
+.mainmenu {
+  @include box-shadow(0, 3px, 3px, map-get($colors, lightgray));
+  background: map-get($colors, white);
+
+  @include max(map-get($breakpoints, "lg")) {
+    height: 0;
+  }
+
+  .offcanvas {
+    @include max(map-get($breakpoints, "lg")) {
+      z-index: 99999;
+    }
+  }
+
+  .brand-logo {
+    @include max(map-get($breakpoints, "lg")) {
+      width: 120px;
+      @include transition(all, 0.2s ease);
+    }
+  }
+
+  .first-navbar {
+    @include min(map-get($breakpoints, "xxl")) {
+      margin: 0 auto;
+    }
+    .nav-item {
+      & {
+        .nav-link {
+          @include max(map-get($breakpoints, "md")) {
+            background: map-get($colors, primary);
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .secondnav {
+    @include min(map-get($breakpoints, "xxl")) {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .nav-item {
+    &.selected {
+      .nav-link {
+        // color: map-get($colors, primary);
+        // background: map-get($colors, primary);
+        // // margin-right: 25px;
+
+        &:hover {
+          // color: map-get($colors, white);
+        }
+      }
+    }
+    .nav-link {
+      text-transform: uppercase;
+      color: map-get($colors, black);
+      font-size: $fsize - 1;
+      text-transform: uppercase;
+
+      @include minMax(
+        map-get($breakpoints, "lg"),
+        map-get($breakpoints, "xxl")
+      ) {
+        font-size: $fsize - 3;
+      }
+
+      @include max(map-get($breakpoints, "lg")) {
+        padding-left: 15px;
+      }
+
+      &:hover {
+        color: map-get($colors, black);
+      }
+    }
+    .spllink {
+      color: map-get($colors, primary);
+    }
+  }
+
+  .nav-link.dropdown-toggle {
+    @include max(map-get($breakpoints, "lg")) {
+      display: flex;
+      justify-content: space-between;
+    }
+    &:after {
+      @include max(map-get($breakpoints, "lg")) {
+        content: "+";
+        border: none;
+        font-size: $fsize + 3;
+      }
+    }
+  }
+
+  .nav-link.dropdown-toggle.show {
+    @include max(map-get($breakpoints, "md")) {
+      display: flex;
+      justify-content: space-between;
+    }
+    &:after {
+      @include max(map-get($breakpoints, "md")) {
+        content: "-";
+        border: none;
+      }
+    }
+  }
+
+  .dropdown-menu-full-width.dropdown-menu.show {
+    left: inherit !important;
+    margin-top: 0;
+    z-index: 9999;
+    @include max(map-get($breakpoints, "md")) {
+      box-shadow: none !important;
+    }
+    &.rightsidenav {
+      right: 0 !important;
+    }
+    .main-div-links {
+      a {
+        color: map-get($colors, black);
+        display: block;
+        padding: 10px 15px;
+        font-size: $fsize - 1;
+
+        @include minMax(
+          map-get($breakpoints, "lg"),
+          map-get($breakpoints, "xl")
+        ) {
+          font-size: $fsize - 3;
+        }
+
+        .new {
+          font-size: $fsize - 5;
+          background: map-get($colors, primary);
+          color: map-get($colors, white);
+          padding: 1px 5px;
+          display: inline-block;
+          border-radius: 5px;
+        }
+
+        &:hover {
+          color: map-get($colors, white);
+          background: map-get($colors, black);
+
+          .new {
+            background: map-get($colors, white);
+            color: map-get($colors, primary);
+          }
+        }
+      }
+    }
+    .main-div-links > div {
+      border-right: 1px solid map-get($colors, lightgray);
+      min-width: 225px;
+     
+
+      @include max(map-get($breakpoints, "lg")) {
+        min-height: auto;
+        border-right: none;
+      }
+
+      @include minMax(
+        map-get($breakpoints, "md"),
+        map-get($breakpoints, "lg")
+      ) {
+        padding-right: 0;
+        margin-right: 0;
+        border-right: none;
+      }
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+.moremenu {
+  height: 100vh;
+  z-index: 99999;
+
+  .offcanvas-header {
+    background: map-get($colors, primary);
+    color: map-get($colors, white);
+    padding: 10px 15px;
+
+    button {
+      background: none;
+      border: none;
+      .icomoon {
+        color: map-get($colors, white);
+      }
+    }
+  }
+  .list-group {
+    .list-group-item {
+      border-bottom: 1px solid map-get($colors, lightgray);
+      border-radius: 0;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+      padding: 0;
+
+      a {
+        color: map-get($colors, black);
+        display: block;
+        padding: 10px 15px;
+        @include transition(all 0.2s ease);
+        font-size: $fsize - 1;
+
+        &:hover {
+          background: map-get($colors, primary);
+          color: map-get($colors, white);
+        }
+      }
+    }
+  }
+}
+
+.navbar-toggler {
+  @include max(map-get($breakpoints, "lg")) {
+    position: absolute;
+    top: -95px;
+    left: 0;
+    border: none;
+    padding: 0;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.menu-cat-img {
+  width: 250px;
+}
+
+.mobilenav {
+  @include max(map-get($breakpoints, "lg")) {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    bottom: 0;
+    background: map-get($colors, white);
+    padding: 15px;
+    z-index: 999;
+    width: 300px;
+    height: 100vh;
+    @include transition(all, 0.3s ease);
+    // transform: translateX(-300px);
+    overflow-y: scroll;
+  }
+  .navbar-toggler {
+    position: inherit !important;
+    top: 10px;
+  }
+}
+
+.mobilenav.show {
+  @include max(map-get($breakpoints, "lg")) {
+    left: 0;
+    width: 300px;
+  }
+}
+
+.navbar-expand-lg .offcanvas .offcanvas-body a {
+  @include minMax(map-get($breakpoints, "lg"), map-get($breakpoints, "xl")) {
+    font-size: $fsize - 3;
+    padding: 0.3rem 0.15rem;
+  }
+}
+
+.mobmenu {
+  @include max(map-get($breakpoints, "md")) {
+    background: map-get($colors, white);
+
+    a {
+      margin-left: 25px;
+    }
+  }
+}
+
+// .mobmenu {
+//   @include max(map-get($breakpoints, "lg")) {
+//     background: none;
+//   }
+//   a {
+//     &:nth-child(odd) {
+//       @include max(map-get($breakpoints, "md")) {
+//         background: map-get($colors, lightblue);
+//       }
+//     }
+//   }
+// }

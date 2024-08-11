@@ -1,0 +1,60 @@
+<section class="footer pt-5">
+    <a (click)="scrollToTop()" class="movetop shadow" [ngClass]="{'show': shouldShowArrow}"> <span
+            class="icon-top icomoon"></span></a>
+
+    <div class="bottom-footer">
+        <div class="custom-container">
+            <div class="row py-3">
+                <div class="col-lg-12">
+                    <div class="d-flex parent-links" *ngIf="footerlinks">
+                        <ng-container *ngFor="let menu of footerlinks.slice(0,footerlinks.length)">
+                            <div class="links-col">
+                                <h5 class="h5 text-uppercase font-semibold d-flex d-lg-block justify-content-between justify-content-md-start"
+                                    (click)="toggleLinks(menu);">
+                                    <span>{{menu.headerTitle}}</span>
+                                    <span class="d-block d-lg-none">+</span>
+                                </h5>
+                                <div class="links d-none d-lg-block" [class.d-none]="!menu.show">
+                                    <ng-container *ngFor="let sm of menu.footerLinks">
+                                        <a href="javascript:void(0)" [routerLink]="'/' +sm.seoTitle">{{sm.title}}</a>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="end-footer">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col-md-6 ps-0">
+                    <div class="footer-social d-flex">
+                        <a href="" target="_blank" class="d-flex">
+                            <span class="icon-fb icomoon"></span>
+                        </a>
+                        <a href="" target="_blank" class="d-flex">
+                            <span class="icon-twitter icomoon"></span>
+                        </a>
+
+                        <a href="" target="_blank" class="d-flex">
+                            <span class="icon-pinterest icomoon"></span>
+                        </a>
+                        <a href="" target="_blank" class="d-flex">
+                            <span class="icon-instagram icomoon"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 align-self-center text-end">
+                    <p class="text-black copylink small">©2024 Sri Datta Jewellery. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<div class="loader-overlay d-none">
+    <div class="loader"></div>
+</div>

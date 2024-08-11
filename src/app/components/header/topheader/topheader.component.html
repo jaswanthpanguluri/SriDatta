@@ -1,0 +1,40 @@
+<section class="topheader">
+    <div class="custom-container">
+        <div class="row justify-content-md-end">
+            <div class="col-lg-7">
+                <div class="header-contacts">
+                   <p>Welcome to Sridatta Jewellers</p>
+                </div>
+                <div class="offers d-none">
+                    <!-- <h6 class="h6 font-bold">Offers: </h6> -->
+                    <div *ngIf="scrollingMessage">
+                        <ng-container *ngIf="!scrolling">
+                            <p>{{scrollingMessage}}
+
+                            </p>
+                        </ng-container>
+                        <ng-container *ngIf="scrolling">
+                            <marquee>{{scrollingMessage}}
+                            </marquee>
+                        </ng-container>
+                    </div>
+                </div>
+                <!-- <p>Call Us: (+91)9848155830 </p> -->
+            </div>
+            <div class="col-lg-5 ">
+                <ul class="nav justify-content-md-end">
+                    <!-- <li class="nav-item" *ngFor="let menu of topList">
+                        <a class="nav-link py-0" (click)="gotoroute(menu.type, menu.seoTitle)"
+                            href="javascript:void(0)">{{menu.title}}</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="tel:1800-2661-445"><span class="icon-phone"></span> 1800-2661-445</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-0" href="javascript:void(0)">SCHEDULE STORE APPOINTMENT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

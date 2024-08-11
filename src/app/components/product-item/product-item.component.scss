@@ -1,0 +1,95 @@
+@import "../../../styles/styles.scss";
+
+.app-product-item {
+  height: 100%;
+  @include transition(all, 0.2s ease); 
+  @include max(map-get($breakpoints, "md")) {   
+    height: auto;
+  }  
+  .product-item-figure {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    img {
+      border-radius: 10px;
+      @include transition(all, 0.2s ease);     
+      @include max(map-get($breakpoints, "sm")) {
+        border-radius: 10px;
+      }    
+      
+    }
+    .seller-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: map-get($colors, primary);
+      color: map-get($colors, white);
+      font-size: $fsize - 3;
+      padding: 5px;
+      border-top-left-radius: 20px;
+    }
+  }
+  .item-title {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+    @include transition(all, 0.2s ease);
+    @include max(map-get($breakpoints, "sm")) {
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    h5 {
+      font-size: $fsize - 1;
+      line-height: 1.5rem;
+      height: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @include max(map-get($breakpoints, "md")) {
+        line-height: 1.1rem;
+        font-size: $fsize - 3;
+        height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        white-space: nowrap;
+      }
+      a {
+        color: map-get($colors, darkgray);
+      }
+    }
+  }
+  &:hover {
+    @include box-shadow(0, 3px, 8px, lighten(map-get($colors, gray), 20%));
+    .item-title {
+      margin-top: -15px;
+    }
+
+    .product-item-figure {
+      img {
+        transform: scale(1.06, 1.06);
+      }
+    }
+  }
+}
+
+.tagbadge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 10px;
+  color: #ffffff;
+  padding: 5px;
+  text-transform: uppercase;
+  border-top-left-radius: 10px;
+}
+.greencls {
+  background: green;
+}
+.errorcls {
+  background: #ff0000;
+}
+.bluecls {
+  background: #005bc2;
+}

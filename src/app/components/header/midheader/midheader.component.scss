@@ -1,0 +1,320 @@
+@import "../../../../styles/styles";
+
+.mid-header {
+  // background: map-get($colors, lightgradient);
+  background:map-get($colors, silverprimarylight);
+  @include transition(all, 0.2s ease);
+  padding:10px 0;
+   
+  .top-header-logo {
+    @include max(map-get($breakpoints, "lg")) {
+      position: relative;
+      left: 40px;
+    }
+    .brand-logo {
+      max-width: 200px;
+
+      @include max(map-get($breakpoints, "lg")) {
+        width: 65px;
+      }
+    }
+  }
+
+  .searchbox {
+    position: relative;
+    display: flex;    
+
+    @include max(map-get($breakpoints, "lg")) {
+      margin: 3px 0;
+      max-width: 100%;
+      min-width: 100%;
+    }
+
+    .icomoon {
+      color: map-get($colors, gray);
+      cursor: pointer;
+    }
+    datalist {
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .headerinput {
+    background: map-get($colors, white);
+    font-size: $fsize - 1;
+    padding: 5px 0;
+    border-radius: 3px;
+    border: 1px solid map-get($colors, lightgray);
+    color: map-get($colors, black);
+    text-decoration: none;
+
+    @include max(map-get($breakpoints, "sm")) {
+      width: 100%;
+    }
+  }
+
+  .select-currency {
+    .form-select {
+      width: 100%;
+      font-size: $fsize;
+
+      @include max(map-get($breakpoints, "sm")) {
+        font-size: $fsize - 2;
+      }
+    }
+  }
+  .deliver {
+    padding: 14px 15px;
+
+    .icon-pin {
+      color: map-get($colors, primary);
+    }
+    .h6 {
+      font-size: $fsize;
+
+      @include max(map-get($breakpoints, "sm")) {
+        font-size: $fsize - 3;
+      }
+
+      span.pincode {
+        color: map-get($colors, primary);
+      }
+    }
+    .icon-right-chevron {
+      transform: rotate(90deg);
+    }
+  }
+  .dropdown {
+    padding: 12px 15px;
+    margin-left: 15px;
+
+    button {
+      background: none;
+      border: none;
+    }
+  }
+  .navrt {
+    @include max(map-get($breakpoints, "lg")) {
+      position: absolute;
+      top: 4px;
+      right: 0;
+      width: 65%;
+    }
+    .rt-icon{
+      height: 42px;
+    }
+    .rt-title{
+      height: 20px;
+    }
+    a {
+      // width: 45px;
+      margin: 0 15px;
+      position: relative;
+
+      @include max(map-get($breakpoints, "lg")) {
+        width: auto;
+        margin: 0;
+      }
+
+      .badge {
+        top: 0;
+        right: 0;
+        background: map-get($colors, black);
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        text-align: center;
+        line-height: 22px;
+        display: inline-block;
+        padding: 0;
+
+        @include max(map-get($breakpoints, "lg")) {
+          width: 18px;
+          height: 18px;
+          line-height: 19px;
+          font-size: $fsize - 4;
+        }
+      }
+    }
+    .icomoon {
+      font-size: $fsize * 2;
+      position: relative;
+      top: 6px;
+
+      @include max(map-get($breakpoints, "lg")) {
+        font-size: $fsize * 2 - 5;
+        top:10px;
+      }
+    }
+    small {
+      color: map-get($colors, black);
+      font-size: $fsize - 3;
+
+      @include max(map-get($breakpoints, "lg")) {
+        font-size: $fsize - 6;
+      }
+    }
+  }
+}
+
+.selectcity-modal {
+  .modal-body {
+    min-height: 800px;
+  }
+}
+// .selectcity-offcanvas {
+//   height: auto;
+
+//   @include max(map-get($breakpoints, "sm")){
+//     width:100%;
+//     display: block;
+//   }
+
+//   .morecity {
+//     @include transition(all 0.5s ease);
+//     font-size: $fsize;
+//     color: map-get($colors, darkgray);
+//     margin-right: 10px;
+
+//     &:hover {
+//       background: map-get($colors, primary);
+//       color: map-get($colors, white);
+//     }
+//   }
+
+//   .citycol {
+//     background: map-get($colors, lightprimary);
+//     width:auto;
+//     height: 100px;
+//     @include transition(all 0.5s ease);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     @include max(map-get($breakpoints, "sm")){
+//       display: block;
+//     }
+
+//     &:hover {
+//       background: map-get($colors, primary);
+
+//       .icomoon {
+//         &:before {
+//           color: map-get($colors, white);
+//         }
+//       }
+//     }
+//     .icomoon {
+//       font-size: $fsize * 5;
+//       color: map-get($colors, darkgray);
+//     }
+//     p {
+//       font-size: $fsize - 2;
+//     }
+//   }
+
+//   .search-header {
+//     .form-control {
+//       &:focus {
+//         box-shadow: none;
+//       }
+//     }
+//     .icomoon {
+//       color: map-get($colors, primary);
+//     }
+//   }
+// }
+
+.user-dropdown {
+  .dropdown-toggle {
+    &:after {
+      border: none;
+      display: none;
+    }
+  }
+  .dropdown-menu {
+    width: 315px;
+    z-index: 10000;
+    @include max(map-get($breakpoints, "lg")){
+      right:0;
+    }
+    .dropdown-item {
+      margin: 10px 0;
+      display: block;
+      width: 100%;
+      .icomoon {
+        font-size: $fsize + 10;
+      }
+      p {
+        font-size: $fsize - 3;
+      }
+
+      &:hover {
+        background: map-get($colors, primary);
+        color: map-get($colors, white);
+      }
+    }
+  }
+}
+
+.select-currency {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.errorsearch {
+  font-size: 12px;
+  color: red;
+  position: absolute;
+}
+.font-bold.pincode {
+  text-transform: capitalize;
+}
+
+.search-box-master{
+  @include max(map-get($breakpoints, "lg")){
+    position: fixed;
+    top:-5px;
+    left:0;
+    right:0;
+    background:map-get($colors, white);
+    padding:10px;
+    width:100%;
+    height: 100vh;
+    z-index: 99999;
+  }
+}
+
+
+
+.autocomplete {
+  position: absolute;
+  z-index: 1000; /* Adjust z-index as needed */
+  background: #FFF;padding: 5px;
+  max-height: 300px; overflow: auto;
+}
+
+.autocomplete ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.autocomplete ul li {
+  cursor: pointer;
+  padding: 3px 10px;
+}
+
+.autocomplete ul li.active {
+  background-color: #f5f5f5;
+}
+
+.text-uppercase.font-semibold.custname
+{
+  max-width: 104px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    widt: 100px;
+    display: inline-block;
+}
