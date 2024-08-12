@@ -1,7 +1,7 @@
 <section class="subpage">
-    <div class="list-products-header">
-        <div class="custom-container" [innerHtml]="metaData?.richSnippetContent">
-            <!-- <h1 class="font-extrabold text-uppercase">Send Cakes to Hyderabad <span class="font-regular">25 of 497
+  <div class="list-products-header">
+    <div class="custom-container" [innerHtml]="metaData?.richSnippetContent">
+      <!-- <h1 class="font-extrabold text-uppercase">Send Cakes to Hyderabad <span class="font-regular">25 of 497
                     Cakes</span></h1>
             <p>Choose from our wide range of online cakes to surprise your loved ones on th eir birthda y or any other
                 special occasion. Cakes are indeed the best option to make your loved ones feel special. It is an ideal
@@ -12,134 +12,130 @@
                     <span>{{Filteritem.subcatname}}</span>
                 </a>
             </div> -->
-        </div>
     </div>
-    <div class="list-products-body">
-        <div class="custom-container">
-            <!-- filters-->
-            <div class="d-md-flex ">
-                <nav aria-label="breadcrumb" class="align-self-center pe-3">
-                    <ol class="breadcrumb pb-0 mb-0">
-                        <li class="breadcrumb-item homebreadcrumb"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item"><a (click)="routeCity(cityname)">{{cityname}}</a></li>
-                        <li class="breadcrumb-item" *ngIf="breadcatTitle"><a
-                                (click)="routeCategory(breadcatTitleLink)">{{breadcatTitle}}</a></li>
-                        <li class="breadcrumb-item active" *ngIf="breadTitle">{{breadTitle}}</li>
-                    </ol>
-                </nav>
-                <div class="d-flex justify-content-between mt-2 mt-md-0">
-                    <h6 class="p-2 ps-0" *ngIf="displayproducts"> Showing:
-                        <span class="font-bold font-primary">{{displayproducts}} of {{totalCount}}</span>
-                    </h6>
-                    <button (click)="toggleVisibility()"
-                        class="default-btn background-green font-white d-block d-md-none border-0 filter-btn "><span
-                            class="icon-filter icomoon h6 me-2 d-inline-block"></span>Filter </button>
+  </div>
+  <div class="list-products-body">
+    <div class="custom-container">
+      <!-- filters-->
+      <div class="d-md-flex ">
+        <nav aria-label="breadcrumb" class="align-self-center pe-3">
+          <ol class="breadcrumb pb-0 mb-0">
+            <li class="breadcrumb-item homebreadcrumb"><a href="/">Home</a></li>
+            <!-- <li class="breadcrumb-item"><a (click)="routeCity(cityname)">{{cityname}}</a></li> -->
+            <li class="breadcrumb-item" *ngIf="breadcatTitle"><a
+                (click)="routeCategory(breadcatTitleLink)">{{breadcatTitle}}</a></li>
+            <li class="breadcrumb-item active" *ngIf="breadTitle">{{breadTitle}}</li>
+          </ol>
+        </nav>
+        <div class="d-flex justify-content-between mt-2 mt-md-0">
+          <h6 class="p-2 ps-0" *ngIf="displayproducts"> Showing:
+            <span class="font-bold font-primary">{{displayproducts}} of {{totalCount}}</span>
+          </h6>
+          <button (click)="toggleVisibility()"
+            class="default-btn background-green font-white d-block d-md-none border-0 filter-btn "><span
+              class="icon-filter icomoon h6 me-2 d-inline-block"></span>Filter </button>
 
-                </div>
+        </div>
 
-            </div>
-            <div class="products-filters d-md-flex justify-content-md-between ">
-                <div [ngClass]="{'hide-mobile':!isVisible}" class="filter-mobile">
-                    <a (click)="toggleVisibility()" class="d-block d-md-none font-black"><span
-                            class="icon-cancel"></span></a>
-                 
-                    <div class="filter-dropdowns d-flex  align-self-center flex-wrap pt-1 pt-md-0 mb-2 mb-md-0 ">
-                        <div class="d-md-flex ms-md-2 mb-md-2 mb-1 mb-md-0 item-filter-dropdown"
-                            *ngFor="let filter of filterswrapper">
-                            <span class="align-self-center pe-2">{{ filter.filterType }}</span>
-                            <div class="dropdown ms-lg-1">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Select
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="multiselectDropdown">
-                                    <li class="dropdown-item-filter"><label class="dropdown-item"
-                                            *ngFor="let option of filter.filterOptions">
-                                            <!-- <input type="checkbox" [ngModel]="selectedItems.includes(option)"
+      </div>
+      <div class="products-filters d-md-flex justify-content-md-between ">
+        <div [ngClass]="{'hide-mobile':!isVisible}" class="filter-mobile">
+          <a (click)="toggleVisibility()" class="d-block d-md-none font-black"><span class="icon-cancel"></span></a>
+
+          <div class="filter-dropdowns d-flex  align-self-center flex-wrap pt-1 pt-md-0 mb-2 mb-md-0 ">
+            <div class="d-md-flex ms-md-2 mb-md-2 mb-1 mb-md-0 item-filter-dropdown"
+              *ngFor="let filter of filterswrapper">
+              <span class="align-self-center pe-2">{{ filter.filterType }}</span>
+              <div class="dropdown ms-lg-1">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="multiselectDropdown">
+                  <li class="dropdown-item-filter"><label class="dropdown-item"
+                      *ngFor="let option of filter.filterOptions">
+                      <!-- <input type="checkbox" [ngModel]="selectedItems.includes(option)"
                                                 (ngModelChange)="toggleSelection(option)"> -->
-                                            <input type="checkbox" [(ngModel)]="option.selected"
-                                                (change)="filterChanged(option)">
-                                            <span class="ps-1 d-inline-block">{{ option.filterName }}</span></label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="py-2 d-none">
-                        <a class="color-btn  d-block d-md-none w-100" (click)="toggleVisibility()">Proceed</a>
-                    </div>
-                </div>
-                <div class="filter-dropdowns">
-                    <div class="d-flex">
-                        <span class="align-self-center">Sort By</span>
-                        <div class="dropdown ms-2">
-                            <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                {{sortValue}}
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <li><button (click)="sodervalue(2,'New Arrival')" class="dropdown-item"
-                                        type="button"><span class="ps-1 d-inline-block">New Arrival</span></button></li>
-                                <li><button (click)="sodervalue(1,'Recommended' )" class="dropdown-item"
-                                        type="button"><span class="ps-1 d-inline-block">Recommended</span></button></li>
-
-                                <li><button (click)="sodervalue(3,'Low to High')" class="dropdown-item"
-                                        type="button"><span class="ps-1 d-inline-block">Price
-                                            Low to High</span></button></li>
-                                <li><button (click)="sodervalue(4,'High to Low')" class="dropdown-item"
-                                        type="button"><span class="ps-1 d-inline-block">Price
-                                            High to Low</span></button></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/ filters-->
-            <!-- filters display-->
-            <div class="filters-display">
-                <ng-container *ngFor="let filter of filterswrapper">
-                    <ng-container *ngFor="let option of filter.filterOptions">
-                        <a href="javascript:void(0)" class="rounded" *ngIf="option.selected">
-                            <span class="icon-cancel icomoon"
-                                (click)="option.selected=false;filterChanged(option)"></span>
-                            <span>{{option.filterName}}</span>
-                        </a>
-                    </ng-container>
-                </ng-container>
-
-                <a *ngIf="isfilters" (click)="filterclear()" class="rounded">Clear All</a>
-            </div>
-            <!--/ filters display-->
-            <ng-container *ngIf="products && products.length >0">
-
-                <div class="products-list-items">
-                    <div class="row g-2">
-                        <div class="col-md-3 col-6" *ngFor="let productitem of products">
-                            <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
-                        </div>
-                    </div>
-                </div>
-            </ng-container>
-            <ng-container *ngIf="!(products && products.length >0) && !loading">
-                <app-noproducts-found></app-noproducts-found></ng-container>
-
-            <div class="p-4 mx-auto text-center" *ngIf="showloadmore">
-                <a *ngIf="isload" (click)="loadmore()" class="loadmore color-btn d-inline-block rounded-btn">Load
-                    More</a>
+                      <input type="checkbox" [(ngModel)]="option.selected" (change)="filterChanged(option)">
+                      <span class="ps-1 d-inline-block">{{ option.filterName }}</span></label>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            <!-- page nav -->
-            <!-- <div class="row pagenavrow border-top border-bottom mb-4"
+          </div>
+          <div class="py-2 d-none">
+            <a class="color-btn  d-block d-md-none w-100" (click)="toggleVisibility()">Proceed</a>
+          </div>
+        </div>
+        <div class="filter-dropdowns">
+          <div class="d-flex">
+            <span class="align-self-center">Sort By</span>
+            <div class="dropdown ms-2">
+              <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{sortValue}}
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><button (click)="sodervalue(2,'New Arrival')" class="dropdown-item" type="button"><span
+                      class="ps-1 d-inline-block">New Arrival</span></button></li>
+                <li><button (click)="sodervalue(1,'Recommended' )" class="dropdown-item" type="button"><span
+                      class="ps-1 d-inline-block">Recommended</span></button></li>
+
+                <li><button (click)="sodervalue(3,'Low to High')" class="dropdown-item" type="button"><span
+                      class="ps-1 d-inline-block">Price
+                      Low to High</span></button></li>
+                <li><button (click)="sodervalue(4,'High to Low')" class="dropdown-item" type="button"><span
+                      class="ps-1 d-inline-block">Price
+                      High to Low</span></button></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/ filters-->
+      <!-- filters display-->
+      <div class="filters-display">
+        <ng-container *ngFor="let filter of filterswrapper">
+          <ng-container *ngFor="let option of filter.filterOptions">
+            <a href="javascript:void(0)" class="rounded" *ngIf="option.selected">
+              <span class="icon-cancel icomoon" (click)="option.selected=false;filterChanged(option)"></span>
+              <span>{{option.filterName}}</span>
+            </a>
+          </ng-container>
+        </ng-container>
+
+        <a *ngIf="isfilters" (click)="filterclear()" class="rounded">Clear All</a>
+      </div>
+      <!--/ filters display-->
+      <ng-container *ngIf="products && products.length >0">
+
+        <div class="products-list-items">
+          <div class="row g-2">
+            <div class="col-md-3 col-6" *ngFor="let productitem of products">
+              <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!(products && products.length >0) && !loading">
+        <app-noproducts-found></app-noproducts-found></ng-container>
+
+      <div class="p-4 mx-auto text-center" *ngIf="showloadmore">
+        <a *ngIf="isload" (click)="loadmore()" class="loadmore color-btn d-inline-block rounded-btn">Load
+          More</a>
+      </div>
+
+      <!-- page nav -->
+      <!-- <div class="row pagenavrow border-top border-bottom mb-4"
                 *ngIf="productData && productData.totalPages >= 1">
                 <div class="col-md-6 text-center text-md-start pb-2 pb-md-0 align-self-center">
                     <p class="font-bold">Pages <span>{{productData.pageNumber}}</span> of
                         <span>{{productData.totalPages}}</span>
                     </p>
-                </div>        
-                
-                
+                </div>
+
+
 
 
                 <div class="col-md-6 text-md-end justify-content-center">
@@ -165,9 +161,9 @@
 
                 </div>
             </div> -->
-            <!--/ page nav -->
-            <article class="terms-content d-none d-lg-block" [innerHtml]="metaData?.footerDescription">
-                <!-- <h5 class="font-bold pb-3">Customers at Sri Datta</h5>
+      <!--/ page nav -->
+      <article class="terms-content d-none d-lg-block" [innerHtml]="metaData?.footerDescription">
+        <!-- <h5 class="font-bold pb-3">Customers at Sri Datta</h5>
                 <p>Welcome to SriDatta - your one-stop-shop for online cakes and flowers gifting! We are thrilled to
                     offer you an exquisite collection of cakes and flowers for all your special occasions. At
                     SriDatta, we understand the importance of creating unforgettable moments that last a lifetime.
@@ -177,7 +173,7 @@
                     ingredients. From classic flavours like vanilla, chocolate, and strawberry to exotic flavours like
                     blueberry, red velvet, and black forest, we have something for every taste bud. We also offer a
                     range of eggless and sugar-free cakes for our health-conscious customers.</p> -->
-            </article>
-        </div>
+      </article>
     </div>
+  </div>
 </section>

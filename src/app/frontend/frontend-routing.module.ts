@@ -40,7 +40,7 @@ import { BakeryReviewsComponent } from '../pages/bakery-reviews/bakery-reviews.c
 const routes: Routes = [
   {
     path: '', component: FrontendComponent, children: [
-      {path:'', component:HomeComponent},
+      { path: '', component: HomeComponent },
 
       { path: '404', component: OopsComponent },
       { path: 'order/mothers-day-cakes-online', component: MothersDayCakesComponent },
@@ -55,43 +55,45 @@ const routes: Routes = [
 
 
 
-      {path: 'franchise', component:FranchisesComponent}, 
-      {path:'home', redirectTo:'/'} ,
-      {path: 'careers', component:CareersComponent},
-      {path: 'customizedcakes', component:CustomizedCakesComponent},
-      {path: 'corporateorders', component:CorporateOrdersComponent },
+      { path: 'franchise', component: FranchisesComponent },
+      { path: 'home', redirectTo: '/' },
+      { path: 'careers', component: CareersComponent },
+      { path: 'customizedcakes', component: CustomizedCakesComponent },
+      { path: 'corporateorders', component: CorporateOrdersComponent },
 
       { path: 'content/aboutus', component: AboutusComponent },
-      
-      {path:'content/ourstores', component:StoresComponent},
-      {path: 'reviews', component:ReviewsComponent},
-      { path: 'rrev/index/:id', component: RrevComponent },
-      {path:'bakeryreview', component:BakeryReviewsComponent},
-      {path:'customgifts', component:CustomgiftsComponent},
-      {path: 'notifications', component:NotificationsComponent},
-      {path: 'content/contactus', component:ContactComponent},  
-      {path: 'content/couponpartners', component:CouponpartnersComponent},
-      {path: 'content/customerservices', component:CustomerServicesComponent},
-      {path: 'Help', component:HelpComponent},
-      {path:'content/faq', component:FaqComponent},
-      {path: 'content/shipping', component:ShippingComponent},
-      {path: 'deliverycities', component:DeliverCitiesComponent},
-      {path: 'content/returnpolicy', component:ReturnpolicyComponent},
-      {path: 'content/privacypolicy', component:PrivacypolicyComponent},
-      {path: 'content/termsandcondition', component:TermsandconditionsComponent},
-      {path: 'pages/Noproducts', component:NoproductsFoundComponent},
 
-      {path:'products-list', component:ProductListComponent},
-      {path:':type/:cityname/:PageName', component:ProductsComponent},
-      {path:':cityname1/:PageName1', component:ProductsComponent},
-      {path:':favspl', component:ProductsComponent},
-   
+      { path: 'content/ourstores', component: StoresComponent },
+      { path: 'reviews', component: ReviewsComponent },
+      { path: 'rrev/index/:id', component: RrevComponent },
+      { path: 'bakeryreview', component: BakeryReviewsComponent },
+      { path: 'customgifts', component: CustomgiftsComponent },
+      { path: 'notifications', component: NotificationsComponent },
+      { path: 'content/contactus', component: ContactComponent },
+      { path: 'content/couponpartners', component: CouponpartnersComponent },
+      { path: 'content/customerservices', component: CustomerServicesComponent },
+      { path: 'Help', component: HelpComponent },
+      { path: 'content/faq', component: FaqComponent },
+      { path: 'content/shipping', component: ShippingComponent },
+      { path: 'deliverycities', component: DeliverCitiesComponent },
+      { path: 'content/returnpolicy', component: ReturnpolicyComponent },
+      { path: 'content/privacypolicy', component: PrivacypolicyComponent },
+      { path: 'content/termsandcondition', component: TermsandconditionsComponent },
+      { path: 'pages/Noproducts', component: NoproductsFoundComponent },
+
+      { path: 'products-list', component: ProductListComponent },
+      { path: ':type/:cityname/:PageName', component: ProductsComponent },
+      { path: ':type/:PageName', component: ProductsComponent },
+      { path: ':cityname1/:PageName1', component: ProductsComponent },
+      { path: ':favspl', component: ProductsComponent },
+
       // {path:':type/:cityname/:PageName', component:ProductListComponent},
       // {path:'product-detail/:PageName', component:ProductDetailComponent},
       // {path:':cityname/send-online/:PageName', component:ProductDetailComponent},
-     
-    ]},
- 
+
+    ]
+  },
+
 ];
 
 @NgModule({

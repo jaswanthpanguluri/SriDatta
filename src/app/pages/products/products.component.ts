@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   constructor(private _crud: CurdService, private route: ActivatedRoute, private router: Router, private location: Location) {
     this.showlist = false;
     this.getPageRoutes();
-    this.setcounntry();
+    //this.setcounntry();
     this.getCountryStatus = localStorage.getItem('country') ? true : false;
 
   }
