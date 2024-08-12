@@ -61,6 +61,7 @@ const routes: Routes = [
 
       { path: 'products-list', component: ProductListComponent },
       { path: ':type/:cityname/:PageName', component: ProductsComponent },
+      { path: ':type/:PageName', component: ProductsComponent },
       { path: ':cityname1/:PageName1', component: ProductsComponent },
       { path: ':favspl', component: ProductsComponent },
 

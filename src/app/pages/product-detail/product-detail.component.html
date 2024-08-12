@@ -6,8 +6,8 @@
         <nav aria-label="breadcrumb" class="align-self-center py-3">
           <ol class="breadcrumb pb-0 mb-0" *ngIf="productDetails">
             <li class="breadcrumb-item homebreadcrumb"><a routerLink="/">Home</a></li>
-            <li class="breadcrumb-item" *ngIf="cityName"><a (click)="routeCity(cityName)">{{cityName}}</a>
-            </li>
+            <!-- <li class="breadcrumb-item" *ngIf="cityName"><a (click)="routeCity(cityName)">{{cityName}}</a>
+            </li> -->
             <li class="breadcrumb-item" *ngIf="breadcatTitle"><a
                 [routerLink]="productDetails?.seoCategoryURL">{{breadcatTitle}}</a></li>
             <li class="breadcrumb-item" aria-current="page" *ngIf="breadTitle"><a
