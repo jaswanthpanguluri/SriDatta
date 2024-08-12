@@ -138,12 +138,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       if (params['params']['cityname'] != 'send-online') {
         setTimeout(() => {
 
-          this.filters = [{
-            "category": [],
-            "subCategory": [],
-            "weight": [],
-            "price": []
-          }];
+          this.filters = [];
           this.isfilters = false;
           this.products = []
           this.getPageRoutes(params);
@@ -216,7 +211,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
           this.typeName = 'CTY';
           this.PageName = params['PageName1'];
           this.cityname = this.originalcityname;
-          if (params['PageName1'] == 'gifts-online') {
+          if (params['PageName1'] == 'platinum-online') {
             this.getnewurl(this.originalcityname);
 
             this._crud.updateCity(localStorage.getItem('city'));
@@ -321,7 +316,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getMeta(): void {
 
     const data = {
-      //cityname: this.cityname,
+      cityname: this.cityname,
       Type: this.type,
       PageName: this.PageName
     }
@@ -350,11 +345,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     this.loading = true;
     const data = {
-      //cityname: this.cityname,
-      //country: this.country,
+      cityname: this.cityname,
+      country: this.country,
       Type: this.type,
       PageName: this.PageName,
-      //currencySelected: this.currency,
+      currencySelected: this.currency,
       PageNumber: pagenumber,
       PageSize: this.psize,
       productFilters: filters,
@@ -409,11 +404,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getFiltersDetails(): void {
 
     const data = {
-      //cityname: this.cityname,
+      cityname: this.cityname,
 
       Type: this.type,
       PageName: this.PageName,
-      //currencySelected: this.currency
+      currencySelected: this.currency
     }
 
     this._crud.getFilters(data).subscribe(res => {
@@ -525,7 +520,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     const canonicalLink: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
     if (canonicalLink) {
-      canonicalLink.href = 'https://www.countryoven.com' + v;
+      canonicalLink.href = 'https://www.sridutta.com' + v;
     }
     else {
 
@@ -533,7 +528,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       link.rel = 'canonical';
 
 
-      link.href = 'https://www.countryoven.com' + v; // Replace with your canonical URL
+      link.href = 'https://www.sridutta.com' + v; // Replace with your canonical URL
       this.renderer.appendChild(document.head, link);
     }
 

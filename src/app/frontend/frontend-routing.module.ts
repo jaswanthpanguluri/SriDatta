@@ -12,7 +12,6 @@ import { StoresComponent } from '../pages/stores/stores.component';
 import { FrontendComponent } from './frontend/frontend.component';
 import { ProductsComponent } from '../pages/products/products.component';
 import { CareersComponent } from '../pages/careers/careers.component';
-import { CustomizedCakesComponent } from '../pages/customized-cakes/customized-cakes.component';
 import { CorporateOrdersComponent } from '../pages/corporate-orders/corporate-orders.component';
 import { CustomerServicesComponent } from '../pages/customer-services/customer-services.component';
 import { HelpComponent } from '../pages/help/help.component';
@@ -24,17 +23,8 @@ import { PrivacypolicyComponent } from '../pages/privacypolicy/privacypolicy.com
 import { TermsandconditionsComponent } from '../pages/termsandconditions/termsandconditions.component';
 import { NoproductsFoundComponent } from '../pages/noproducts-found/noproducts-found.component';
 import { NotificationsComponent } from '../pages/home/notifications/notifications.component';
-import { CustomgiftsComponent } from '../pages/customgifts/customgifts.component';
 import { OopsComponent } from '../pages/404/404.component';
-import { MothersDayCakesComponent } from '../pages/occasions/mothers-day-cakes/mothers-day-cakes.component';
 import { RrevComponent } from '../pages/rrev/rrev.component';
-import { MothersDayFlowersComponent } from '../pages/occasions/mothers-day-flowers/mothers-day-flowers.component';
-import { MothersDayHampersComponent } from '../pages/occasions/mothers-day-hampers/mothers-day-hampers.component';
-import { MothersDayGiftsComponent } from '../pages/occasions/mothers-day-gifts/mothers-day-gifts.component';
-import { FathersDayCakesComponent } from '../pages/occasions/fathers-day-cakes/fathers-day-cakes.component';
-import { FathersDayFlowersComponent } from '../pages/occasions/fathers-day-flowers/fathers-day-flowers.component';
-import { FathersDayGiftsComponent } from '../pages/occasions/fathers-day-gifts/fathers-day-gifts.component';
-import { FathersDayHampersComponent } from '../pages/occasions/fathers-day-hampers/fathers-day-hampers.component';
 import { BakeryReviewsComponent } from '../pages/bakery-reviews/bakery-reviews.component';
 
 const routes: Routes = [
@@ -43,22 +33,11 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
 
       { path: '404', component: OopsComponent },
-      { path: 'order/mothers-day-cakes-online', component: MothersDayCakesComponent },
-      { path: 'order/mothers-day-flowers-online', component: MothersDayFlowersComponent },
-      { path: 'order/mothers-day-gifts-online', component: MothersDayGiftsComponent },
-      { path: 'order/mothers-day-hampers-online', component: MothersDayHampersComponent },
-
-      { path: 'order/fathers-day-cakes-online', component: FathersDayCakesComponent },
-      { path: 'order/fathers-day-flowers-online', component: FathersDayFlowersComponent },
-      { path: 'order/fathers-day-gifts-online', component: FathersDayGiftsComponent },
-      { path: 'order/fathers-day-hampers-online', component: FathersDayHampersComponent },
-
 
 
       { path: 'franchise', component: FranchisesComponent },
       { path: 'home', redirectTo: '/' },
       { path: 'careers', component: CareersComponent },
-      { path: 'customizedcakes', component: CustomizedCakesComponent },
       { path: 'corporateorders', component: CorporateOrdersComponent },
 
       { path: 'content/aboutus', component: AboutusComponent },
@@ -67,7 +46,6 @@ const routes: Routes = [
       { path: 'reviews', component: ReviewsComponent },
       { path: 'rrev/index/:id', component: RrevComponent },
       { path: 'bakeryreview', component: BakeryReviewsComponent },
-      { path: 'customgifts', component: CustomgiftsComponent },
       { path: 'notifications', component: NotificationsComponent },
       { path: 'content/contactus', component: ContactComponent },
       { path: 'content/couponpartners', component: CouponpartnersComponent },
@@ -83,7 +61,6 @@ const routes: Routes = [
 
       { path: 'products-list', component: ProductListComponent },
       { path: ':type/:cityname/:PageName', component: ProductsComponent },
-      { path: ':type/:PageName', component: ProductsComponent },
       { path: ':cityname1/:PageName1', component: ProductsComponent },
       { path: ':favspl', component: ProductsComponent },
 

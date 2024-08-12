@@ -1,5 +1,5 @@
 
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 
 import { Router } from '@angular/router';
@@ -14,48 +14,45 @@ import { CurdService } from 'src/app/services/curd.service';
 export class ReferralComponent implements OnInit {
 
 
-  custID:any;
-  referalData:any;
-  custName:any;
-  constructor( 
+  custID: any;
+  referalData: any;
+  custName: any;
+  constructor(
     private meta: Meta, private title: Title,
-    private _crud:CurdService, private route:Router)
-  {
+    private _crud: CurdService, private route: Router) {
 
-    this.title.setTitle("Countryoven's - Referral Program");
-    this.meta.updateTag({ name: 'description',  content: "Countryoven's - Referral Program" });
-    this.meta.updateTag({ name: 'keywords',  content:"Countryoven's - Referral Program"  });
-    this.meta.updateTag({ name: 'classification',  content: "Countryoven's - Referral Program"});
-  
-  
+    this.title.setTitle("SriDutta's - Referral Program");
+    this.meta.updateTag({ name: 'description', content: "SriDutta's - Referral Program" });
+    this.meta.updateTag({ name: 'keywords', content: "SriDutta's - Referral Program" });
+    this.meta.updateTag({ name: 'classification', content: "SriDutta's - Referral Program" });
 
-   if(localStorage.getItem('email'))
-   {
-    
-   
-    this.custID=localStorage.getItem('customerId');
-    this.custName=localStorage.getItem('custName')
-    
-   }
+
+
+    if (localStorage.getItem('email')) {
+
+
+      this.custID = localStorage.getItem('customerId');
+      this.custName = localStorage.getItem('custName')
+
+    }
   }
   ngOnInit(): void {
-   this.getReferralCode()
+    this.getReferralCode()
   }
 
-  getReferralCode()
-{
-  
+  getReferralCode() {
 
-  let data = {
-    "CustomerId": this.custID
+
+    let data = {
+      "CustomerId": this.custID
+    }
+    this._crud.getReferralCode(data).subscribe(res => {
+
+      this.referalData = res;
+
+
+    });
   }
-  this._crud.getReferralCode(data).subscribe(res => {
-    
-    this.referalData=res;
-   
-   
-  });
-}
 
 
 }

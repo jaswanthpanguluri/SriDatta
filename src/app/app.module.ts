@@ -16,7 +16,7 @@ import { CustomerServicesComponent } from './pages/customer-services/customer-se
 import { HelpComponent } from './pages/help/help.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { ShippingComponent } from './pages/shipping/shipping.component';
-//import { MothersDayCakesComponent } from './pages/occasions/mothers-day-cakes/mothers-day-cakes.component';
+//import { MothersDayJewellersComponent } from './pages/occasions/mothers-day-Jewellers/mothers-day-Jewellers.component';
 import { DeliverCitiesComponent } from './pages/deliver-cities/deliver-cities.component';
 import { ReturnpolicyComponent } from './pages/returnpolicy/returnpolicy.component';
 import { PrivacypolicyComponent } from './pages/privacypolicy/privacypolicy.component';
@@ -31,25 +31,25 @@ import { TermsandconditionsComponent } from './pages/termsandconditions/termsand
 @NgModule({
   declarations: [
     AppComponent,
-    CareersComponent,    
-    
+    CareersComponent,
+
     CustomerServicesComponent,
     HelpComponent,
     FaqComponent,
     ShippingComponent,
-    //MothersDayCakesComponent,
+    //MothersDayJewellersComponent,
     DeliverCitiesComponent,
     ReturnpolicyComponent,
     PrivacypolicyComponent,
     TermsandconditionsComponent,
-    
-    
-    
-    
-  //  NoproductsFoundComponent,
-   
-    
-    // ProductsComponent,      
+
+
+
+
+    //  NoproductsFoundComponent,
+
+
+    // ProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +60,7 @@ import { TermsandconditionsComponent } from './pages/termsandconditions/termsand
     LoginModule,
     ProfileModule
     // NgxImageZoomModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

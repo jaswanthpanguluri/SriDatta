@@ -8,11 +8,10 @@ import { Meta, Title } from '@angular/platform-browser';
 })
 export class CareersComponent {
 
-constructor(private meta: Meta, private title: Title)
-{
-  this.title.setTitle("Countryoven's - Careers");
-  this.meta.updateTag({ name: 'description', content:"Countryoven's - Careers"});
-      this.meta.updateTag({ name: 'keywords', content: "Countryoven's - Careers" });
-}
+  constructor(private meta: Meta, private title: Title) {
+    this.title.setTitle("SriDutta's - Careers");
+    this.meta.updateTag({ name: 'description', content: "SriDutta's - Careers" });
+    this.meta.updateTag({ name: 'keywords', content: "SriDutta's - Careers" });
+  }
 
 }

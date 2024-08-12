@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
   constructor(private _crud: CurdService, private route: ActivatedRoute, private router: Router, private location: Location) {
     this.showlist = false;
     this.getPageRoutes();
-    //this.setcounntry();
+    this.setcounntry();
     this.getCountryStatus = localStorage.getItem('country') ? true : false;
 
   }
@@ -134,7 +134,7 @@ export class ProductsComponent implements OnInit {
           if (!localStorage.getItem('city')) {
             localStorage.setItem('city', params['cityname1'])
           }
-          if (params['PageName1'] == 'gifts-online') {
+          if (params['PageName1'] == 'platinum-online') {
             localStorage.setItem('city', params['cityname1'])
 
           }
