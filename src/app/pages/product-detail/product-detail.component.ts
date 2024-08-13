@@ -298,7 +298,10 @@ export class ProductDetailComponent implements OnInit {
   saveallProductDeatils(formData: any) {
 
     this.addLoader();
-
+    let yourDate = new Date().toISOString();
+    //let time = yourDate.getTime();
+    let newDateFormat = yourDate.split('T');
+    let newTimeFormat = newDateFormat[1].split('.');
     const data = {
       "productDetailsData": {
         "customerId": this.customerId,
@@ -307,8 +310,8 @@ export class ProductDetailComponent implements OnInit {
         "price": parseFloat(this.productPrice),
         "cityName": this.cityName,
         "eggless": this.isegglessChecked,
-        "deliveryDate": formData.deliveryDates ? formData.deliveryDates : null,
-        "deliveryTime": formData.deliveryTimes ? formData.deliveryTimes : null,
+        "deliveryDate": formData.deliveryDates ? formData.deliveryDates : newDateFormat[0],
+        "deliveryTime": formData.deliveryTimes ? formData.deliveryTimes : newTimeFormat[0],
         "additionalWeight": this.selectedQty ? this.selectedQty : null,
         "flavour": formData.flavourOptionsDto ? formData.flavourOptionsDto : null,
         "additionalNumber": formData.numberOptionsDto ? formData.numberOptionsDto : null,
