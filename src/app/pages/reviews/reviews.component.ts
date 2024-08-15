@@ -10,45 +10,42 @@ import { CurdService } from 'src/app/services/curd.service';
   styleUrls: ['./reviews.component.scss']
 })
 export class ReviewsComponent implements OnInit {
-  custID:any;
+  custID: any;
   reviewData: any;
 
 
-  
-constructor(private titleService:Title, private meta:Meta, private toastr: ToastrService, private _crud:CurdService, private route:Router)
-{
-  
-  this.titleService.setTitle('Reviews of Sri Datta - Ratings Reviews');
-  this.meta.updateTag({ name: 'description',  content: 'Sri Datta - OurStoresCountry Oven Satisfy Customers in Hyderabad India!We prepare Best cakes,florists, gifts as per your Convenient Time.Customers give Good Reviews Rating.' });
-  this.meta.updateTag({ name: 'keywords',  content: 'keywords" content="Countryoven Reviews, Countryoven Rating, Countryoven Ratings, Sri Datta Reviews, Reviews' });
-  this.meta.updateTag({ name: 'classification',  content: 'Sri Datta Satisfy Customers in Hyderabad India!We prepare Best cakes,florists, gifts as per your Convenient Time.Customers give Good Reviews Rating.' });
-  if(localStorage.getItem('email'))
-  {
-   
- 
-   this.custID=localStorage.getItem('customerId')
-   
-  }
 
-}
+  constructor(private titleService: Title, private meta: Meta, private toastr: ToastrService, private _crud: CurdService, private route: Router) {
+
+    this.titleService.setTitle('Reviews of Sri Datta - Ratings Reviews');
+    this.meta.updateTag({ name: 'description', content: 'Sri Datta - OurStoresSri Dutta Satisfy Customers in Hyderabad India!We prepare Best Jewellers,florists, platinum as per your Convenient Time.Customers give Good Reviews Rating.' });
+    this.meta.updateTag({ name: 'keywords', content: 'keywords" content="sridutta Reviews, sridutta Rating, sridutta Ratings, Sri Datta Reviews, Reviews' });
+    this.meta.updateTag({ name: 'classification', content: 'Sri Datta Satisfy Customers in Hyderabad India!We prepare Best Jewellers,florists, platinum as per your Convenient Time.Customers give Good Reviews Rating.' });
+    if (localStorage.getItem('email')) {
+
+
+      this.custID = localStorage.getItem('customerId')
+
+    }
+
+  }
   ngOnInit(): void {
     this.getReview()
   }
 
 
 
-getReview()
-{
- // this.custID="26368";
-  let data={ "id": this.custID}
-  this._crud.getReview(data).subscribe(res => {
-   
-   this.reviewData=res;
-  });
+  getReview() {
+    // this.custID="26368";
+    let data = { "id": this.custID }
+    this._crud.getReview(data).subscribe(res => {
+
+      this.reviewData = res;
+    });
 
 
 
 
-}
+  }
 
 }

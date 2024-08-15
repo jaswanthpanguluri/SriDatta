@@ -1,36 +1,34 @@
 <!-- <app-cartheader></app-cartheader> -->
 <app-header></app-header>
 <section class="cart-subpage">
-    <div class="container" *ngIf="!loader">
-        <h1 class="h5 font-medium pb-3 sub-page-title">Shopping Cart ({{cartCount}})</h1>
-        <div class="row" *ngIf="cartItems.length > 0">
-            <div class="col-md-8">
-                <div class="deliver-location d-flex justify-content-between p-2 border">
-                    <div class="d-flex location-date-time">
-                        <span class="icon-route h1 font-primary"></span>
-                        <div class="ps-3 align-self-center d-sm-flex">
-                            <div class="align-self-center">
-                                <p>
-                                    <span>Deliver Date: </span>
-                                    <span
-                                        class="font-primary d-inline-block font-semibold">{{displaydeliveryDate}}</span>
-                                </p>
-                            </div>
-                            <!-- <span
+  <div class="container" *ngIf="!loader">
+    <h1 class="h5 font-medium pb-3 sub-page-title">Shopping Cart ({{cartCount}})</h1>
+    <div class="row" *ngIf="cartItems.length > 0">
+      <div class="col-md-8">
+        <div class="deliver-location d-flex justify-content-between p-2 border">
+          <div class="d-flex location-date-time">
+            <span class="icon-route h1 font-primary"></span>
+            <div class="ps-3 align-self-center d-sm-flex">
+              <div class="align-self-center">
+                <p>
+                  <span>Expected Deliver Date: </span>
+                  <span class="font-primary d-inline-block font-semibold">{{displaydeliveryDate}}</span>
+                </p>
+              </div>
+              <!-- <span
                                     class="font-black d-inline-block ps-3 font-semibold">{{city}}</span> -->
 
-                            <div class="px-md-3 align-self-center">
-                                <p><span>Deliver Time: </span>
-                                    <span
-                                        class="font-primary d-inline-block font-semibold">{{displaydeliveryTime}}</span>
-                                </p>
-                            </div>
-                            <button class="color-btn border-0 px-2 py-1 small" data-bs-toggle="modal"
+              <!--  <div class="px-md-3 align-self-center">
+                <p><span>Deliver Time: </span>
+                  <span class="font-primary d-inline-block font-semibold">{{displaydeliveryTime}}</span>
+                </p>
+              </div>
+              <button class="color-btn border-0 px-2 py-1 small" data-bs-toggle="modal"
                                 data-bs-target="#DeliveryModal" (click)="openDatetime()"><span
-                                    class="icon-edit icomoon"></span> Edit</button>
-                        </div>
-                        <!-- (change)="getBindDeliveryTimes($event)" -->
-                        <!-- <div class="col-md-4 pb-2" *ngIf="deliveryDates_array?.length">
+                                    class="icon-edit icomoon"></span> Edit</button> -->
+            </div>
+            <!-- (change)="getBindDeliveryTimes($event)" -->
+            <!-- <div class="col-md-4 pb-2" *ngIf="deliveryDates_array?.length">
                             <label>Select Time</label>
                             <div class="form-group d-flex p-2  background-lightprimary rounded">
                                 <span
@@ -46,298 +44,291 @@
                                 <p class="error-message">Select Time</p>
                             </div>
                         </div> -->
-                    </div>
+          </div>
 
-                </div>
+        </div>
 
-                <div class="cart-product-item border p-2 mb-3" *ngFor="let CartItem of cartItems; let i = index">
-                  <p class="pb-2 px-4 text-danger small font-bold">
-                    {{CartItem.outOfDateMessage}}
-                  </p>
-                  <p class="pb-2 px-4 text-danger small font-bold">
-                    {{MinCartMessage}}
-                  </p>
-                  <div class="row">
-                    <div class="col-md-2 col-3">
-                      <a [routerLink]="'/' + cityName + '/send-online/' + CartItem.seoProductName">
-                        <img src="{{CartItem.produtImage}}" alt="" class="img-fluid">
-                      </a>
-                    </div>
-                    <div class="col-md-10 col-9">
-                      <div class="row justify-content-between">
-                        <div class="col-md-8">
-                          <div>
-                            <p class="title-ofproduct">
-                              <a href="javascript:void(0)"
-                                 [routerLink]="'/' + cityName + '/send-online/' + CartItem.seoProductName"
-                                 class="font-black">{{CartItem.productName}}</a>
-                            </p>
+        <div class="cart-product-item border p-2 mb-3" *ngFor="let CartItem of cartItems; let i = index">
+          <p class="pb-2 px-4 text-danger small font-bold">
+            {{CartItem.outOfDateMessage}}
+          </p>
+          <p class="pb-2 px-4 text-danger small font-bold">
+            {{MinCartMessage}}
+          </p>
+          <div class="row">
+            <div class="col-md-2 col-3">
+              <a [routerLink]="'/' + cityName + '/send-online/' + CartItem.seoProductName">
+                <img src="{{CartItem.produtImage}}" alt="" class="img-fluid">
+              </a>
+            </div>
+            <div class="col-md-10 col-9">
+              <div class="row justify-content-between">
+                <div class="col-md-8">
+                  <div>
+                    <p class="title-ofproduct">
+                      <a href="javascript:void(0)"
+                        [routerLink]="'/' + cityName + '/send-online/' + CartItem.seoProductName"
+                        class="font-black">{{CartItem.productName}}</a>
+                    </p>
 
-                            <div class="price py-1">
-                              <div class="offer-price font-semibold">
-                                <span class=" icomoon"
-                                      [class]="currencyClass"></span>{{CartItem.subTotal}}
-                              </div>
-                            </div>
-                            <div class="btnsec">
-                              <div class="value-button " (click)="decrementQuantity(i,CartItem.sNo)"
-                                   value="Decrease Value" *ngIf="CartItem.quantity >1">-</div>
-                              <input type="number" readonly id="number" min="0"
-                                     [(ngModel)]="CartItem.quantity" />
-                              <button class="value-button" value="Increase Value"
-                                      (click)="incrementQuantity(i, CartItem.sNo)" [disabled]="incrementbtn">
-                                +
-                              </button>
-
-                            </div>
-                            <span class="leftstock font-semibold">{{CartItem.errmsg}}</span>
-                            <ul class="list-style-desc mt-2">
-                              <li *ngIf="CartItem.productId">
-                                Product Id :
-                                <strong>{{CartItem.productId}}</strong>
-                              </li>
-                              <li *ngIf="CartItem.customPhoto">
-                                Custom Photo :
-                                <img class="smallimg" [src]="CartItem.customPhoto" />
-                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                   data-bs-target="#imgModal"
-                                   (click)="capturephoto(CartItem.customPhoto)"
-                                   class="d-inline-block ps-2"
-                                   style="text-decoration: underline;">View</a>
-                              </li>
-
-                              <li *ngIf="CartItem.additionalVoucher">
-                                Voucher :
-                                <strong>{{CartItem.additionalVoucher}}</strong>
-                              </li>
-
-                              <li *ngIf="CartItem.additionalWeight">
-                                Weight :
-                                <strong>{{CartItem.additionalWeight}}</strong>
-                              </li>
-                              <li *ngIf="CartItem.egglessPrice">
-                                Eggless Price:
-                                <strong>
-                                  <span [class]="currencyClass"></span>{{CartItem.egglessPrice}}
-                                </strong>
-                              </li>
-
-                              <li *ngIf="CartItem.flavour">
-                                Flavour :
-                                <strong>{{CartItem.flavour}}</strong>
-                              </li>
-                              <li *ngIf="CartItem.additionalNumber">
-                                Number :
-                                <strong>{{CartItem.additionalNumber}}</strong>
-                              </li>
-                              <li *ngIf="CartItem.message">
-                                Message:
-                                <strong>{{CartItem.message}}</strong>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="text-end">
-                            <a href="javascript:void(0)" (click)="DeleteCartItem(CartItem.sNo)">
-                              <span class="icon-delete font-bold font-red h5"></span>
-                            </a>
-                          </div>
-                        </div>
+                    <div class="price py-1">
+                      <div class="offer-price font-semibold">
+                        <span class=" icomoon" [class]="currencyClass"></span>{{CartItem.subTotal}}
                       </div>
                     </div>
+                    <div class="btnsec">
+                      <div class="value-button " (click)="decrementQuantity(i,CartItem.sNo)" value="Decrease Value"
+                        *ngIf="CartItem.quantity >1">-</div>
+                      <input type="number" readonly id="number" min="0" [(ngModel)]="CartItem.quantity" />
+                      <button class="value-button" value="Increase Value" (click)="incrementQuantity(i, CartItem.sNo)"
+                        [disabled]="incrementbtn">
+                        +
+                      </button>
+
+                    </div>
+                    <span class="leftstock font-semibold">{{CartItem.errmsg}}</span>
+                    <ul class="list-style-desc mt-2">
+                      <li *ngIf="CartItem.productId">
+                        Product Id :
+                        <strong>{{CartItem.productId}}</strong>
+                      </li>
+                      <li *ngIf="CartItem.customPhoto">
+                        Custom Photo :
+                        <img class="smallimg" [src]="CartItem.customPhoto" />
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#imgModal"
+                          (click)="capturephoto(CartItem.customPhoto)" class="d-inline-block ps-2"
+                          style="text-decoration: underline;">View</a>
+                      </li>
+
+                      <li *ngIf="CartItem.additionalVoucher">
+                        Voucher :
+                        <strong>{{CartItem.additionalVoucher}}</strong>
+                      </li>
+
+                      <li *ngIf="CartItem.additionalWeight">
+                        Weight :
+                        <strong>{{CartItem.additionalWeight}}</strong>
+                      </li>
+                      <li *ngIf="CartItem.egglessPrice">
+                        Eggless Price:
+                        <strong>
+                          <span [class]="currencyClass"></span>{{CartItem.egglessPrice}}
+                        </strong>
+                      </li>
+
+                      <li *ngIf="CartItem.flavour">
+                        Flavour :
+                        <strong>{{CartItem.flavour}}</strong>
+                      </li>
+                      <li *ngIf="CartItem.additionalNumber">
+                        Number :
+                        <strong>{{CartItem.additionalNumber}}</strong>
+                      </li>
+                      <li *ngIf="CartItem.message">
+                        Message:
+                        <strong>{{CartItem.message}}</strong>
+                      </li>
+                    </ul>
                   </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="PriceDetails p-2 border sticky-lg-top">
-                    <h6 class="h6 font-black font-medium align-self-center pb-3">Price Details</h6>
-                    <div class="d-flex justify-content-between py-2">
-                        <p>Price ({{cartCount}} item(s))</p>
-                        <h6 class="text-end" *ngIf="firstlistItem"><strong><span class="icomoon font-bold small"
-                                    [class]="currencyClass"></span>{{firstlistItem?.totalAmount}}</strong></h6>
-                    </div>
-
-                    <div class="d-flex justify-content-between py-2">
-                        <p>Delivery Charges</p>
-                        <h6 class="text-end font-green"> <ng-container
-                                *ngIf="firstlistItem?.deliveryCharges ==0">FREE</ng-container><ng-container
-                                *ngIf="firstlistItem?.deliveryCharges >0"><span class="small"
-                                    [class]="currencyClass"></span>{{firstlistItem?.deliveryCharges}}</ng-container>
-                        </h6>
-                    </div>
-
-                    <div class="d-flex justify-content-between py-3 totalamount my-2">
-                        <h6 class="h6 font-semibold">Total Amount</h6>
-                        <h6 class="text-end font-semibold"><span class="icomoon font-bold small"
-                                [class]="currencyClass"></span>{{firstlistItem?.grandTotal}}</h6>
-                    </div>
-                    <button *ngIf="!showcheckoutbtn" [disabled]="outofdatemessage"
-                        class="default-btn background-green d-block width100p border-0 btn-checkout font-white"
-                        data-bs-toggle="modal" data-bs-target="#AddonsProducts" (click)="addOnProducts('0')">Continue to
-                        Checkout</button>
-                    <button *ngIf="showcheckoutbtn" [disabled]="outofdatemessage"
-                        class="default-btn d-block width100p border-0 filter-btn background-green font-white"
-                        (click)="gotocheckout()">Continue to
-                        Checkout</button>
-                    <div class="row mt-2">
-                      <div class="col-lg-12">
-                        <button class="color-btn w-100 d-block cbtn mb-2"
-                                data-bs-toggle="modal" data-bs-target="#AddonsProducts"
-                                (click)="addOnProducts('1')">
-                          Addons
-                        </button>
-                      </div>
-                      <div class="col-lg-12">
-                        <a routerLink="/" class="default-btn w-100 background-green font-white d-block cbtn mb-2">Continue to Shopping</a>
-                      </div>
-                    </div>
-
+                <div class="col-md-4">
+                  <div class="text-end">
+                    <a href="javascript:void(0)" (click)="DeleteCartItem(CartItem.sNo)">
+                      <span class="icon-delete font-bold font-red h5"></span>
+                    </a>
+                  </div>
                 </div>
-
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="PriceDetails p-2 border sticky-lg-top">
+          <h6 class="h6 font-black font-medium align-self-center pb-3">Price Details</h6>
+          <div class="d-flex justify-content-between py-2">
+            <p>Price ({{cartCount}} item(s))</p>
+            <h6 class="text-end" *ngIf="firstlistItem"><strong><span class="icomoon font-bold small"
+                  [class]="currencyClass"></span>{{firstlistItem?.totalAmount}}</strong></h6>
+          </div>
+
+          <div class="d-flex justify-content-between py-2">
+            <p>Delivery Charges</p>
+            <h6 class="text-end font-green"> <ng-container
+                *ngIf="firstlistItem?.deliveryCharges ==0">FREE</ng-container><ng-container
+                *ngIf="firstlistItem?.deliveryCharges >0"><span class="small"
+                  [class]="currencyClass"></span>{{firstlistItem?.deliveryCharges}}</ng-container>
+            </h6>
+          </div>
+
+          <div class="d-flex justify-content-between py-3 totalamount my-2">
+            <h6 class="h6 font-semibold">Total Amount</h6>
+            <h6 class="text-end font-semibold"><span class="icomoon font-bold small"
+                [class]="currencyClass"></span>{{firstlistItem?.grandTotal}}</h6>
+          </div>
+          <button *ngIf="!showcheckoutbtn" [disabled]="outofdatemessage"
+            class="default-btn background-green d-block width100p border-0 btn-checkout font-white"
+            data-bs-toggle="modal" data-bs-target="#AddonsProducts" (click)="addOnProducts('0')">Continue to
+            Checkout</button>
+          <button *ngIf="showcheckoutbtn" [disabled]="outofdatemessage"
+            class="default-btn d-block width100p border-0 filter-btn background-green font-white"
+            (click)="gotocheckout()">Continue to
+            Checkout</button>
+          <div class="row mt-2">
+            <div class="col-lg-12">
+              <button class="color-btn w-100 d-block cbtn mb-2" data-bs-toggle="modal" data-bs-target="#AddonsProducts"
+                (click)="addOnProducts('1')">
+                Addons
+              </button>
+            </div>
+            <div class="col-lg-12">
+              <a routerLink="/" class="default-btn w-100 background-green font-white d-block cbtn mb-2">Continue to
+                Shopping</a>
+            </div>
+          </div>
+
         </div>
 
-        <div class="row justify-content-center" *ngIf="cartItems.length == 0">
-            <div class="col-md-4 noproduct text-center">
-                <div>
-                    <img src="assets/images/noproduts-found.svg" alt="" class="img-fluid w-100">
-                    <h2 class="h4 text-center">No Products Found</h2>
-                </div>
-                <!-- <div> <a routerLink="/" class="color-btn">Continue Shopping</a></div> -->
-            </div>
-        </div>
-
-
-        <div class="explore-products mt-3" *ngIf="viewedProducts.length">
-            <h1 class="h5 font-medium pb-3 sub-page-title">Recently Viewed Products</h1>
-            <div class="container">
-                <div class="products-list-items">
-                    <div class="row g-2">
-                        <div class="col-md-3 col-6" *ngFor="let productitem of viewedProducts">
-                            <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--/ explore products-->
+      </div>
     </div>
+
+    <div class="row justify-content-center" *ngIf="cartItems.length == 0">
+      <div class="col-md-4 noproduct text-center">
+        <div>
+          <img src="assets/images/noproduts-found.svg" alt="" class="img-fluid w-100">
+          <h2 class="h4 text-center">No Products Found</h2>
+        </div>
+        <!-- <div> <a routerLink="/" class="color-btn">Continue Shopping</a></div> -->
+      </div>
+    </div>
+
+
+    <div class="explore-products mt-3" *ngIf="viewedProducts.length">
+      <h1 class="h5 font-medium pb-3 sub-page-title">Recently Viewed Products</h1>
+      <div class="container">
+        <div class="products-list-items">
+          <div class="row g-2">
+            <div class="col-md-3 col-6" *ngFor="let productitem of viewedProducts">
+              <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ explore products-->
+  </div>
 </section>
 
 <app-footer></app-footer>
 <!-- addons product popup modal-->
 <div class="modal fade AddonsProducts" id="AddonsProducts" data-bs-backdrop="static" data-bs-keyboard="false"
-    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Addons to Your Product</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Addons to Your Product</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <section class="products-list">
+          <div class="row g-2">
+            <div class="col-lg-3 col-6" *ngFor="let Productvalue of addonproducts">
+              <div class="app-product-item border mb-2">
+                <figure class="product-item-figure">
+                  <a>
+                    <!-- hyderabad/send-online/ -->
+                    <img src="{{Productvalue.imageURL}}" alt="" class="img-fluid w-100">
+                  </a>
+                </figure>
+                <div class="item-title p-2 bg-white">
+                  <p>
+                    <a href="javascript:void(0)" class="font-semibold font-black">
+                      {{Productvalue.productName}}
+                    </a>
+                  </p>
+                  <div class="price d-flex py-2 border-bottom">
+                    <div class="offer-price font-bold"><span class="icomoon font-bold"
+                        [class]="currencyClass"></span>{{Productvalue.price}}</div>
+                  </div>
+                  <div class="d-flex justify-content-between pt-2 item-footer">
+                    <button type="button" class="color-btn border-0"
+                      (click)="addOnProductsupdateCart(Productvalue.addOnProductId)">Add to
+                      Cart</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="modal-body">
-                <section class="products-list">
-                    <div class="row g-2">
-                        <div class="col-lg-3 col-6" *ngFor="let Productvalue of addonproducts">
-                            <div class="app-product-item border mb-2">
-                                <figure class="product-item-figure">
-                                    <a>
-                                        <!-- hyderabad/send-online/ -->
-                                        <img src="{{Productvalue.imageURL}}" alt="" class="img-fluid w-100">
-                                    </a>
-                                </figure>
-                                <div class="item-title p-2 bg-white">
-                                    <p>
-                                        <a href="javascript:void(0)" class="font-semibold font-black">
-                                            {{Productvalue.productName}}
-                                        </a>
-                                    </p>
-                                    <div class="price d-flex py-2 border-bottom">
-                                        <div class="offer-price font-bold"><span class="icomoon font-bold"
-                                                [class]="currencyClass"></span>{{Productvalue.price}}</div>
-                                    </div>
-                                    <div class="d-flex justify-content-between pt-2 item-footer">
-                                        <button type="button" class="color-btn border-0"
-                                            (click)="addOnProductsupdateCart(Productvalue.addOnProductId)">Add to
-                                            Cart</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="default-btn border-0 background-green font-white"
-                    data-bs-dismiss="modal">Go to Cart</button>
-                <button type="button" class="color-btn border-0" data-bs-dismiss="modal" [disabled]="outofdatemessage"
-                    (click)="gotocheckout()">Proceed
-                    to Checkout</button>
-            </div>
-        </div>
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="default-btn border-0 background-green font-white" data-bs-dismiss="modal">Go to
+          Cart</button>
+        <button type="button" class="color-btn border-0" data-bs-dismiss="modal" [disabled]="outofdatemessage"
+          (click)="gotocheckout()">Proceed
+          to Checkout</button>
+      </div>
     </div>
+  </div>
 </div>
 
 
 <!-- Update delivery date -->
 <div class="modal fade " id="DeliveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Update Delivery Date and Time</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    #closeButton></button>
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Update Delivery Date and Time</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeButton></button>
+      </div>
+      <form [formGroup]="userForm">
+        <div class="modal-body">
+          <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
+            <label>Select Delivery Date </label>
+            <div class="form-group d-flex p-2  background-lightprimary rounded mb-2"> <span
+                class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
+              <select class="form-select" formControlName="deliveryDate" (change)="getBindDeliveryTimes($event)">
+                <option *ngFor="let o of deliveryDates_array" [value]="o.deliveryDateValue">
+                  {{o.deliveryDateText}}</option>
+              </select>
             </div>
-            <form [formGroup]="userForm">
-                <div class="modal-body">
-                    <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
-                        <label>Select Delivery Date </label>
-                        <div class="form-group d-flex p-2  background-lightprimary rounded mb-2"> <span
-                                class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
-                            <select class="form-select" formControlName="deliveryDate"
-                                (change)="getBindDeliveryTimes($event)">
-                                <option *ngFor="let o of deliveryDates_array" [value]="o.deliveryDateValue">
-                                    {{o.deliveryDateText}}</option>
-                            </select>
-                        </div>
-                    </div>
+          </div>
 
-                    <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
-                        <label>Select Time</label>
-                        <div class="form-group d-flex p-2  background-lightprimary rounded">
-                            <span
-                                class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
-                            <select class="form-select" formControlName="deliveryTime">
-                                <option>Select Time</option>
-                                <option *ngFor="let o of deliveryTime" [value]="o.dtime">
-                                    <ng-container *ngIf="currencySelected == 'INR'">{{o.dtime}}</ng-container>
-                                    <ng-container *ngIf="currencySelected =='USD'">{{o.dtimeCurrency}}</ng-container>
+          <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
+            <label>Select Time</label>
+            <div class="form-group d-flex p-2  background-lightprimary rounded">
+              <span class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
+              <select class="form-select" formControlName="deliveryTime">
+                <option>Select Time</option>
+                <option *ngFor="let o of deliveryTime" [value]="o.dtime">
+                  <ng-container *ngIf="currencySelected == 'INR'">{{o.dtime}}</ng-container>
+                  <ng-container *ngIf="currencySelected =='USD'">{{o.dtimeCurrency}}</ng-container>
 
 
 
-                                </option>
-                            </select>
+                </option>
+              </select>
 
-                        </div>
-                        <div class="error" *ngIf="timeerror"> Please select Time</div>
+            </div>
+            <div class="error" *ngIf="timeerror"> Please select Time</div>
 
-                        <!-- <div class="invalid-feedback mt-0 d-block"
+            <!-- <div class="invalid-feedback mt-0 d-block"
                         *ngIf="dynamicForm.get('deliveryTimes')!.invalid && dynamicForm.get('deliveryTimes')!.touched">
                         <p class="error-message">Select Time</p>
                     </div> -->
-                    </div>
+          </div>
 
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="color-btn border-0" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="color-border-btn" (click)="updateDateandtime()">Update
-                    </button>
-                </div>
-            </form>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="color-btn border-0" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="color-border-btn" (click)="updateDateandtime()">Update
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 
 
@@ -346,24 +337,23 @@
 
 <!-- Update delivery date -->
 <div class="modal fade " id="imgModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Custom Image</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    #closeButton></button>
-            </div>
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Custom Image</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeButton></button>
+      </div>
 
-            <div class="modal-body">
-                <div class="col-md-12 pb-2 modalimgwrap">
-                    <img class="modalimg" [src]="customimg" />
-                </div>
-
-
-            </div>
-
-
+      <div class="modal-body">
+        <div class="col-md-12 pb-2 modalimgwrap">
+          <img class="modalimg" [src]="customimg" />
         </div>
+
+
+      </div>
+
+
     </div>
+  </div>
 </div>

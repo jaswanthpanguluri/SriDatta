@@ -57,7 +57,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
   routeCategory(e: any) {
 
-    this.router.navigateByUrl(e + '/' + this.originalcityname.toLowerCase() + '/online-delivery');
+    //this.router.navigateByUrl(e + '/' + this.originalcityname.toLowerCase() + '/online-delivery');
+    this.router.navigateByUrl(e + '/online-delivery');
 
   }
 
@@ -73,7 +74,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
           .map((selectedOption: any) => selectedOption.value);
 
         if (selectedValues.length > 0) {
-          selectedValuesByFilterType[filterGroup.filterType] = selectedValues;
+          selectedValuesByFilterType[(filterGroup.filterType).toLowerCase()] = selectedValues;
         }
       }
 
@@ -135,20 +136,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.addLoader();
     this.paramMapSubscription = this.route.paramMap.subscribe((params: any) => {
-if(params['params']['cityname'] !='send-online')
-{
-  setTimeout(() => {
+      if (params['params']['cityname'] != 'send-online') {
+        setTimeout(() => {
 
-    this.filters = [];
-    this.isfilters = false;
-    this.products = []
-    this.getPageRoutes(params);
-    this.getMeta();
-    this.getProductDetails(this.filters, 1, this.sorder);
-    this.getFiltersDetails();
-  }, 1000);
-}
-     
+          this.filters = [];
+          this.isfilters = false;
+          this.products = []
+          this.getPageRoutes(params);
+          this.getMeta();
+          this.getProductDetails(this.filters, 1, this.sorder);
+          this.getFiltersDetails();
+        }, 1000);
+      }
+
 
 
 
@@ -191,7 +191,7 @@ if(params['params']['cityname'] !='send-online')
             this.setCity(this.cityname);
             this.cityname = this.originalcityname;
             this.getnewurl(urlparms1[urlparms1.length - 1])
-          
+
             this.typeName = 'SPL';
             let resultArray: any = '';
             for (let i = 0; i < urlparms1.length - 1; i++) {
@@ -212,7 +212,7 @@ if(params['params']['cityname'] !='send-online')
           this.typeName = 'CTY';
           this.PageName = params['PageName1'];
           this.cityname = this.originalcityname;
-          if (params['PageName1'] == 'gifts-online') {
+          if (params['PageName1'] == 'platinum-online') {
             this.getnewurl(this.originalcityname);
 
             this._crud.updateCity(localStorage.getItem('city'));
@@ -283,7 +283,7 @@ if(params['params']['cityname'] !='send-online')
 
         }
         else if (this.typeName == 'search_result') {
-         
+
           this.type = 'SE';
           this.cityname = params['PageName'];
           this.cityname = this.originalcityname;
@@ -317,7 +317,7 @@ if(params['params']['cityname'] !='send-online')
   getMeta(): void {
 
     const data = {
-      cityname: this.cityname,
+      //cityname: this.cityname,
       Type: this.type,
       PageName: this.PageName
     }
@@ -338,7 +338,7 @@ if(params['params']['cityname'] !='send-online')
 
 
   setCity(value: any) {
-    
+
   }
 
   getProductDetails(filters: any, pagenumber?: any, sortOrder?: any, load?: boolean): void {
@@ -346,11 +346,11 @@ if(params['params']['cityname'] !='send-online')
 
     this.loading = true;
     const data = {
-      cityname: this.cityname,
-      country: this.country,
+      //cityname: this.cityname,
+      //country: this.country,
       Type: this.type,
       PageName: this.PageName,
-      currencySelected: this.currency,
+      //currencySelected: this.currency,
       PageNumber: pagenumber,
       PageSize: this.psize,
       productFilters: filters,
@@ -362,7 +362,7 @@ if(params['params']['cityname'] !='send-online')
       this.loading = false;
 
       this.productData = res;
-      if (this.productData && this.productData.totalCount == 0 && data.productFilters.length==0) {
+      if (this.productData && this.productData.totalCount == 0 && data.productFilters.length == 0) {
         this.router.navigateByUrl('/404')
       }
 
@@ -374,14 +374,13 @@ if(params['params']['cityname'] !='send-online')
         this.showloadmore = false
       }
 
-      if (this.productData)
-      {
+      if (this.productData) {
         this.products = this.products.concat(this.productData.items)
         this.currentPage = this.productData.pageNumber;
         this.totalPages = this.productData.totalPages
         this.totalCount = this.productData.totalCount;
-      } 
-     
+      }
+
       if (40 * this.currentPage <= this.totalCount) {
         this.displayproducts = 40 * this.currentPage
       }
@@ -406,11 +405,11 @@ if(params['params']['cityname'] !='send-online')
   getFiltersDetails(): void {
 
     const data = {
-      cityname: this.cityname,
+      //cityname: this.cityname,
 
       Type: this.type,
       PageName: this.PageName,
-      currencySelected: this.currency
+      //currencySelected: this.currency
     }
 
     this._crud.getFilters(data).subscribe(res => {
@@ -522,7 +521,7 @@ if(params['params']['cityname'] !='send-online')
 
     const canonicalLink: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
     if (canonicalLink) {
-      canonicalLink.href = 'https://www.countryoven.com' + v;
+      canonicalLink.href = 'https://www.sridutta.com' + v;
     }
     else {
 
@@ -530,7 +529,7 @@ if(params['params']['cityname'] !='send-online')
       link.rel = 'canonical';
 
 
-      link.href = 'https://www.countryoven.com' + v; // Replace with your canonical URL
+      link.href = 'https://www.sridutta.com' + v; // Replace with your canonical URL
       this.renderer.appendChild(document.head, link);
     }
 
