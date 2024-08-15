@@ -310,8 +310,8 @@ export class ProductDetailComponent implements OnInit {
         "price": parseFloat(this.productPrice),
         "cityName": this.cityName,
         "eggless": this.isegglessChecked,
-        "deliveryDate": formData.deliveryDates ? formData.deliveryDates : newDateFormat[0],
-        "deliveryTime": formData.deliveryTimes ? formData.deliveryTimes : newTimeFormat[0],
+        "deliveryDate": formData.deliveryDates ? formData.deliveryDates : null,
+        "deliveryTime": formData.deliveryTimes ? formData.deliveryTimes : null,
         "additionalWeight": this.selectedQty ? this.selectedQty : null,
         "flavour": formData.flavourOptionsDto ? formData.flavourOptionsDto : null,
         "additionalNumber": formData.numberOptionsDto ? formData.numberOptionsDto : null,
@@ -331,27 +331,32 @@ export class ProductDetailComponent implements OnInit {
       }
     }
     this._crud.getSaveProductDetails(data).subscribe(res => {
-      if (!res.isEroor) {
-        if (res.sNo) {
-          this.sNo = res.sNo;
+      if (!!res) {
+        if (!res.isEroor) {
+          if (res.sNo) {
+            this.sNo = res.sNo;
 
-          if (this.photoRequired) {
-            this.photoUpload(this.sNo)
+            if (this.photoRequired) {
+              this.photoUpload(this.sNo)
+            }
+
+            else {
+              this.removeLoader();
+              this.router.navigateByUrl('/cart')
+            }
+
+
+
+            // alert(res.successMessage)
           }
 
-          else {
-            this.removeLoader();
-            this.router.navigateByUrl('/cart')
-          }
 
-
-
-          // alert(res.successMessage)
         }
+        else {
 
-
-      }
-      else {
+          this.removeLoader();
+        }
+      } else {
 
         this.removeLoader();
       }
