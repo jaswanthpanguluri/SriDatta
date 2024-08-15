@@ -40,7 +40,7 @@ const routes: Routes = [
       { path: 'careers', component: CareersComponent },
       { path: 'corporateorders', component: CorporateOrdersComponent },
 
-      { path: 'content/aboutus', component: AboutusComponent },
+      { path: 'aboutus', component: AboutusComponent },
 
       { path: 'content/ourstores', component: StoresComponent },
       { path: 'reviews', component: ReviewsComponent },

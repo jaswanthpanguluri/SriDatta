@@ -282,10 +282,10 @@ export class CurdService {
   }
 
   getCountry(obj: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/home/Country`, obj)
+    return this.http.post(`${environment.apiUrl}/AddressBook/Country`, obj)
   }
   getState(obj: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/home/State`, obj)
+    return this.http.post(`${environment.apiUrl}/AddressBook/State`, obj)
   }
   getCity(obj: any): Observable<any> {
     return this.http.post(`${environment.apiUrl}/home/City`, obj)
