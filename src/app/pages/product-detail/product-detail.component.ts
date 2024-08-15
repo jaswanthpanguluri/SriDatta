@@ -34,13 +34,13 @@ export class ProductDetailComponent implements OnInit {
   pincodeOptionsDto_array: any = [];
   messageRequired: boolean = false;
   photoRequired: boolean = false;
-  photoCake: boolean = false;
+  photoJeweller: boolean = false;
   deliveryDates_array: any;
   leadTime: any;
   deliveryTime: any;
   isEggless: any;
   egglessPrice: number = 0;
-  photoCakePrice: number = 0;
+  photoJewellerPrice: number = 0;
   productPrice: any;
   originalproductPrice: any;
   isegglessChecked: boolean = false;
@@ -69,7 +69,7 @@ export class ProductDetailComponent implements OnInit {
   selectedVoucher: any;
   selectedQty: any;
   egglessAddtionalPrice: number = 0;
-  photoCakeAdditionalPrice: number = 0;
+  photoJewellerAdditionalPrice: number = 0;
   pName: any;
   selectedFile: any;
   selectedVocucher: any;
@@ -298,7 +298,10 @@ export class ProductDetailComponent implements OnInit {
   saveallProductDeatils(formData: any) {
 
     this.addLoader();
-
+    let yourDate = new Date().toISOString();
+    //let time = yourDate.getTime();
+    let newDateFormat = yourDate.split('T');
+    let newTimeFormat = newDateFormat[1].split('.');
     const data = {
       "productDetailsData": {
         "customerId": this.customerId,
@@ -319,7 +322,7 @@ export class ProductDetailComponent implements OnInit {
         "messageInsideBottle": null,
         // "customPhoto": null,
         "surpriseGiftPrice": 0,
-        "photoCakePrice": this.photoCakePrice,
+        "photoJewellerPrice": this.photoJewellerPrice,
         "egglessPrice": this.egglessPrice,
         "sessionID": this.cookieService.get('sessionID'),
         "currencySelected": this.currencySelected,
@@ -328,27 +331,32 @@ export class ProductDetailComponent implements OnInit {
       }
     }
     this._crud.getSaveProductDetails(data).subscribe(res => {
-      if (!res.isEroor) {
-        if (res.sNo) {
-          this.sNo = res.sNo;
+      if (!!res) {
+        if (!res.isEroor) {
+          if (res.sNo) {
+            this.sNo = res.sNo;
 
-          if (this.photoRequired) {
-            this.photoUpload(this.sNo)
+            if (this.photoRequired) {
+              this.photoUpload(this.sNo)
+            }
+
+            else {
+              this.removeLoader();
+              this.router.navigateByUrl('/cart')
+            }
+
+
+
+            // alert(res.successMessage)
           }
 
-          else {
-            this.removeLoader();
-            this.router.navigateByUrl('/cart')
-          }
 
-
-
-          // alert(res.successMessage)
         }
+        else {
 
-
-      }
-      else {
+          this.removeLoader();
+        }
+      } else {
 
         this.removeLoader();
       }
@@ -367,9 +375,9 @@ export class ProductDetailComponent implements OnInit {
 
 
       "productId": this.productId,
-      "cityName": this.cityName,
-      "countryName": this.coutryName,
-      "currencySelected": this.currencySelected
+      //"cityName": this.cityName,
+      // "countryName": this.coutryName,
+      //"currencySelected": this.currencySelected
 
 
     }
@@ -395,9 +403,9 @@ export class ProductDetailComponent implements OnInit {
 
     const data = {
       "SEOName": this.productName,
-      "cityName": this.cityName,
-      "countryName": this.coutryName,
-      "currencySelected": this.currencySelected,
+      //"cityName": this.cityName,
+      // "countryName": this.coutryName,
+      //"currencySelected": this.currencySelected,
       "sessionId": this.cookieService.get('sessionID')
     }
     this._crud.getProductDetailsById(data).subscribe(res => {
@@ -429,13 +437,13 @@ export class ProductDetailComponent implements OnInit {
 
       this.photoRequired = this.productDetails.photoRequired
       if (this.productDetails.categoryId == '1020') {
-        this.photoCake = true
+        this.photoJeweller = true
       }
 
       this.leadTime = this.productDetails.leadTime;
       this.isEggless = this.productDetails.isEggless;
       this.egglessPrice = this.isEggless ? this.productDetails.egglessPrice : 0;
-      this.photoCakePrice = this.productDetails.photoCakePrice ? this.productDetails.photoCakePrice : 0;
+      this.photoJewellerPrice = this.productDetails.photoJewellerPrice ? this.productDetails.photoJewellerPrice : 0;
       this.productPrice = this.productDetails.dicountPrice;
       this.pName = this.productDetails.productName;
       this.originalproductPrice = this.productDetails.dicountPrice;
@@ -448,8 +456,8 @@ export class ProductDetailComponent implements OnInit {
       this.maxLengthFixed = this.productDetails.maxLength;
       this.maxLength = this.productDetails.maxLength;
       this.prevpincode = this.productDetails.previousPinCode;
-      if (this.photoCakePrice > 0) {
-        this.productPrice = parseFloat(this.productPrice) + this.photoCakePrice
+      if (this.photoJewellerPrice > 0) {
+        this.productPrice = parseFloat(this.productPrice) + this.photoJewellerPrice
       }
 
 
@@ -696,15 +704,15 @@ export class ProductDetailComponent implements OnInit {
     //     this.selectedQty = this.selectedItem.optionValue;
     //     if(this.photoRequired)
     //     {
-    // this.photoCakePrice=this.selectedItem.photoCakeAdditionalPrice;
+    // this.photoJewellerPrice=this.selectedItem.photoJewellerAdditionalPrice;
     //     }
     // this.egglessPrice=this.selectedItem.egglessAddtionalPrice
 
 
     //     if (this.isegglessChecked) {
-    //       this.productPrice = parseFloat(this.selectedItem.optionId) + this.egglessPrice + this.photoCakePrice
+    //       this.productPrice = parseFloat(this.selectedItem.optionId) + this.egglessPrice + this.photoJewellerPrice
     //     } else {
-    //       this.productPrice = parseFloat(this.selectedItem.optionId) + this.photoCakePrice
+    //       this.productPrice = parseFloat(this.selectedItem.optionId) + this.photoJewellerPrice
     //     }
 
   }
@@ -712,14 +720,14 @@ export class ProductDetailComponent implements OnInit {
 
   onQtyChange(e: any) {
     this.selectedQty = this.selectedItem.optionValue;
-    if (this.photoRequired || this.photoCake) {
-      this.photoCakePrice = this.selectedItem.photoCakeAdditionalPrice;
+    if (this.photoRequired || this.photoJeweller) {
+      this.photoJewellerPrice = this.selectedItem.photoJewellerAdditionalPrice;
     }
     this.egglessPrice = this.selectedItem.egglessAddtionalPrice
 
 
     if (this.isegglessChecked) {
-      let result = parseFloat(this.selectedItem.optionId) + this.egglessPrice + this.photoCakePrice
+      let result = parseFloat(this.selectedItem.optionId) + this.egglessPrice + this.photoJewellerPrice
       if (this.currencySelected == 'USD') {
         this.productPrice = result.toFixed(2)
       }
@@ -728,7 +736,7 @@ export class ProductDetailComponent implements OnInit {
       }
 
     } else {
-      let result = parseFloat(this.selectedItem.optionId) + this.photoCakePrice
+      let result = parseFloat(this.selectedItem.optionId) + this.photoJewellerPrice
       if (this.currencySelected == 'USD') {
         this.productPrice = result.toFixed(2)
       }
@@ -843,7 +851,7 @@ export class ProductDetailComponent implements OnInit {
     let formData = new FormData();
     formData.append('ImagePath', this.selectedFile);
     formData.append('SNo', sNo);
-    this._crud.AddPhotoCake(formData).subscribe(res => {
+    this._crud.AddPhotoJeweller(formData).subscribe(res => {
       this.removeLoader();
       if (res.isEroor) {
         // this.toastr.error('Unable to proceed');
@@ -869,7 +877,7 @@ export class ProductDetailComponent implements OnInit {
 
     const canonicalLink: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
     if (canonicalLink) {
-      canonicalLink.href = 'https://www.countryoven.com' + v;
+      canonicalLink.href = 'https://www.sridutta.com' + v;
     }
     else {
 
@@ -877,7 +885,7 @@ export class ProductDetailComponent implements OnInit {
       link.rel = 'canonical';
 
 
-      link.href = 'https://www.countryoven.com' + v; // Replace with your canonical URL
+      link.href = 'https://www.sridutta.com' + v; // Replace with your canonical URL
       this.renderer.appendChild(document.head, link);
     }
 

@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
   firstlistItem: any;
   customerId: any = 0;
   viewedProducts: any = [];
-  loader:boolean=true;
+  loader: boolean = true;
   cityName: string | null;
   coutryName: string | null;
   currencySelected: string | null;
@@ -38,24 +38,24 @@ export class CartComponent implements OnInit {
   deliveryTime: any;
   userForm: any;
   selectedFile: any;
-  maxLeadTime:any;
-  showcheckoutbtn:boolean=false;
-  customimg:any;
+  maxLeadTime: any;
+  showcheckoutbtn: boolean = false;
+  customimg: any;
   @ViewChild('closeButton')
   closeButton!: ElementRef;
-  timeerror:boolean=false;
-  dateerror:boolean=false;
-incrementbtn:boolean=false;
-decrementbtn:boolean=false
-    productId: any;
+  timeerror: boolean = false;
+  dateerror: boolean = false;
+  incrementbtn: boolean = false;
+  decrementbtn: boolean = false
+  productId: any;
 
-  constructor(private titleService:Title, private meta:Meta,private fb: FormBuilder, private renderer: Renderer2, private route: Router, private toastr: ToastrService, private _crud: CurdService, private cookieService: CookieService) {
+  constructor(private titleService: Title, private meta: Meta, private fb: FormBuilder, private renderer: Renderer2, private route: Router, private toastr: ToastrService, private _crud: CurdService, private cookieService: CookieService) {
 
-    this.titleService.setTitle("Sri Datta Cart | countryoven.com");
-    this.meta.updateTag({ name: 'description',  content: 'Find best cakes, gifts, flowers. Florist shop in Faq with same day delivery Online and experss delivery.Shop Now!' });
-    this.meta.updateTag({ name: 'keywords',  content: 'best cakes, gifts, flowers,gifts Online, flowers online,Cakes Online,cookies,Cookies Online' });
-    this.meta.updateTag({ name: 'classification',  content: 'Sri Datta' });
-  
+    this.titleService.setTitle("Sri Datta Cart | sridutta.com");
+    this.meta.updateTag({ name: 'description', content: 'Find best Jewellers, platinum, diamonds. Florist shop in Faq with same day delivery Online and experss delivery.Shop Now!' });
+    this.meta.updateTag({ name: 'keywords', content: 'best Jewellers, platinum, diamonds,platinum Online, diamonds online,Jewellers Online,cookies,Cookies Online' });
+    this.meta.updateTag({ name: 'classification', content: 'Sri Datta' });
+
 
 
     this.sessionId = this.cookieService.get('sessionID')
@@ -64,7 +64,7 @@ decrementbtn:boolean=false
     this.currency = localStorage.getItem('currency');
 
     this.currency = localStorage.getItem('currency');
-    
+
     if (this.currency == 'INR') {
       this.currencyClass = 'icon-inr'
     }
@@ -126,17 +126,17 @@ decrementbtn:boolean=false
     }
 
     this._crud.getBindDeliveryDates(data).subscribe(res => {
-      
+
       this.deliveryDates_array = res
 
       setTimeout(() => {
-        
+
         this.userForm.get('deliveryDate')?.setValue(this.displaydeliveryDate);
 
 
         const data = {
           // "DeliveryDate": this.deliveryDates_array[0].deliveryDateValue,
-          "DeliveryDate":this.displaydeliveryDate,
+          "DeliveryDate": this.displaydeliveryDate,
           "Leadtime": 0,
           "ZipCode": 1235,
           "InstantDelivery": false,
@@ -148,10 +148,10 @@ decrementbtn:boolean=false
 
           this.deliveryTime = res.deliveryTimingsDtos;
           setTimeout(() => {
-            
+
             // this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
           }, 100);
-        
+
         })
       }, 100);
     });
@@ -178,44 +178,41 @@ decrementbtn:boolean=false
 
 
   updateDateandtime() {
-    
-        if(this.userForm.get('deliveryTime').value.toString() !=""  && this.userForm.get('deliveryTime').value.toString() !='Select Time')
-        {
-          this.timeerror=false;
-          
-          let data = {
-            "sessionId": this.sessionId,
-            "deliveryDate": this.userForm.get('deliveryDate').value,
-            "deliveryTime": this.userForm.get('deliveryTime').value.toString(),
-          }
-      
-          this._crud.updateDeliveryDateTime(data).subscribe(res => {
-            if (!res.isEroor) {
-              this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
-            //  this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
-              this.getCarts()
-              const button: HTMLButtonElement = this.closeButton.nativeElement;
-              button.click();
-            }
-            
-      
-          })
-        }
-    
-        else
-        {
-          this.timeerror=true;
-        }
-        
-    
+
+    if (this.userForm.get('deliveryTime').value.toString() != "" && this.userForm.get('deliveryTime').value.toString() != 'Select Time') {
+      this.timeerror = false;
+
+      let data = {
+        "sessionId": this.sessionId,
+        "deliveryDate": this.userForm.get('deliveryDate').value,
+        "deliveryTime": this.userForm.get('deliveryTime').value.toString(),
       }
 
-      openDatetime()
-      {
-        this.userForm.get('deliveryTime')?.setValue('')
-        this.getbindDate();
+      this._crud.updateDeliveryDateTime(data).subscribe(res => {
+        if (!res.isEroor) {
+          this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
+          //  this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
+          this.getCarts()
+          const button: HTMLButtonElement = this.closeButton.nativeElement;
+          button.click();
+        }
 
-      }
+
+      })
+    }
+
+    else {
+      this.timeerror = true;
+    }
+
+
+  }
+
+  openDatetime() {
+    this.userForm.get('deliveryTime')?.setValue('')
+    this.getbindDate();
+
+  }
   getCarts() {
     let data = {
       customerId: this.customerId,
@@ -226,16 +223,16 @@ decrementbtn:boolean=false
     }
 
     this._crud.postShopingCart(data).subscribe(res => {
-      this.loader=false;
+      this.loader = false;
       this.removeLoader();
-      
+
       this.cartItems = res;
       this.cartCount = res.length;
 
       this._crud.updateHeaderData(this.cartCount);
 
       this.firstlistItem = this.cartItems[0];
-      
+
       this.displaydeliveryDate = this.firstlistItem.deliveryDate;
       this.displaydeliveryTime = this.firstlistItem.deliveryTiming;
       this.maxLeadTime = this.firstlistItem.maxLeadTime;
@@ -249,9 +246,8 @@ decrementbtn:boolean=false
           this.outofdatemessage = this.cartItems.some((item: { outOfDateMessage: any; }) => item.outOfDateMessage);
         }
       }
-      else
-      {
-        if (this.firstlistItem?.totalAmount <= 250/75) {
+      else {
+        if (this.firstlistItem?.totalAmount <= 250 / 75) {
           this.outofdatemessage = true;
           this.MinCartMessage = "Minimum Cart Value is greater than 3$";
         }
@@ -259,24 +255,24 @@ decrementbtn:boolean=false
           this.outofdatemessage = this.cartItems.some((item: { outOfDateMessage: any; }) => item.outOfDateMessage);
         }
       }
-    
+
       this.getbindDate();
     });
   }
 
 
   incrementQuantity(index: number, sno: any) {
-    this.incrementbtn=true;
+    this.incrementbtn = true;
     this.cartItems[index].quantity++;
-    let quntity= this.cartItems[index].quantity
-    this.updateCartItem(sno,quntity,index,'i')
+    let quntity = this.cartItems[index].quantity
+    this.updateCartItem(sno, quntity, index, 'i')
   }
 
-  decrementQuantity(index: number,sno: any) {
+  decrementQuantity(index: number, sno: any) {
     if (this.cartItems[index].quantity > 0) {
       this.cartItems[index].quantity--;
-      let quntity= this.cartItems[index].quantity
-this.updateCartItem(sno,quntity, index, 'd')
+      let quntity = this.cartItems[index].quantity
+      this.updateCartItem(sno, quntity, index, 'd')
 
     }
   }
@@ -284,7 +280,7 @@ this.updateCartItem(sno,quntity, index, 'd')
 
 
 
-  updateCartItem(sno: any, quntity: any, index:any, status:any) {
+  updateCartItem(sno: any, quntity: any, index: any, status: any) {
 
     let data = {
       "sno": sno,
@@ -302,10 +298,9 @@ this.updateCartItem(sno,quntity, index, 'd')
       else
       {
         this.cartItems[index].errmsg = res.errorMessage;
-if(status =='i')
-  {
-    this.cartItems[index].quantity--;
-  }
+        if (status == 'i') {
+          this.cartItems[index].quantity--;
+        }
       }
     });
   }
@@ -350,11 +345,10 @@ if(status =='i')
     this.renderer.removeClass(document.body, 'bodyloader');
   }
 
-  addOnProducts(flag:any) {
-if(flag=='0')
-{
-  this.showcheckoutbtn=true;
-}
+  addOnProducts(flag: any) {
+    if (flag == '0') {
+      this.showcheckoutbtn = true;
+    }
     let data = {
       customerId: this.customerId,
       sessionId: this.sessionId,
@@ -467,10 +461,9 @@ if(flag=='0')
     })
   }
 
- 
-  capturephoto(src:any)
-  {
-    this.customimg=src;
-    
+
+  capturephoto(src: any) {
+    this.customimg = src;
+
   }
 }

@@ -12,7 +12,7 @@ import { CurdService } from './services/curd.service';
 export class AppComponent implements OnInit {
 
   sessionId: any;
-  country: any='USA';
+  country: any = 'USA';
   showpopup: boolean = false;
   email: any;
 
@@ -21,22 +21,22 @@ export class AppComponent implements OnInit {
   customerId: any = 0;
   onLoadNotifications: any;
   city: any;
-  countryname: any='USA';
+  countryname: any = 'USA';
   currency: any;
   ngOnInit(): void {
 
-    
+
     if (localStorage.getItem('email')) {
       this.email = localStorage.getItem('email');
       this.customerId = localStorage.getItem('customerId')
       this.custName = localStorage.getItem('custName')
-     
+
     }
     this.city = localStorage.getItem('city')
     this.countryname = localStorage.getItem('country');
     this.currency = localStorage.getItem('currency');
     if (this.cookieService.check('sessionID')) {
-      this.sessionId= this.cookieService.get('sessionID')
+      this.sessionId = this.cookieService.get('sessionID')
     }
     else {
 
@@ -51,17 +51,16 @@ export class AppComponent implements OnInit {
 
       this._crud.getCountryusingIp1(userIp).subscribe((data: any) => {
 
-      
-      if(data.country =='IN')
-      {
-        
-        this.country='India'
-      }
-      else{
-        
-        this.country = data.country;
-  
-      }
+
+        if (data.country == 'IN') {
+
+          this.country = 'India'
+        }
+        else {
+
+          this.country = data.country;
+
+        }
         if (!localStorage.getItem('country')) {
           localStorage.setItem('country', this.country)
         }
@@ -73,15 +72,15 @@ export class AppComponent implements OnInit {
       });
     });
 
-   
+
     this.router.events.subscribe((evt) => {
-   if (evt instanceof NavigationEnd) {
-setTimeout(() => {
-  if (localStorage.getItem('city')) {
-    this.city=localStorage.getItem('city')
-  this.getCarts();
-  }
-}, 1000);
+      if (evt instanceof NavigationEnd) {
+        setTimeout(() => {
+          if (localStorage.getItem('city')) {
+            this.city = localStorage.getItem('city')
+            this.getCarts();
+          }
+        }, 1000);
 
         // this.onLoadNotifications = {
         //   "id": 1,
@@ -102,31 +101,31 @@ setTimeout(() => {
 
       }
     });
-  
 
-   
+
+
 
   }
 
 
   constructor(private route: ActivatedRoute, private _crud: CurdService, private cookieService: CookieService, private router: Router) {
     this.route.params.subscribe((params) => {
-      
-      
+
+
       if (params['favspl'] == 'sitemap.xml') {
-        
+
         window.location.reload();
       }
     })
 
-   
+
 
   }
 
 
 
 
-  title = 'countryoven';
+  title = 'sridutta';
 
 
 
@@ -179,12 +178,12 @@ setTimeout(() => {
 
     this._crud.headerShopingCart(data).subscribe(res => {
       this.onLoadNotifications = res.onLoadNotifications;
-      if (this.onLoadNotifications!=null)
-      this.showpopupfn(res.onLoadNotifications)
-      
+      if (this.onLoadNotifications != null)
+        this.showpopupfn(res.onLoadNotifications)
+
 
       this.count = res.cartItemsCount;
-this._crud.updateHeaderData(this.count);
+      this._crud.updateHeaderData(this.count);
     });
   }
 }

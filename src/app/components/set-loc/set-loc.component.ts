@@ -7,91 +7,83 @@ import { CurdService } from 'src/app/services/curd.service';
   templateUrl: './set-loc.component.html',
   styleUrls: ['./set-loc.component.scss']
 })
-export class SetLocComponent  implements OnInit{
+export class SetLocComponent implements OnInit {
 
-data:any;
-  @Input() env?:any;
-  @Output() selectEvent:any= new EventEmitter();
-  @Output() selectClose:any= new EventEmitter();
- noclose:boolean=false;
-constructor(private _crud:CurdService, private location: Location)
-{
-  
-  
-}
-update(event:any)
-{
-  
-  this.selectedCity(event.value)
-}
+  data: any;
+  @Input() env?: any;
+  @Output() selectEvent: any = new EventEmitter();
+  @Output() selectClose: any = new EventEmitter();
+  noclose: boolean = false;
+  constructor(private _crud: CurdService, private location: Location) {
 
 
-ngOnInit(): void {
+  }
+  update(event: any) {
 
-  if(this.env =='noloc')
-  {
-this.noclose=true
+    this.selectedCity(event.value)
   }
 
-// this.getDeliveryCity();
-if(localStorage.getItem('city'))
-{
 
-}
-}
-city:any;
-desireCity=[{"icon": 'icon-charminar',name:'Hyderabad'},
-{"icon": 'icon-redfort',name:'Delhi'},
-{"icon": 'icon-mumbai',name:'Mumbai'},
-{"icon": 'icon-bengaluru',name:'Bangalore'},
-{"icon": 'icon-kolkatta',name:'Kolkata'},
-{"icon": 'icon-chennai',name:'Chennai'}
- ]
- anotherCity=['Vijayawada','Kakinada','Pune','Bhopal','Warangal','Vizag']
-selectedCity(c:any)
-{
-  this.city=c;  
-  localStorage.setItem('city', c);
-  if(localStorage.getItem('currency'))
-  {
-  }
-  else
-  {
+  ngOnInit(): void {
+
+    if (this.env == 'noloc') {
+      this.noclose = true
+    }
+    localStorage.setItem('city', 'Hyderabad');
     localStorage.setItem('currency', 'USD')
-    
+    //this.getDeliveryCity();
+    if (localStorage.getItem('city')) {
+
+    }
   }
-  
-  this.selectEvent.emit();
-  
-  window.location.reload();
-}
+  city: any;
+  desireCity = [{ "icon": 'icon-charminar', name: 'Hyderabad' },
+  { "icon": 'icon-redfort', name: 'Delhi' },
+  { "icon": 'icon-mumbai', name: 'Mumbai' },
+  { "icon": 'icon-bengaluru', name: 'Bangalore' },
+  { "icon": 'icon-kolkatta', name: 'Kolkata' },
+  { "icon": 'icon-chennai', name: 'Chennai' }
+  ]
+  anotherCity = ['Vijayawada', 'Kakinada', 'Pune', 'Bhopal', 'Warangal', 'Vizag']
+  selectedCity(c: any) {
+    this.city = c;
+    localStorage.setItem('city', c);
+    if (localStorage.getItem('currency')) {
+    }
+    else {
+      localStorage.setItem('currency', 'USD')
 
-close()
-{
-  this.selectClose.emit();
-}
+    }
 
-getDeliveryCity()
-{
-  let data={}
-  this._crud.getDeliveryCity(data).subscribe(res => {
-    
+    this.selectEvent.emit();
 
-// { value: 'FR-ARA', label: 'Auvergne-Rhône-Alpes' },
+    window.location.reload();
+  }
 
-   // this.data=res;
-    this.data= this.transformCities(res);
-    
-  });
-}
+  close() {
+    this.selectClose.emit();
+  }
+
+  getDeliveryCity() {
+    let data = {}
+    this._crud.getDeliveryCity(data).subscribe(res => {
 
 
+      // { value: 'FR-ARA', label: 'Auvergne-Rhône-Alpes' },
 
- transformCities(originalCities: any[]): any[] {
-  return originalCities.map(city => ({
-    value: `${city.cityName}`,
-    label: city.cityName.charAt(0).toUpperCase() + city.cityName.slice(1)
-  }));
-}
+      // this.data=res;
+      this.data = this.transformCities(res);
+
+    });
+  }
+
+
+
+  transformCities(originalCities: any[]): any[] {
+    return originalCities.map(city => ({
+      value: `${city.cityName}`,
+      label: city.cityName.charAt(0).toUpperCase() + city.cityName.slice(1)
+    }));
+  }
 
 }

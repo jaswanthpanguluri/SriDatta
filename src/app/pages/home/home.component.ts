@@ -37,10 +37,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Order Cake Online | Send Cake Online to India - Sri Datta');
-    this.meta.updateTag({ name: 'description', content: 'Order cake online at Countryoven. Send a cake to India with same-day delivery from anywhere with one click.Tap to Order now! and surprise your loved ones.' });
-    this.meta.updateTag({ name: 'keywords', content: 'Order Birthday Cake Online ,order cake online ,birthday cakes delivered ,send cake to India ,online cake delivery in india ,send birthday cake online' });
-    this.meta.updateTag({ name: 'classification', content: 'Order Birthday Cake Online ,order cake online ,birthday cakes delivered ,send cake to India ,online cake delivery in india ,send birthday cake online' });
+    this.titleService.setTitle('Order Jeweller Online | Send Jeweller Online to India - Sri Datta');
+    this.meta.updateTag({ name: 'description', content: 'Order Jeweller online at sridutta. Send a Jeweller to India with same-day delivery from anywhere with one click.Tap to Order now! and surprise your loved ones.' });
+    this.meta.updateTag({ name: 'keywords', content: 'Order Birthday Jeweller Online ,order Jeweller online ,birthday Jewellers delivered ,send Jeweller to India ,online Jeweller delivery in india ,send birthday Jeweller online' });
+    this.meta.updateTag({ name: 'classification', content: 'Order Birthday Jeweller Online ,order Jeweller online ,birthday Jewellers delivered ,send Jeweller to India ,online Jeweller delivery in india ,send birthday Jeweller online' });
 
     this.addLoader();
     this.addCanonicalLink();
@@ -73,13 +73,13 @@ export class HomeComponent implements OnInit {
 
     const canonicalLink: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
     if (canonicalLink) {
-      canonicalLink.href = 'https://www.countryoven.com';
+      canonicalLink.href = 'https://www.sridutta.com';
     }
     else {
       const link: HTMLLinkElement = this.renderer.createElement('link');
       link.rel = 'canonical';
 
-      link.href = 'https://www.countryoven.com'; // Replace with your canonical URL
+      link.href = 'https://www.sridutta.com'; // Replace with your canonical URL
       this.renderer.appendChild(document.head, link);
     }
   }
@@ -87,9 +87,9 @@ export class HomeComponent implements OnInit {
   getProducts(): void {
     this.addLoader();
     const data = {
-      cityname: this.city,
-      country: this.countryname,
-      currencySelected: this.currency
+      //cityname: this.city,
+      //country: this.countryname,
+      //currencySelected: this.currency
     }
     this._crud.getProducts(data).subscribe(res => {
       this.removeLoader();

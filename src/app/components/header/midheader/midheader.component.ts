@@ -45,7 +45,7 @@ export class MidheaderComponent implements OnInit {
 
     this.sessionId = this.cookieService.get('sessionID')
     this.city = localStorage.getItem('city')
-    
+
     this.countryname = localStorage.getItem('country');
     this.currency = localStorage.getItem('currency');
     if (localStorage.getItem('customerId')) {
@@ -70,20 +70,20 @@ export class MidheaderComponent implements OnInit {
 
 
       this.city = data
-      
+
     })
 
     this.currencysubscription = this._curdService.currencyData$.subscribe((data) => {
-     
-     this.city = localStorage.getItem('city');
+
+      this.city = localStorage.getItem('city');
     });
 
-    
+
 
     this.citysubscription = this._curdService.cityData$.subscribe((data) => {
 
       this.city = localStorage.getItem('city');
-      
+
       if (localStorage.getItem('currency')) {
         this.selectedCurrency = localStorage.getItem('currency')
 
