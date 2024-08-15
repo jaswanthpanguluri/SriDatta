@@ -62,7 +62,7 @@ export class UserDashboardComponent {
     {
       Link: '/myaccount/cowallet',
       Icon: 'icon-wallet',
-      Title: 'Co Wallet',
+      Title: 'Wallet',
       LinkName: 'Used / Unused Wallet History'
     },
     {

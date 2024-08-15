@@ -87,9 +87,9 @@ export class HomeComponent implements OnInit {
   getProducts(): void {
     this.addLoader();
     const data = {
-      cityname: this.city,
-      country: this.countryname,
-      currencySelected: this.currency
+      //cityname: this.city,
+      //country: this.countryname,
+      //currencySelected: this.currency
     }
     this._crud.getProducts(data).subscribe(res => {
       this.removeLoader();

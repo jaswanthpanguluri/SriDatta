@@ -393,7 +393,7 @@ export class AddressListComponent implements OnInit {
     this.cityList = [];
     // this.getCountry();
     //this.getState(1)
-    this.getCity();
+    //this.getCity();
   }
   editAddress(addId: any) {
 
@@ -435,7 +435,7 @@ export class AddressListComponent implements OnInit {
       //  this.getCountry();
       //  this.getState(1);
 
-      this.getCity()
+      //this.getCity()
 
 
       //  this.deliverAddress=res;

@@ -74,7 +74,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
           .map((selectedOption: any) => selectedOption.value);
 
         if (selectedValues.length > 0) {
-          selectedValuesByFilterType[filterGroup.filterType] = selectedValues;
+          selectedValuesByFilterType[(filterGroup.filterType).toLowerCase()] = selectedValues;
         }
       }
 
