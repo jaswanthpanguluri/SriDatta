@@ -375,9 +375,9 @@ export class ProductDetailComponent implements OnInit {
 
 
       "productId": this.productId,
-      "cityName": this.cityName,
-      "countryName": this.coutryName,
-      "currencySelected": this.currencySelected
+      //"cityName": this.cityName,
+      // "countryName": this.coutryName,
+      //"currencySelected": this.currencySelected
 
 
     }
@@ -403,9 +403,9 @@ export class ProductDetailComponent implements OnInit {
 
     const data = {
       "SEOName": this.productName,
-      "cityName": this.cityName,
-      "countryName": this.coutryName,
-      "currencySelected": this.currencySelected,
+      //"cityName": this.cityName,
+      // "countryName": this.coutryName,
+      //"currencySelected": this.currencySelected,
       "sessionId": this.cookieService.get('sessionID')
     }
     this._crud.getProductDetailsById(data).subscribe(res => {
