@@ -13,8 +13,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-showpincode:boolean=false;
-prevpincode:any;
+  showpincode: boolean = false;
+  prevpincode: any;
   productName: any;
   cityName: any;
   coutryName: any;
@@ -73,9 +73,9 @@ prevpincode:any;
   pName: any;
   selectedFile: any;
   selectedVocucher: any;
-  customerId: any = 0; 
-  courierProductMessage:any;
-  fewStockMessage:any;
+  customerId: any = 0;
+  courierProductMessage: any;
+  fewStockMessage: any;
   customOptions: OwlOptions = {
     loop: false,
     autoplayTimeout: 3000,
@@ -87,7 +87,7 @@ prevpincode:any;
     animateIn: true,
     animateOut: 'fadeOut',
     dots: false,
-    nav:false,
+    nav: false,
     navSpeed: 700,
     navText: ['<i class="bi bi-chevron-left"></i>', '<i class="bi bi-chevron-right"></i>'],
     responsive: {
@@ -132,67 +132,59 @@ prevpincode:any;
 
   ngOnInit(): void {
     this.addLoader();
- this.setcounntry();
+    this.setcounntry();
     this.route.params.subscribe((params) => {
-      
+
       this.productName = params['PageName'];
-      if(!localStorage.getItem('country') || !localStorage.getItem('currency'))
-      {
+      if (!localStorage.getItem('country') || !localStorage.getItem('currency')) {
 
 
         this._crud.getIpAddress().subscribe((data: any) => {
           let userIp = data.ip;
 
-        this._crud.getCountryusingIp1(userIp).subscribe((data: any) => {
+          this._crud.getCountryusingIp1(userIp).subscribe((data: any) => {
 
-          let coun;
-          if (data.country == 'IN') {
-            coun = 'India'
-          }
-          else {
-            coun = data.country;
-          }
-    if(!localStorage.getItem('country'))
-    { 
-      localStorage.setItem('country', coun)
-    }
- 
-  if(localStorage.getItem('country') == 'India')
-  {
-    if(!localStorage.getItem('currency'))
-    {      
-    localStorage.setItem('currency', 'INR')
-    }
-  }
-  else
-  {
-    if(!localStorage.getItem('currency'))
-    {      
-    localStorage.setItem('currency', 'USD')
-    }
-  }
-  this.setcounntry()
-  
-setTimeout(() => {
+            let coun;
+            if (data.country == 'IN') {
+              coun = 'India'
+            }
+            else {
+              coun = data.country;
+            }
+            if (!localStorage.getItem('country')) {
+              localStorage.setItem('country', coun)
+            }
 
-if(params['cityname'] == 'send-online')
-{
-  this.getProductDetailsById();
-}
-}, 500);
-  
+            if (localStorage.getItem('country') == 'India') {
+              if (!localStorage.getItem('currency')) {
+                localStorage.setItem('currency', 'INR')
+              }
+            }
+            else {
+              if (!localStorage.getItem('currency')) {
+                localStorage.setItem('currency', 'USD')
+              }
+            }
+            this.setcounntry()
 
-  });
+            setTimeout(() => {
 
-});
+              if (params['cityname'] == 'send-online') {
+                this.getProductDetailsById();
+              }
+            }, 500);
 
-      }  else{
-        if(params['cityname'] == 'send-online')
-{
-        this.getProductDetailsById();
-}
+
+          });
+
+        });
+
+      } else {
+        if (params['cityname'] == 'send-online') {
+          this.getProductDetailsById();
+        }
       }
-         
+
     });
 
 
@@ -202,19 +194,18 @@ if(params['cityname'] == 'send-online')
 
   }
 
-  
-setcounntry()
-{
-  this.currency = localStorage.getItem('currency');
-  if (this.currency == 'INR') {
-    this.currencyClass = 'icon-inr'
+
+  setcounntry() {
+    this.currency = localStorage.getItem('currency');
+    if (this.currency == 'INR') {
+      this.currencyClass = 'icon-inr'
+    }
+    else if (this.currency == 'USD') {
+      this.currencyClass = 'icon-dollar-currency-symbol'
+    }
+    this.coutryName = localStorage.getItem('country');
+    this.currencySelected = localStorage.getItem('currency');
   }
-  else if (this.currency == 'USD') {
-    this.currencyClass = 'icon-dollar-currency-symbol'
-  }
-  this.coutryName = localStorage.getItem('country');
-  this.currencySelected = localStorage.getItem('currency');
-}
 
 
 
@@ -227,7 +218,7 @@ setcounntry()
 
 
   onInput(event: Event): void {
-    
+
     const target = event.target as HTMLTextAreaElement;
     const currentLength = target.value.length;
 
@@ -285,7 +276,7 @@ setcounntry()
 
   onSubmit() {
     this.markFormGroupTouched(this.dynamicForm);
-    
+
     if (this.dynamicForm.valid) {
       const formData = this.dynamicForm.value;
 
@@ -296,9 +287,9 @@ setcounntry()
 
 
 
-    } else{
+    } else {
       this.scrollToElement('elementId')
-    //  window.scrollTo({ top: 600, behavior: 'smooth' });
+      //  window.scrollTo({ top: 600, behavior: 'smooth' });
     }
   }
 
@@ -337,32 +328,30 @@ setcounntry()
       }
     }
     this._crud.getSaveProductDetails(data).subscribe(res => {
-      if(!res.isEroor)     
-        {
-      if (res.sNo) {
-        this.sNo = res.sNo;
+      if (!res.isEroor) {
+        if (res.sNo) {
+          this.sNo = res.sNo;
 
-        if (this.photoRequired) {
-          this.photoUpload(this.sNo)
+          if (this.photoRequired) {
+            this.photoUpload(this.sNo)
+          }
+
+          else {
+            this.removeLoader();
+            this.router.navigateByUrl('/cart')
+          }
+
+
+
+          // alert(res.successMessage)
         }
 
-        else {
-          this.removeLoader();
-          this.router.navigateByUrl('/cart')
-        }
 
-
-
-        // alert(res.successMessage)
       }
+      else {
 
-
-    }
-    else
-    {
-      
-      this.removeLoader();
-    }
+        this.removeLoader();
+      }
     });
 
 
@@ -392,8 +381,8 @@ setcounntry()
 
   changeImage(image: string) {
     this.myThumbnail = image;
-    this.myFullresImage=image
-  //  let index = this.productImagesCompress.indexOf(image);
+    this.myFullresImage = image
+    //  let index = this.productImagesCompress.indexOf(image);
     //this.myFullresImage = this.productImages[index];
   }
 
@@ -409,16 +398,15 @@ setcounntry()
       "cityName": this.cityName,
       "countryName": this.coutryName,
       "currencySelected": this.currencySelected,
-      "sessionId":  this.cookieService.get('sessionID')
+      "sessionId": this.cookieService.get('sessionID')
     }
     this._crud.getProductDetailsById(data).subscribe(res => {
-      
 
-if(res.isError)
-{
-  this.router.navigateByUrl('/')
 
-}
+      if (res.isError) {
+        this.router.navigateByUrl('/')
+
+      }
 
       this.removeLoader();
       this.titleService.setTitle(res.title);
@@ -430,13 +418,12 @@ if(res.isError)
       this.productId = res.productId;
       this.isMultipleImages = res.isMultipleImages;
       this.productIamges = res.productIamges;
-      this.courierProductMessage=res.courierProductMessage;
-      this.fewStockMessage=res.fewStockMessage;
-if(this.isMultipleImages)
-{
-  this.myThumbnail= this.productIamges[0].imageName;
-  this.myFullresImage= this.productIamges[0].imageName;
-}
+      this.courierProductMessage = res.courierProductMessage;
+      this.fewStockMessage = res.fewStockMessage;
+      if (this.isMultipleImages) {
+        this.myThumbnail = this.productIamges[0].imageName;
+        this.myFullresImage = this.productIamges[0].imageName;
+      }
       // this.myThumbnail = res.data?.product_image || "https://api.myverkoper.com/assets/seller/images/mvk-no-image.png";
       // this.myFullresImage = res.data?.product_image || "https://api.myverkoper.com/assets/seller/images/mvk-no-image.png";
 
@@ -460,7 +447,7 @@ if(this.isMultipleImages)
       this.sameDayBlockMessage = this.productDetails.sameDayBlockMessage;
       this.maxLengthFixed = this.productDetails.maxLength;
       this.maxLength = this.productDetails.maxLength;
-      this.prevpincode=this.productDetails.previousPinCode;
+      this.prevpincode = this.productDetails.previousPinCode;
       if (this.photoCakePrice > 0) {
         this.productPrice = parseFloat(this.productPrice) + this.photoCakePrice
       }
@@ -477,11 +464,11 @@ if(this.isMultipleImages)
 
 
         if (this.tagMsg == 'Few Stock') {
-                  this.tagClass = 'bluecls'
-                } 
+          this.tagClass = 'bluecls'
+        }
 
 
-      }  else if (this.isNewArriavalstatus) {
+      } else if (this.isNewArriavalstatus) {
         this.tagClass = 'bluecls'
         this.tagMsg = this.productDetails?.newTagMessage
       }
@@ -493,33 +480,30 @@ if(this.isMultipleImages)
 
 
 
-if(this.productId)
-{
-      this.getProductReviews(this.productId)
-      this.getRelatedProducts();
-}
+      if (this.productId) {
+        this.getProductReviews(this.productId)
+        this.getRelatedProducts();
+      }
       this.flavourOptionsDto_array = this.productDetails.flavourOptionsDto;
       this.voucherOptionsDto_array = this.productDetails.voucherOptionsDto;
       this.weightOptionsDto_array = this.productDetails.weightOptionsDto;
       this.numberOptionsDto_array = this.productDetails.numberOptionsDto;
       this.messageRequired = this.productDetails.messageRequired;
       this.deliveryDates_array = this.productDetails.deliveryDates;
-      if (this.deliveryDates_array.length > 0) {
+      if (this.deliveryDates_array && this.deliveryDates_array.length > 0) {
         this.addFormControl('deliveryDates');
         this.addFormControl('deliveryTimes');
         setTimeout(() => {
-let d;
-          if(this.productDetails.previousSelectedDate  && this.productDetails.previousSelectedDate !='')
-          {
+          let d;
+          if (this.productDetails.previousSelectedDate && this.productDetails.previousSelectedDate != '') {
             this.dynamicForm.get('deliveryDates')?.setValue(this.productDetails.previousSelectedDate);
-          d=this.productDetails.previousSelectedDate
+            d = this.productDetails.previousSelectedDate
           }
-          else
-          {
+          else {
             this.dynamicForm.get('deliveryDates')?.setValue(this.deliveryDates_array[0].deliveryDateValue);
-            d=this.deliveryDates_array[0].deliveryDateValue
+            d = this.deliveryDates_array[0].deliveryDateValue
           }
-        
+
 
           const data = {
             "DeliveryDate": d,
@@ -535,44 +519,40 @@ let d;
             this.deliveryTime = res.deliveryTimingsDtos;
 
 
-            if(this.productDetails.previousSelectedTime  && this.productDetails.previousSelectedTime !='')
-            {
+            if (this.productDetails.previousSelectedTime && this.productDetails.previousSelectedTime != '') {
               this.dynamicForm.get('deliveryTimes')?.setValue(this.productDetails.previousSelectedTime);
             }
-            else
-            {
+            else {
               this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
             }
 
-         //   this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
+            //   this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
 
             /* pincode */
 
             this.pincodeOptionsDto_array = res.deliveryPinCodes;
             if (this.pincodeOptionsDto_array?.length > 0) {
-              
-              this.showpincode=true;
+
+              this.showpincode = true;
               this.addFormControl('pincodeOptionsDto');
               setTimeout(() => {
                 this.dynamicForm.get('pincodeOptionsDto')?.setValue(null);
-                
-if(this.prevpincode !=null)
-  {
-    
-    this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
-  }
+
+                if (this.prevpincode != null) {
+
+                  this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
+                }
               }, 1000);
 
-            
 
 
 
 
-              
 
-            } else
-            {
-              this.showpincode=false;
+
+
+            } else {
+              this.showpincode = false;
             }
             /* pincode */
 
@@ -586,7 +566,7 @@ if(this.prevpincode !=null)
 
 
       }
-      if (this.flavourOptionsDto_array.length > 0) {
+      if (this.flavourOptionsDto_array && this.flavourOptionsDto_array.length > 0) {
         this.addFormControl('flavourOptionsDto');
         setTimeout(() => {
           //  this.dynamicForm.get('flavourOptionsDto')?.setValue(this.flavourOptionsDto_array[0].optionValue);
@@ -622,7 +602,7 @@ if(this.prevpincode !=null)
         }, 1000);
 
 
-      
+
 
 
 
@@ -639,10 +619,10 @@ if(this.prevpincode !=null)
 
       }
 
-    }, (error)=>{
+    }, (error) => {
       this.removeLoader()
-        } )
-  } 
+    })
+  }
 
   onMessageInputChange() {
 
@@ -710,7 +690,7 @@ if(this.prevpincode !=null)
 
   onVoucherChange(e: any) {
 
-    
+
     this.productPrice = this.selectedVoucher.optionId
     this.selectedVocucher = this.selectedVoucher.optionValue
     //     this.selectedQty = this.selectedItem.optionValue;
@@ -720,7 +700,7 @@ if(this.prevpincode !=null)
     //     }
     // this.egglessPrice=this.selectedItem.egglessAddtionalPrice
 
-    
+
     //     if (this.isegglessChecked) {
     //       this.productPrice = parseFloat(this.selectedItem.optionId) + this.egglessPrice + this.photoCakePrice
     //     } else {
@@ -737,7 +717,7 @@ if(this.prevpincode !=null)
     }
     this.egglessPrice = this.selectedItem.egglessAddtionalPrice
 
-    
+
     if (this.isegglessChecked) {
       let result = parseFloat(this.selectedItem.optionId) + this.egglessPrice + this.photoCakePrice
       if (this.currencySelected == 'USD') {
@@ -762,12 +742,11 @@ if(this.prevpincode !=null)
   }
 
 
-getBindPincode(e:any)
-{
-  const selectedValue = (e.target as HTMLSelectElement).value;
-  
-  this.prevpincode=selectedValue
-}
+  getBindPincode(e: any) {
+    const selectedValue = (e.target as HTMLSelectElement).value;
+
+    this.prevpincode = selectedValue
+  }
 
 
 
@@ -788,38 +767,35 @@ getBindPincode(e:any)
 
 
       this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
-      
 
-   /* pincode */
 
-   this.pincodeOptionsDto_array = res.deliveryPinCodes;
-   if (this.pincodeOptionsDto_array?.length > 0) {
-     this.showpincode=true;
+      /* pincode */
 
-    if( this.dynamicForm.get('pincodeOptionsDto') !==null)
-    {
-     this.addFormControl('pincodeOptionsDto');
-    }
-     setTimeout(() => {
-       this.dynamicForm.get('pincodeOptionsDto')?.setValue(null);
-      
-              
-       if(this.prevpincode !=null)
-        {
-          
-          this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
+      this.pincodeOptionsDto_array = res.deliveryPinCodes;
+      if (this.pincodeOptionsDto_array?.length > 0) {
+        this.showpincode = true;
+
+        if (this.dynamicForm.get('pincodeOptionsDto') !== null) {
+          this.addFormControl('pincodeOptionsDto');
         }
+        setTimeout(() => {
+          this.dynamicForm.get('pincodeOptionsDto')?.setValue(null);
 
 
-     }, 1000);
+          if (this.prevpincode != null) {
 
-   } else
-   {
-     this.showpincode=false;
-     this.dynamicForm.get('pincodeOptionsDto')?.clearValidators();
-     this.dynamicForm.get('pincodeOptionsDto')?.updateValueAndValidity();
-   }
-   /* pincode */
+            this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
+          }
+
+
+        }, 1000);
+
+      } else {
+        this.showpincode = false;
+        this.dynamicForm.get('pincodeOptionsDto')?.clearValidators();
+        this.dynamicForm.get('pincodeOptionsDto')?.updateValueAndValidity();
+      }
+      /* pincode */
 
 
     })
@@ -852,7 +828,7 @@ getBindPincode(e:any)
     } else {
       // Reset the form control and show an error message
 
-      
+
     }
 
 
@@ -888,20 +864,19 @@ getBindPincode(e:any)
 
 
 
-  private addCanonicalLink(v:any) {
+  private addCanonicalLink(v: any) {
 
 
     const canonicalLink: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
     if (canonicalLink) {
       canonicalLink.href = 'https://www.countryoven.com' + v;
     }
-    else
-    {
+    else {
 
       const link: HTMLLinkElement = this.renderer.createElement('link');
       link.rel = 'canonical';
-      
-    
+
+
       link.href = 'https://www.countryoven.com' + v; // Replace with your canonical URL
       this.renderer.appendChild(document.head, link);
     }

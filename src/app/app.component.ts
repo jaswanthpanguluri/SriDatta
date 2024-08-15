@@ -68,8 +68,6 @@ export class AppComponent implements OnInit {
         if (localStorage.getItem('country') == 'India' && !localStorage.getItem('currency')) {
           localStorage.setItem('currency', 'INR')
         }
-
-console.log('krishna')
         this._crud.updateCurrencyData(localStorage.getItem('currency'));
 
       });

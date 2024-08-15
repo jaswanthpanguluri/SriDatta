@@ -301,7 +301,6 @@ this.updateCartItem(sno,quntity, index, 'd')
       }
       else
       {
-        console.log(res)
         this.cartItems[index].errmsg = res.errorMessage;
 if(status =='i')
   {

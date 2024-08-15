@@ -33,7 +33,7 @@ ngOnInit(): void {
 this.noclose=true
   }
 
-this.getDeliveryCity();
+// this.getDeliveryCity();
 if(localStorage.getItem('city'))
 {
 
