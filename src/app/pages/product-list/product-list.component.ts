@@ -52,9 +52,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
 
 
-  routeCity(e: any) {
-    this.router.navigateByUrl(e.toLowerCase() + '/gift-online');
-  }
+  // routeCity(e: any) {
+  //   this.router.navigateByUrl(e.toLowerCase() + '/gift-online');
+  // }
   routeCategory(e: any) {
 
     //this.router.navigateByUrl(e + '/' + this.originalcityname.toLowerCase() + '/online-delivery');

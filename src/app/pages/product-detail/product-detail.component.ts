@@ -498,7 +498,7 @@ export class ProductDetailComponent implements OnInit {
       this.numberOptionsDto_array = this.productDetails.numberOptionsDto;
       this.messageRequired = this.productDetails.messageRequired;
       this.deliveryDates_array = this.productDetails.deliveryDates;
-      if (this.deliveryDates_array.length > 0) {
+      if (this.deliveryDates_array && this.deliveryDates_array.length > 0) {
         this.addFormControl('deliveryDates');
         this.addFormControl('deliveryTimes');
         setTimeout(() => {
@@ -574,7 +574,7 @@ export class ProductDetailComponent implements OnInit {
 
 
       }
-      if (this.flavourOptionsDto_array.length > 0) {
+      if (this.flavourOptionsDto_array && this.flavourOptionsDto_array.length > 0) {
         this.addFormControl('flavourOptionsDto');
         setTimeout(() => {
           //  this.dynamicForm.get('flavourOptionsDto')?.setValue(this.flavourOptionsDto_array[0].optionValue);

@@ -295,8 +295,8 @@ export class CartComponent implements OnInit {
         this.getCarts();
         this.cartItems[index].errmsg = "";
       }
-      else {
-        console.log(res)
+      else
+      {
         this.cartItems[index].errmsg = res.errorMessage;
         if (status == 'i') {
           this.cartItems[index].quantity--;
