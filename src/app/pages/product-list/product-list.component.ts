@@ -57,7 +57,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
   routeCategory(e: any) {
 
-    this.router.navigateByUrl(e + '/' + this.originalcityname.toLowerCase() + '/online-delivery');
+    //this.router.navigateByUrl(e + '/' + this.originalcityname.toLowerCase() + '/online-delivery');
+    this.router.navigateByUrl(e + '/online-delivery');
 
   }
 
@@ -316,7 +317,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getMeta(): void {
 
     const data = {
-      cityname: this.cityname,
+      //cityname: this.cityname,
       Type: this.type,
       PageName: this.PageName
     }
@@ -345,11 +346,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
     this.loading = true;
     const data = {
-      cityname: this.cityname,
-      country: this.country,
+      //cityname: this.cityname,
+      //country: this.country,
       Type: this.type,
       PageName: this.PageName,
-      currencySelected: this.currency,
+      //currencySelected: this.currency,
       PageNumber: pagenumber,
       PageSize: this.psize,
       productFilters: filters,
@@ -404,11 +405,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getFiltersDetails(): void {
 
     const data = {
-      cityname: this.cityname,
+      //cityname: this.cityname,
 
       Type: this.type,
       PageName: this.PageName,
-      currencySelected: this.currency
+      //currencySelected: this.currency
     }
 
     this._crud.getFilters(data).subscribe(res => {
