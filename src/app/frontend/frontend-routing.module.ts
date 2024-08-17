@@ -26,6 +26,7 @@ import { NotificationsComponent } from '../pages/home/notifications/notification
 import { OopsComponent } from '../pages/404/404.component';
 import { RrevComponent } from '../pages/rrev/rrev.component';
 import { BakeryReviewsComponent } from '../pages/bakery-reviews/bakery-reviews.component';
+import { AboutAndMediaComponent } from '@page/about-and-media/about-and-media.component';
 
 const routes: Routes = [
   {
@@ -41,7 +42,7 @@ const routes: Routes = [
       { path: 'corporateorders', component: CorporateOrdersComponent },
 
       { path: 'aboutus', component: AboutusComponent },
-
+      { path: 'about-and-media', component: AboutAndMediaComponent },
       { path: 'content/ourstores', component: StoresComponent },
       { path: 'reviews', component: ReviewsComponent },
       { path: 'rrev/index/:id', component: RrevComponent },
