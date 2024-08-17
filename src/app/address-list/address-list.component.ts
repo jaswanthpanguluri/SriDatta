@@ -29,9 +29,9 @@ export class AddressListComponent implements OnInit {
   maxAddressLength = 100;
   cityname: any;
   notmatch: boolean = false;
-  notmatchzip:boolean=false;
+  notmatchzip: boolean = false;
   textAreaInput = '';
-  customaddressObj:any;
+  customaddressObj: any;
   @ViewChild('AddButton')
   AddButton!: ElementRef;
 
@@ -42,16 +42,16 @@ export class AddressListComponent implements OnInit {
 
   @Input('checkoutaddress') checkoutaddress: boolean = false;
   @Input('selectedAddressId') selectedAddressId: any;
-  @Input('zipcode') zipCode:string='no';
+  @Input('zipcode') zipCode: string = 'no';
   @Output() sendAddId: any = new EventEmitter<any>();
   isCheckout: boolean = false;
   addressidobj: any = [];
   constructor(private titleService: Title, private meta: Meta, private renderer: Renderer2, private _crud: CurdService, private fb: FormBuilder, private el: ElementRef, private toastr: ToastrService) {
 
-    this.titleService.setTitle("Countryoven's - Address Book");
-    this.meta.updateTag({ name: 'description', content: "Countryoven's - Address Book" });
-    this.meta.updateTag({ name: 'keywords', content: "Countryoven's - Address Book" });
-    this.meta.updateTag({ name: 'classification', content: "Countryoven's - Address Book" });
+    this.titleService.setTitle("SriDutta's - Address Book");
+    this.meta.updateTag({ name: 'description', content: "SriDutta's - Address Book" });
+    this.meta.updateTag({ name: 'keywords', content: "SriDutta's - Address Book" });
+    this.meta.updateTag({ name: 'classification', content: "SriDutta's - Address Book" });
 
 
     if (localStorage.getItem('email')) {
@@ -59,7 +59,7 @@ export class AddressListComponent implements OnInit {
       this.email = localStorage.getItem('email');
       this.custID = localStorage.getItem('customerId')
       this.custName = localStorage.getItem('custName')
-    
+
     }
     this.cityname = localStorage.getItem('city')
 
@@ -93,7 +93,7 @@ export class AddressListComponent implements OnInit {
       //  addcountryId: ['', Validators.required],
       addzipCode: ['', [Validators.required, Validators.pattern(/^\d{6}$/)]],
     });
-    
+
   }
 
   updateCharacterCount() {
@@ -109,15 +109,13 @@ export class AddressListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-if(this.checkoutaddress)
-    {
-    this.adduserForm.get('addcityName')?.setValue(this.cityname);
+
+    if (this.checkoutaddress) {
+      this.adduserForm.get('addcityName')?.setValue(this.cityname);
     }
 
-    if(this.checkoutaddress && this.zipCode !='no')
-    {
-    this.adduserForm.get('addzipCode')?.setValue(this.zipCode);
+    if (this.checkoutaddress && this.zipCode != 'no') {
+      this.adduserForm.get('addzipCode')?.setValue(this.zipCode);
     }
 
     this.selectedaddress = 'select'
@@ -126,22 +124,20 @@ if(this.checkoutaddress)
   selectAdd(e: any) {
     this.selectedaddress = e.addressId;
 
-// (this.zipCode == 0 || this.zipCode == e.zipCode)  
-    if ((this.cityname.toLowerCase() == e.cityName.toLowerCase())  && (this.zipCode == 'no' || this.zipCode == e.zipCode))  {
+    // (this.zipCode == 0 || this.zipCode == e.zipCode)
+    if ((this.cityname.toLowerCase() == e.cityName.toLowerCase()) && (this.zipCode == 'no' || this.zipCode == e.zipCode)) {
       let s: boolean = true
       this.sendAddId.emit({ e, s })
     }
     else {
 
-if(this.cityname.toLowerCase() != e.cityName.toLowerCase())
-{
-  this.notmatch = true;
+      if (this.cityname.toLowerCase() != e.cityName.toLowerCase()) {
+        this.notmatch = true;
 
-}
-else
-{
-  this.notmatchzip = true;
-}
+      }
+      else {
+        this.notmatchzip = true;
+      }
 
       // if(this.zipCode != e.zipCode)
       // {
@@ -150,7 +146,7 @@ else
       // else{
       //   this.notmatch = true;
       // }
-      
+
       let s: boolean = false
       this.sendAddId.emit({ e, s })
 
@@ -231,8 +227,8 @@ else
           "cityName": this.adduserForm.value['addcityName'],
           "stateId": this.adduserForm.value['addstateId'],
           "countryId": 1,
-        //  "zipCode": this.adduserForm.value['addzipCode'].toString(),
-          "zipCode":  (this.checkoutaddress && this.zipCode !='no') ? this.zipCode.toString() : this.adduserForm.value['addzipCode'].toString(), 
+          //  "zipCode": this.adduserForm.value['addzipCode'].toString(),
+          "zipCode": (this.checkoutaddress && this.zipCode != 'no') ? this.zipCode.toString() : this.adduserForm.value['addzipCode'].toString(),
           "relationshipId": 10,
           "status": true
         }
@@ -241,24 +237,22 @@ else
         this.removeLoader();
         if (!res.isEroor) {
 
-          
-           if(this.checkoutaddress)
-           {
-         let e = { recipientFirstName: this.adduserForm.value['addRecipientFirstName'], recipientLastName: this.adduserForm.value['addRecipientLastName'], cityName:this.adduserForm.value['addcityName'], addressId: res.addressId, zipCode:this.adduserForm.value['addzipCode']  };
 
-        let s:boolean=true
-          this.sendAddId.emit({ e, s})  
-           }
+          if (this.checkoutaddress) {
+            let e = { recipientFirstName: this.adduserForm.value['addRecipientFirstName'], recipientLastName: this.adduserForm.value['addRecipientLastName'], cityName: this.adduserForm.value['addcityName'], addressId: res.addressId, zipCode: this.adduserForm.value['addzipCode'] };
+
+            let s: boolean = true
+            this.sendAddId.emit({ e, s })
+          }
 
 
           this.toastr.success(res.successMessage);
           const button: HTMLButtonElement = this.AddButton.nativeElement;
           button.click();
-          if(!this.checkoutaddress)
-          {
-          this.getAddressByCustomerId();
+          if (!this.checkoutaddress) {
+            this.getAddressByCustomerId();
           }
-          this.adduserForm.reset(); 
+          this.adduserForm.reset();
           this.addsubmitted = false;
         }
         else {
@@ -293,7 +287,7 @@ else
           "cityName": this.checkoutaddress ? this.cityname : this.userForm.value['cityName'],
           "stateId": this.userForm.value['stateId'],
           "countryId": 1,
-          "zipCode": (this.checkoutaddress && this.zipCode !='no') ? this.zipCode.toString() : this.userForm.value['zipCode'].toString(),
+          "zipCode": (this.checkoutaddress && this.zipCode != 'no') ? this.zipCode.toString() : this.userForm.value['zipCode'].toString(),
           "relationshipId": 10,
           "status": true
 
@@ -304,25 +298,23 @@ else
       this._crud.updateAddress(data).subscribe(res => {
         this.removeLoader();
         if (!res.isEroor) {
-         
+
 
           this.toastr.success(res.successMessage)
 
-          if(this.checkoutaddress)
-          {
-        let e = { recipientFirstName: this.userForm.value['recipientFirstName'], recipientLastName: this.userForm.value['recipientLastName'], cityName:this.cityname, addressId: res.addressId, zipCode:this.userForm.value['zipCode']  };
+          if (this.checkoutaddress) {
+            let e = { recipientFirstName: this.userForm.value['recipientFirstName'], recipientLastName: this.userForm.value['recipientLastName'], cityName: this.cityname, addressId: res.addressId, zipCode: this.userForm.value['zipCode'] };
 
-       let s:boolean=true
-         this.sendAddId.emit({ e, s})  
+            let s: boolean = true
+            this.sendAddId.emit({ e, s })
           }
 
 
           const button: HTMLButtonElement = this.EditButton.nativeElement;
           button.click();
-         
-          if(!this.checkoutaddress)
-          {
-          this.getAddressByCustomerId();
+
+          if (!this.checkoutaddress) {
+            this.getAddressByCustomerId();
           }
           this.submitted = false;
         }
@@ -341,23 +333,23 @@ else
     this.selectedAddressData = e.target.value;
 
     this.deliverAddress = this.filterAddressesByAddressId(e.target.value);
-    
+
   }
 
   addressselected(e: any) {
     this.notmatch = false;
-    this.notmatchzip=false;
+    this.notmatchzip = false;
     this.selectedAddressData = e;
 
     this.deliverAddress = this.filterAddressesByAddressId(e);
-    
+
   }
 
   getAddressByCustomerId() {
     let data = { "customerId": this.custID }
     this._crud.getAddressByCustomerId(data).subscribe(res => {
       this.originalAddress = res;
-      
+
 
       if (this.checkoutaddress) {
         this.isCheckout = true;
@@ -390,7 +382,7 @@ else
 
 
 
-      
+
 
     });
   }
@@ -401,7 +393,7 @@ else
     this.cityList = [];
     // this.getCountry();
     //this.getState(1)
-    this.getCity();
+    //this.getCity();
   }
   editAddress(addId: any) {
 
@@ -443,7 +435,7 @@ else
       //  this.getCountry();
       //  this.getState(1);
 
-      this.getCity()
+      //this.getCity()
 
 
       //  this.deliverAddress=res;

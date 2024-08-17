@@ -1,19 +1,19 @@
 <app-header></app-header>
 <section class="cart-subpage">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="box-list card">
-                    <div class="deliver-location listheading">
-                        <div class="row">
-                            <div class="col-md-12 align-self-center">
-                                <div class="d-flex justify-content-between">
-                                    <p><span class="font-semibold font-primary">1.</span> Logged In as: <strong>
-                                            {{custName}}</strong></p>
-                                    <!-- <span>+</span> -->
-                                </div>
-                            </div>
-                            <!-- <div class="col-md-6">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="box-list card">
+          <div class="deliver-location listheading">
+            <div class="row">
+              <div class="col-md-12 align-self-center">
+                <div class="d-flex justify-content-between">
+                  <p><span class="font-semibold font-primary">1.</span> Logged In as: <strong>
+                      {{custName}}</strong></p>
+                  <!-- <span>+</span> -->
+                </div>
+              </div>
+              <!-- <div class="col-md-6">
                                 <div class="d-flex justify-content-end">
                                     <span class="icon-route h1 font-primary"></span>
                                     <div class="ps-3 align-self-center">
@@ -23,217 +23,209 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
-                    </div>
-                </div>
+            </div>
+          </div>
+        </div>
 
-                <div class="box-list card">
-                    <div class="tabheading card-header border-bottom-0 bg-transparent d-flex justify-content-between"
-                        (click)="addressShow =!addressShow" *ngIf="addressId">
-                        <div>
-                            <span class="font-semibold font-primary">2</span>. Delivery to:
-                            <span class="font-semibold">{{addressName}} </span> <span class="font-semibold">,
-                                &nbsp;{{city}}</span>
-                        </div>
-                        <!-- <span>+</span> -->
-                    </div>
+        <div class="box-list card">
+          <div class="tabheading card-header border-bottom-0 bg-transparent d-flex justify-content-between"
+            (click)="addressShow =!addressShow" *ngIf="addressId">
+            <div>
+              <span class="font-semibold font-primary">2</span>. Delivery to:
+              <span class="font-semibold">{{addressName}} </span> <span class="font-semibold">,
+                &nbsp;{{city}}</span>
+            </div>
+            <!-- <span>+</span> -->
+          </div>
 
-                    <section class="tabcontentwrap" *ngIf="addressShow">
-                        <div style="display: flex;" class="addressflex"> <span
-                                class="font-semibold font-primary">2</span>. &nbsp;
-                            <app-address-list [zipcode]="prevzipcode" [selectedAddressId]="addressId" (sendAddId)="getaddressId($event)"
-                                [checkoutaddress]="true"></app-address-list>
-                        </div>
-                    </section>
+          <section class="tabcontentwrap" *ngIf="addressShow">
+            <div style="display: flex;" class="addressflex"> <span class="font-semibold font-primary">2</span>. &nbsp;
+              <app-address-list [zipcode]="prevzipcode" [selectedAddressId]="addressId"
+                (sendAddId)="getaddressId($event)" [checkoutaddress]="true"></app-address-list>
+            </div>
+          </section>
+        </div>
+        <div class="box-list card">
+          <div class="tabheading card-header border-bottom-0 bg-transparent" (click)="reviewShow =!reviewShow">
+            <!-- <strong>{{addressName}} </strong> <strong>,  &nbsp;{{city}}</strong> -->
+            <ng-container *ngIf="clickpayment && !reviewShow "><span class="font-semibold font-primary">3.
+                &nbsp;</span> Delivery Date :
+              <span class="font-semibold">{{displaydeliveryDate }}</span> Delivery Time:
+              <span class="font-semibold">{{displaydeliveryTime}}</span></ng-container>
+            <ng-container *ngIf="!clickpayment || reviewShow ">
+              <div class="d-flex justify-content-between">
+                <p> <span class="font-semibold font-primary">3. </span> <span>Review Order</span></p>
+                <!-- <span>+</span> -->
+              </div>
+            </ng-container>
+          </div>
+          <section class="tabcontentwrap" *ngIf="reviewShow && addressId">
+            <div class="cart-product-item  p-1 mb-1" *ngFor="let items of cartItems">
+              <div class="row border py-1">
+                <div class="col-4 col-md-2">
+                  <img [src]="items.produtImage" class="img-fluid" />
                 </div>
-                <div class="box-list card">
-                    <div class="tabheading card-header border-bottom-0 bg-transparent"
-                        (click)="reviewShow =!reviewShow">
-                        <!-- <strong>{{addressName}} </strong> <strong>,  &nbsp;{{city}}</strong> -->
-                        <ng-container *ngIf="clickpayment && !reviewShow "><span class="font-semibold font-primary">3.
-                                &nbsp;</span> Delivery Date :
-                            <span class="font-semibold">{{displaydeliveryDate }}</span> Delivery Time:
-                            <span class="font-semibold">{{displaydeliveryTime}}</span></ng-container>
-                        <ng-container *ngIf="!clickpayment || reviewShow ">
-                            <div class="d-flex justify-content-between">
-                                <p> <span class="font-semibold font-primary">3. </span> <span>Review Order</span></p>
-                                <!-- <span>+</span> -->
-                            </div>
-                        </ng-container>
+                <div class="col-8 col-md-10 align-self-center">
+                  <div class="row justify-content-between">
+                    <div class="col-md-6">
+                      <p class="pb-2 productname-checkout" *ngIf="items.productName">
+                        <a href="javascript:void(0)" class="font-black">{{items.productName}}</a>
+                      </p>
+                      <p *ngIf="items.additionalWeight">
+                        <small>Weight: <strong>{{items.additionalWeight}}</strong></small>
+                      </p>
+                      <p *ngIf="items.productId">
+                        <small>Product Id: <strong>{{items.productId}}</strong></small>
+                      </p>
+                      <ul class="list-style-desc mt-2">
+                        <li *ngIf="items.additionalVoucher"><small> Voucher :</small>
+                          <strong>{{items.additionalVoucher}}</strong>
+                        </li>
+                        <li *ngIf="items.egglessPrice"><small> Eggless Price:</small>
+                          <strong>
+                            <span [class]="currencyClass"></span>
+                            {{items.egglessPrice}}
+                          </strong>
+                        </li>
+                        <li *ngIf="items.flavour"><small>Flavour :</small>
+                          <strong>{{items.flavour}}</strong>
+                        </li>
+                        <li *ngIf="items.additionalNumber"><small>>Number :</small>
+                          <strong>{{items.additionalNumber}}</strong>
+                        </li>
+                        <li *ngIf="items.message"><small>Message:</small>
+                          <strong>{{items.message}}</strong>
+                        </li>
+                      </ul>
                     </div>
-                    <section class="tabcontentwrap" *ngIf="reviewShow && addressId">
-                        <div class="cart-product-item  p-1 mb-1" *ngFor="let items of cartItems">
-                            <div class="row border py-1">
-                                <div class="col-4 col-md-2">
-                                    <img [src]="items.produtImage" class="img-fluid" />
-                                </div>
-                                <div class="col-8 col-md-10 align-self-center">
-                                    <div class="row justify-content-between">
-                                        <div class="col-md-6">
-                                            <p class="pb-2 productname-checkout" *ngIf="items.productName">
-                                                <a href="javascript:void(0)"
-                                                    class="font-black">{{items.productName}}</a>
-                                            </p>
-                                            <p *ngIf="items.additionalWeight">
-                                                <small>Weight: <strong>{{items.additionalWeight}}</strong></small>
-                                            </p>
-                                            <p *ngIf="items.productId">
-                                                <small>Product Id: <strong>{{items.productId}}</strong></small>
-                                            </p>
-                                            <ul class="list-style-desc mt-2">
-                                                <li *ngIf="items.additionalVoucher"><small> Voucher :</small>
-                                                    <strong>{{items.additionalVoucher}}</strong>
-                                                </li>
-                                                <li *ngIf="items.egglessPrice"><small> Eggless Price:</small>
-                                                    <strong>
-                                                        <span [class]="currencyClass"></span>
-                                                        {{items.egglessPrice}}
-                                                    </strong>
-                                                </li>
-                                                <li *ngIf="items.flavour"><small>Flavour :</small>
-                                                    <strong>{{items.flavour}}</strong>
-                                                </li>
-                                                <li *ngIf="items.additionalNumber"><small>>Number :</small>
-                                                    <strong>{{items.additionalNumber}}</strong>
-                                                </li>
-                                                <li *ngIf="items.message"><small>Message:</small>
-                                                    <strong>{{items.message}}</strong>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-6 text-md-end">
-                                            <p><span class="small" [class]="currencyClass"></span>{{items.subTotal}}</p>
-                                            <p>Qty: {{items.quantity}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 pb-2">
-                                <p class="small">Delivery Schedule : <span class="font-semibold">{{displaydeliveryDate
-                                        }} <ng-container *ngIf="!isReqired">
-                                            {{displaydeliveryTime}}</ng-container></span>
-                                    <button class="color-btn border-0 px-2 py-1 small ms-2" data-bs-toggle="modal"
+                    <div class="col-md-6 text-md-end">
+                      <p><span class="small" [class]="currencyClass"></span>{{items.subTotal}}</p>
+                      <p>Qty: {{items.quantity}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 pb-2">
+                <p class="small">Delivery Schedule : <span class="font-semibold">{{displaydeliveryDate
+                    }} <ng-container *ngIf="!isReqired">
+                      {{displaydeliveryTime}}</ng-container></span>
+                  <!-- <button class="color-btn border-0 px-2 py-1 small ms-2" data-bs-toggle="modal"
                                         data-bs-target="#DeliveryModal" (click)="openDatetime()"><span
                                             class="icon-edit icomoon"></span> &nbsp; Edit
-                                    </button>
-                                </p>
+                                    </button> -->
+                </p>
 
-                                <div class="error error-message" *ngIf="isReqired && !isChanged">
-                                  Please update Delivery Date and Time
-                                  </div>
-                                  <div class="" style="color: #1a9d0a;" *ngIf="isChanged">{{msg}}</div>
-                                </div>
-                            <div class="col-md-6">
-                                <!-- <p>Delivery City:<strong>{{city}}</strong></p> -->
-                                <ng-container *ngIf="couponappled && couponData.couponType =='Instant'">
-                                    <div> Discount Applicable Amount: <span [class]="currencyClass"></span>
-                                        {{couponData.discountApplicableAmount}}</div>
-                                    <div>Discount Amount : <span [class]="currencyClass"></span>
-                                        {{couponData.maxDiscount}}
-                                    </div>
-                                </ng-container>
-                                <div>
+                <!-- <div class="error error-message" *ngIf="isReqired && !isChanged">
+                  Please update Delivery Date and Time
+                </div> -->
+                <div class="" style="color: #1a9d0a;" *ngIf="isChanged">{{msg}}</div>
+              </div>
+              <div class="col-md-6">
+                <!-- <p>Delivery City:<strong>{{city}}</strong></p> -->
+                <ng-container *ngIf="couponappled && couponData.couponType =='Instant'">
+                  <div> Discount Applicable Amount: <span [class]="currencyClass"></span>
+                    {{couponData.discountApplicableAmount}}</div>
+                  <div>Discount Amount : <span [class]="currencyClass"></span>
+                    {{couponData.maxDiscount}}
+                  </div>
+                </ng-container>
+                <div>
 
-                                    <form *ngIf="!isCustomGift" [formGroup]="couponForm" (ngSubmit)="onSubmit()">
-                                        <div class="row">
-                                            <label><small>Coupon Code</small></label>
-                                            <div class="col-8">
-                                                <div class="form-group">
-                                                    <input [readonly]="couponappled" type="text"
-                                                        class="form-control rounded-0"
-                                                        [ngClass]="{'is-invalid' :errorcode }"
-                                                        formControlName="couponcode" placeholder="Coupon*">
-                                                    <a *ngIf="couponappled" class="icon-close icomoon"
-                                                        (click)="removeApplycode()"></a>
-                                                    <div class="invalid-feedback mt-0 d-block" *ngIf="errorcode">
-                                                        <small>{{errorcodemessage}}</small>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <button type="submit" [disabled]="!couponForm.valid || couponappled"
-                                                    class="color-border-btn py-1 btn">Apply</button>
-                                            </div>
-
-
-                                        </div>
-                                    </form>
-                                </div>
-
-                                <div> {{cashbackMessage}}</div>
-                            </div>
-                            <div class="col-md-6 text-start text-md-end">
-                                <div class=" totalAmountwrap pb-2 pt-2 pt-md-0">
-                                    <div class="totalAmount">Payable Amount : <strong><span
-                                                [class]="currencyClass"></span>
-                                            {{totalAmount}}</strong></div>
-                                </div>
-                                <button (click)="SaveOrderDetails()" [disabled]="isReqired"
-                                    class="color-btn border-0">Continue
-                                    payment</button>
-                            </div>
-
+                  <form *ngIf="!isCustomGift" [formGroup]="couponForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                      <label><small>Coupon Code</small></label>
+                      <div class="col-8">
+                        <div class="form-group">
+                          <input [readonly]="couponappled" type="text" class="form-control rounded-0"
+                            [ngClass]="{'is-invalid' :errorcode }" formControlName="couponcode" placeholder="Coupon*">
+                          <a *ngIf="couponappled" class="icon-close icomoon" (click)="removeApplycode()"></a>
+                          <div class="invalid-feedback mt-0 d-block" *ngIf="errorcode">
+                            <small>{{errorcodemessage}}</small>
+                          </div>
                         </div>
-                    </section>
+                      </div>
+                      <div class="col-4">
+                        <button type="submit" [disabled]="!couponForm.valid || couponappled"
+                          class="color-border-btn py-1 btn">Apply</button>
+                      </div>
+
+
+                    </div>
+                  </form>
                 </div>
-                <div class="box-list card">
-                    <div class="tabheading card-header border-bottom-0 bg-transparent"><span
-                            class="font-semibold font-primary">4.</span> Payment</div>
-                    <section class="tabcontentwrap" *ngIf="paymentstrip && addressId"> <app-payment
-                            [amount]="finalamount" [saveorderDetails]="savedorderdetails"></app-payment></section>
+
+                <div> {{cashbackMessage}}</div>
+              </div>
+              <div class="col-md-6 text-start text-md-end">
+                <div class=" totalAmountwrap pb-2 pt-2 pt-md-0">
+                  <div class="totalAmount">Payable Amount : <strong><span [class]="currencyClass"></span>
+                      {{totalAmount}}</strong></div>
                 </div>
-                <!-- <app-user-address></app-user-address> -->
+                <button (click)="SaveOrderDetails()" class="color-btn border-0">Continue
+                  payment</button>
+                <!-- [disabled]="isReqired" -->
+              </div>
+
             </div>
-            <div class="col-md-4">
-                <!-- <div class="d-flex p-2 applycoupons">
+          </section>
+        </div>
+        <div class="box-list card">
+          <div class="tabheading card-header border-bottom-0 bg-transparent"><span
+              class="font-semibold font-primary">4.</span> Payment</div>
+          <section class="tabcontentwrap" *ngIf="paymentstrip && addressId"> <app-payment [amount]="finalamount"
+              [saveorderDetails]="savedorderdetails"></app-payment></section>
+        </div>
+        <!-- <app-user-address></app-user-address> -->
+      </div>
+      <div class="col-md-4">
+        <!-- <div class="d-flex p-2 applycoupons">
                     <span class="icon-coupon h1 font-primary pb-0 mb-0"></span>
                     <h6 class="h6 font-black font-medium ps-3 align-self-center">Apply Coupons</h6>
                 </div> -->
-                <div class="PriceDetails p-2 border my-3 sticky-top">
-                    <h6 class="h6 font-black font-medium align-self-center pb-3">Price Details</h6>
-                    <div class="d-flex justify-content-between py-2">
-                        <p>Price ({{cartCount}} item(s))</p>
-                        <p class="text-end" *ngIf="firstlistItem && firstlistItem.totalAmount"><span
-                                [class]="currencyClass"></span>
-                            {{firstlistItem.totalAmount}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between py-2">
-                        <p>Delivery Charges</p>
-                        <p class="text-end font-green" *ngIf="firstlistItem "> <ng-container
-                                *ngIf="firstlistItem.deliveryCharges ==0">FREE</ng-container><ng-container
-                                *ngIf="firstlistItem.deliveryCharges >0">{{firstlistItem.deliveryCharges}}</ng-container>
-                        </p>
-                    </div>
-                    <div class="d-flex justify-content-between py-3 totalamount my-2">
-                        <h6 class="h6 font-semibold">Amount</h6>
-                        <p class="text-end font-semibold" *ngIf="firstlistItem && firstlistItem.grandTotal"><span
-                                [class]="currencyClass"></span>
-                            {{firstlistItem.grandTotal}}</p>
-                    </div>
-                    <ng-container *ngIf="couponappled && couponData.couponType =='Instant'">
-                        <div class="d-flex justify-content-between py-2">
-                            <p>Discount Applicable Amount:</p>
-                            <p class="text-end"><span [class]="currencyClass"></span>
-                                {{couponData.discountApplicableAmount}}</p>
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <p>Discount Amount:</p>
-                            <p class="text-end"><span [class]="currencyClass"></span> {{couponData.maxDiscount}}</p>
-                        </div>
-                        <div class="d-flex justify-content-between py-2">
-                            <p>Grand Amount:</p>
-                            <p class="text-end"><span [class]="currencyClass"></span> {{totalAmount}}</p>
-                        </div>
-                    </ng-container>
-                </div>
+        <div class="PriceDetails p-2 border my-3 sticky-top">
+          <h6 class="h6 font-black font-medium align-self-center pb-3">Price Details</h6>
+          <div class="d-flex justify-content-between py-2">
+            <p>Price ({{cartCount}} item(s))</p>
+            <p class="text-end" *ngIf="firstlistItem && firstlistItem.totalAmount"><span [class]="currencyClass"></span>
+              {{firstlistItem.totalAmount}}</p>
+          </div>
+          <div class="d-flex justify-content-between py-2">
+            <p>Delivery Charges</p>
+            <p class="text-end font-green" *ngIf="firstlistItem "> <ng-container
+                *ngIf="firstlistItem.deliveryCharges ==0">FREE</ng-container><ng-container
+                *ngIf="firstlistItem.deliveryCharges >0">{{firstlistItem.deliveryCharges}}</ng-container>
+            </p>
+          </div>
+          <div class="d-flex justify-content-between py-3 totalamount my-2">
+            <h6 class="h6 font-semibold">Amount</h6>
+            <p class="text-end font-semibold" *ngIf="firstlistItem && firstlistItem.grandTotal"><span
+                [class]="currencyClass"></span>
+              {{firstlistItem.grandTotal}}</p>
+          </div>
+          <ng-container *ngIf="couponappled && couponData.couponType =='Instant'">
+            <div class="d-flex justify-content-between py-2">
+              <p>Discount Applicable Amount:</p>
+              <p class="text-end"><span [class]="currencyClass"></span>
+                {{couponData.discountApplicableAmount}}</p>
             </div>
+            <div class="d-flex justify-content-between py-2">
+              <p>Discount Amount:</p>
+              <p class="text-end"><span [class]="currencyClass"></span> {{couponData.maxDiscount}}</p>
+            </div>
+            <div class="d-flex justify-content-between py-2">
+              <p>Grand Amount:</p>
+              <p class="text-end"><span [class]="currencyClass"></span> {{totalAmount}}</p>
+            </div>
+          </ng-container>
         </div>
-        <!--/ explore products-->
-
-
+      </div>
     </div>
+    <!--/ explore products-->
+
+
+  </div>
 </section>
 <app-footer></app-footer>
 
@@ -241,57 +233,54 @@
 
 <!-- Update delivery date -->
 <div class="modal fade " id="DeliveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title">Update Delivery Date and Time</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    #closeButton></button>
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h6 class="modal-title">Update Delivery Date and Time</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeButton></button>
+      </div>
+      <form [formGroup]="userForm">
+        <div class="modal-body">
+          <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
+            <label>Select Delivery Date </label>
+            <div class="form-group d-flex p-2  background-lightprimary rounded mb-2"> <span
+                class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
+              <select class="form-select" formControlName="deliveryDate" (change)="getBindDeliveryTimes($event)">
+                <option *ngFor="let o of deliveryDates_array" [value]="o.deliveryDateValue">
+                  {{o.deliveryDateText}}</option>
+              </select>
             </div>
-            <form [formGroup]="userForm">
-                <div class="modal-body">
-                    <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
-                        <label>Select Delivery Date </label>
-                        <div class="form-group d-flex p-2  background-lightprimary rounded mb-2"> <span
-                                class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
-                            <select class="form-select" formControlName="deliveryDate"
-                                (change)="getBindDeliveryTimes($event)">
-                                <option *ngFor="let o of deliveryDates_array" [value]="o.deliveryDateValue">
-                                    {{o.deliveryDateText}}</option>
-                            </select>
-                        </div>
-                    </div>
+          </div>
 
-                    <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
-                        <label>Select Time</label>
-                        <div class="form-group d-flex p-2  background-lightprimary rounded">
-                            <span
-                                class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
-                            <select class="form-select" formControlName="deliveryTime">
-                                <option>Select Time</option>
-                                <option *ngFor="let o of deliveryTime" [value]="o.dtime">
-                                    <ng-container *ngIf="currencySelected == 'INR'">{{o.dtime}}</ng-container>
-                                    <ng-container *ngIf="currencySelected =='USD'">{{o.dtimeCurrency}}</ng-container>
-                                </option>
-                            </select>
+          <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
+            <label>Select Time</label>
+            <div class="form-group d-flex p-2  background-lightprimary rounded">
+              <span class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
+              <select class="form-select" formControlName="deliveryTime">
+                <option>Select Time</option>
+                <option *ngFor="let o of deliveryTime" [value]="o.dtime">
+                  <ng-container *ngIf="currencySelected == 'INR'">{{o.dtime}}</ng-container>
+                  <ng-container *ngIf="currencySelected =='USD'">{{o.dtimeCurrency}}</ng-container>
+                </option>
+              </select>
 
-                        </div>
-                        <div class="error" *ngIf="timeerror"> Please select Time</div>
-                        <!-- <div class="invalid-feedback mt-0 d-block"
+            </div>
+            <div class="error" *ngIf="timeerror"> Please select Time</div>
+            <!-- <div class="invalid-feedback mt-0 d-block"
                         *ngIf="dynamicForm.get('deliveryTimes')!.invalid && dynamicForm.get('deliveryTimes')!.touched">
                         <p class="error-message">Select Time</p>
                     </div> -->
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="color-btn border-0" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="color-border-btn" (click)="updateDateandtime()">Update
-                    </button>
-                </div>
-            </form>
+          </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="color-btn border-0" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="color-border-btn" (click)="updateDateandtime()">Update
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
 
 

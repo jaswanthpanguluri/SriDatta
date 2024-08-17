@@ -11,71 +11,67 @@ import { CurdService } from 'src/app/services/curd.service';
   styleUrls: ['./changepassword.component.scss']
 })
 export class ChangepasswordComponent {
-  userForm:any;
+  userForm: any;
   custName: any;
-  error:boolean=false;
-  errormsg:any;
-  cpwd:any;
-  constructor(  private meta: Meta, private title: Title,private toastr: ToastrService,private fb: FormBuilder, private _crud:CurdService, private route:Router)
-  {
+  error: boolean = false;
+  errormsg: any;
+  cpwd: any;
+  constructor(private meta: Meta, private title: Title, private toastr: ToastrService, private fb: FormBuilder, private _crud: CurdService, private route: Router) {
 
-    this.title.setTitle("Countryoven's - Change Password");
-    this.meta.updateTag({ name: 'description',  content: "Countryoven's - Change Password" });
-    this.meta.updateTag({ name: 'keywords',  content:"Countryoven's - Change Password"  });
-    this.meta.updateTag({ name: 'classification',  content: "Countryoven's - Change Password"});
-  
-  
+    this.title.setTitle("SriDutta's - Change Password");
+    this.meta.updateTag({ name: 'description', content: "SriDutta's - Change Password" });
+    this.meta.updateTag({ name: 'keywords', content: "SriDutta's - Change Password" });
+    this.meta.updateTag({ name: 'classification', content: "SriDutta's - Change Password" });
+
+
     if (localStorage.getItem('email')) {
-    
+
       this.custName = localStorage.getItem('custName')
     }
 
 
 
     this.userForm = this.fb.group({
-   
+
       oldPassword: ['', Validators.required],
-      newPassword:  ['', Validators.required],
-      confirmPassword:  ['', Validators.required]
+      newPassword: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
     }, { validator: passwordMatchValidator });
   }
-  
-  
-  
+
+
+
   onInputChange() {
-this.error=false
+    this.error = false
     // this.maxLength = 40 - this.textAreaInput.length;
-   
+
   }
-  
-  onSubmit()
-    {
-      this.error=false
-      
-    let data={
+
+  onSubmit() {
+    this.error = false
+
+    let data = {
       "customerEmail": localStorage.getItem('email'),
-      "oldPassword":this.userForm.get('oldPassword').value,
-      "newPassword":this.userForm.get('newPassword').value
+      "oldPassword": this.userForm.get('oldPassword').value,
+      "newPassword": this.userForm.get('newPassword').value
+    }
+
+    this._crud.changePassword(data).subscribe(res => {
+
+      if (res.isEroor) {
+
+        //  this.toastr.error(res.errorMessage);
+        this.errormsg = res.errorMessage;
+        this.error = true;
       }
-    
-      this._crud.changePassword(data).subscribe(res => {
-        
-      if(res.isEroor)
-      {
-        
-      //  this.toastr.error(res.errorMessage);
-        this.errormsg=res.errorMessage;
-        this.error=true;
-      }
-      else
-      {
+      else {
         this.toastr.success(res.successMessage);
         //this.route.navigateByUrl('/login')
       }
-            });
-    }
+    });
+  }
 }
- 
+
 function passwordMatchValidator(form: FormGroup) {
   const newPassword = form.get('newPassword');
   const confirmPassword = form.get('confirmPassword');

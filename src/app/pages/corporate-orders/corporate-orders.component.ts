@@ -10,81 +10,75 @@ import { CurdService } from 'src/app/services/curd.service';
   styleUrls: ['./corporate-orders.component.scss']
 })
 export class CorporateOrdersComponent implements OnInit {
-  userForm:any;
-  submitted:boolean=false;
-  msg:any;
-  msgstatus:boolean=false;
+  userForm: any;
+  submitted: boolean = false;
+  msg: any;
+  msgstatus: boolean = false;
   constructor(
     private meta: Meta, private title: Title,
-    private renderer:Renderer2, private fb: FormBuilder, private _crud:CurdService, private route:Router)
-  {
+    private renderer: Renderer2, private fb: FormBuilder, private _crud: CurdService, private route: Router) {
 
-    this.title.setTitle('Corporate Orders | Business Promotional Cakes In India CountryOven');
-    this.meta.updateTag({ name: 'description',  content: 'Looking for Best Business Promotional Cakes In India CountryOven ? Here at Ferns N Petals, We offer the best Promotional Combos, Confectionery, and Snacks.' });
-    this.meta.updateTag({ name: 'keywords',  content: 'cakes in Hyderabad, cakes in India, customize cakes, customized cakes, customize a cake' });
-    this.meta.updateTag({ name: 'classification',  content: 'Country Oven - CorporateOrders' });
-  
-  
+    this.title.setTitle('Corporate Orders | Business Promotional Jewellers In India SriDatta');
+    this.meta.updateTag({ name: 'description', content: 'Looking for Best Business Promotional Jewellers In India SriDatta ? Here at Ferns N Petals, We offer the best Promotional Combos, Confectionery, and Snacks.' });
+    this.meta.updateTag({ name: 'keywords', content: 'Jewellers in Hyderabad, Jewellers in India, customize Jewellers, customized Jewellers, customize a Jeweller' });
+    this.meta.updateTag({ name: 'classification', content: 'Sri Datta - CorporateOrders' });
+
+
 
     this.userForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
-      emailId:  ['', [Validators.required, Validators.email]],
-            mobileNo: ['', [Validators.required, Validators.pattern(/^\d{10,15}$/)]], 
-      companyName:  ['', Validators.required],
-      comments:  [''],
-     
-  
+      emailId: ['', [Validators.required, Validators.email]],
+      mobileNo: ['', [Validators.required, Validators.pattern(/^\d{10,15}$/)]],
+      companyName: ['', Validators.required],
+      comments: [''],
+
+
     });
 
   }
   ngOnInit(): void {
- 
+
   }
 
 
 
 
-  onSubmit()
-{
-this.submitted=true
-  if(this.userForm.valid)
-  {
-this.addLoader();
-  
-  let data={
-      "corporateOrdersDetails": {
-        "name": this.userForm.get('name').value,
-        "emailId": this.userForm.get('emailId').value,
-        "mobileNo": this.userForm.get('mobileNo').value.toString(),
-        "companyName": this.userForm.get('companyName').value,
-        "comments": this.userForm.get('comments').value
-        
+  onSubmit() {
+    this.submitted = true
+    if (this.userForm.valid) {
+      this.addLoader();
+
+      let data = {
+        "corporateOrdersDetails": {
+          "name": this.userForm.get('name').value,
+          "emailId": this.userForm.get('emailId').value,
+          "mobileNo": this.userForm.get('mobileNo').value.toString(),
+          "companyName": this.userForm.get('companyName').value,
+          "comments": this.userForm.get('comments').value
+
+        }
+
       }
-    
- }
-  this._crud.corporateOrders(data).subscribe(res => {
-   
-   this.msg=res.successMessage;
-   this.msgstatus=true;
-   
-   this.removeLoader();
-   setTimeout(() => {
-    this.msgstatus=false
-   }, 5000);
-  if(!res.isEroor)
-  {
+      this._crud.corporateOrders(data).subscribe(res => {
+
+        this.msg = res.successMessage;
+        this.msgstatus = true;
+
+        this.removeLoader();
+        setTimeout(() => {
+          this.msgstatus = false
+        }, 5000);
+        if (!res.isEroor) {
+        }
+      });
+    }
   }
-});
-}
-}
 
 
-addLoader()
-{
-  this.renderer.addClass(document.body, 'bodyloader');
-}
-removeLoader()
-{
-  this.renderer.removeClass(document.body, 'bodyloader');
-}
+  addLoader() {
+    this.renderer.addClass(document.body, 'bodyloader');
+  }
+  removeLoader() {
+    this.renderer.removeClass(document.body, 'bodyloader');
+  }
 }

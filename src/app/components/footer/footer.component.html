@@ -7,7 +7,7 @@
             <div class="row py-3">
                 <div class="col-lg-12">
                     <div class="d-flex parent-links" *ngIf="footerlinks">
-                        <ng-container *ngFor="let menu of footerlinks.slice(1,footerlinks.length)">
+                        <ng-container *ngFor="let menu of footerlinks.slice(0,footerlinks.length)">
                             <div class="links-col">
                                 <h5 class="h5 text-uppercase font-semibold d-flex d-lg-block justify-content-between justify-content-md-start"
                                     (click)="toggleLinks(menu);">
@@ -16,7 +16,25 @@
                                 </h5>
                                 <div class="links d-none d-lg-block" [class.d-none]="!menu.show">
                                     <ng-container *ngFor="let sm of menu.footerLinks">
-                                        <a href="javascript:void(0)" [routerLink]="'/' +sm.seoTitle">{{sm.title}}</a>
+                                        <ng-container class="mySubItemTwo txt" *ngIf="sm.title=='Corporate Governance'">
+                                            <a class="corporate" title="Corporate Governance" href="#"
+                                                style="display: inline-block">Corporate Governance </a>
+                                            <ul class="sub-point-link corporate-sub">
+                                                <li>
+                                                    <a class="CSR" title="CSR" href="https://www.orra.co.in/csr"
+                                                        style="display: inline-block">CSR
+                                                    </a>
+                                                </li>
+                                                <li class="mySubSubItemTwosub">
+                                                    <a class="Statutory" title="Statutory Disclosures" href="#"
+                                                        style="display: inline-block">Statutory Disclosures</a>
+                                                </li>
+                                            </ul>
+                                        </ng-container>
+                                        <ng-container *ngIf="sm.title!='Corporate Governance'">
+                                            <a href="javascript:void(0)"
+                                                [routerLink]="'/' +sm.seoTitle">{{sm.title}}</a>
+                                        </ng-container>
                                     </ng-container>
                                 </div>
                             </div>
@@ -47,8 +65,10 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-6 align-self-center text-end">
-                    <p class="text-black copylink small">©2024 Sri Datta Jewellery. All Rights Reserved</p>
+                <div class="col-sm-12 col-xs-12 text-center">
+                    <small class="copyright"><span class="copyright"></span>©2024 Sri Datta Jewellery. All Rights
+                        Reserved</small>
+                    <!-- <p class="text-black copylink small">©2024 Sri Datta Jewellery. All Rights Reserved</p> -->
                 </div>
             </div>
         </div>

@@ -9,8 +9,8 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let b of banners; let i = index" [class.active]="i === 0">
-                <img [src]="b.imageName" [alt]="b.seoName" (click)="gotoroute(b.type, b.seoName)"
-                    class="img-fluid w-100">
+                <img [src]="b.imageName" [alt]="b.seoName" (error)="onImageError($event)"
+                    (click)="gotoroute(b.type, b.seoName)" class="img-fluid w-100">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -49,9 +49,26 @@
         <section class="custom-container">
             <div class="products-list mt-3">
                 <div class="row g-2">
-                    <div class="col-md-3 col-6" *ngFor="let productitem of cat.productList  | slice:0:4">
-                        <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
-                    </div>
+                    <section class="home-banner-swiper">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="row">
+                                <div class="col-md-3 col-6" *ngFor="let productitem of cat.productList  | slice:0:4">
+                                    <app-product-item [Productvalue]="productitem"
+                                        class="app-product-col"></app-product-item>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>
@@ -82,14 +99,9 @@
 <section class="adv-banners mt-5">
     <div class="custom-container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" *ngFor="let videoItem of promotionBanner">
                 <a href="javascript:void(0)">
-                    <img [src]="advbanner01" alt="" class="img-fluid w-100">
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a href="javascript:void(0)">
-                    <img [src]="advbanner02" alt="" class="img-fluid w-100">
+                    <img [src]="videoItem.imageName" alt="" class="img-fluid w-100">
                 </a>
             </div>
         </div>
@@ -120,30 +132,17 @@
     </div>
 </section>
 
-<section class="mennwomen-jewellery mt-5">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-md-6">
+<div class="row pt-5">
+    <ng-container *ngFor="let sb of shopByGender">
+        <div [ngClass]="{'mt-4 col-md-12': !sb.isSmall, 'col-md-6' : sb.isSmall }">
+            <figure>
                 <a href="javascript:void(0)">
-                    <img [src]="womenJewelleryImg" alt="" class="img-fluid w-100">
+                    <img [src]="sb.imageName" alt="" class="img-fluid w-100">
                 </a>
-            </div>
-            <div class="col-md-6">
-                <a href="javascript:void(0)">
-                    <img [src]="menJewelleryImg" alt="" class="img-fluid w-100">
-                </a>
-            </div>
+            </figure>
         </div>
-    </div>
-</section>
-
-<section class="full-banner mt-5">
-    <div class="custom-container">
-        <a href="javascript:void(0)">
-            <img [src]="fullBannerImg" alt="" class="img-fluid w-100">
-        </a>
-    </div>
-</section>
+    </ng-container>
+</div>
 
 <section class="about-store mt-5">
     <div class="custom-container ">
