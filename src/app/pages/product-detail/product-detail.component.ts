@@ -197,12 +197,12 @@ export class ProductDetailComponent implements OnInit {
 
   setcounntry() {
     this.currency = localStorage.getItem('currency');
-    if (this.currency == 'INR') {
+    // if (this.currency == 'INR') {
       this.currencyClass = 'icon-inr'
-    }
-    else if (this.currency == 'USD') {
-      this.currencyClass = 'icon-dollar-currency-symbol'
-    }
+    // }
+    // else if (this.currency == 'USD') {
+    //   this.currencyClass = 'icon-dollar-currency-symbol'
+    // }
     this.coutryName = localStorage.getItem('country');
     this.currencySelected = localStorage.getItem('currency');
   }
