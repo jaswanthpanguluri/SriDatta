@@ -21,6 +21,7 @@ import { DeliverCitiesComponent } from './pages/deliver-cities/deliver-cities.co
 import { ReturnpolicyComponent } from './pages/returnpolicy/returnpolicy.component';
 import { PrivacypolicyComponent } from './pages/privacypolicy/privacypolicy.component';
 import { TermsandconditionsComponent } from './pages/termsandconditions/termsandconditions.component';
+import { AboutAndMediaComponent } from './pages/about-and-media/about-and-media.component';
 
 // import { NgxImageZoomModule } from 'ngx-image-zoom';
 
@@ -42,6 +43,7 @@ import { TermsandconditionsComponent } from './pages/termsandconditions/termsand
     ReturnpolicyComponent,
     PrivacypolicyComponent,
     TermsandconditionsComponent,
+    AboutAndMediaComponent,
 
 
 
