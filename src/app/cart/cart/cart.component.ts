@@ -65,12 +65,12 @@ export class CartComponent implements OnInit {
 
     this.currency = localStorage.getItem('currency');
 
-    if (this.currency == 'INR') {
+    // if (this.currency == 'INR') {
       this.currencyClass = 'icon-inr'
-    }
-    else if (this.currency == 'USD') {
-      this.currencyClass = 'icon-dollar-currency-symbol'
-    }
+    // }
+    // else if (this.currency == 'USD') {
+    //   this.currencyClass = 'icon-dollar-currency-symbol'
+    // }
 
 
 
@@ -295,8 +295,8 @@ export class CartComponent implements OnInit {
         this.getCarts();
         this.cartItems[index].errmsg = "";
       }
-      else {
-        console.log(res)
+      else
+      {
         this.cartItems[index].errmsg = res.errorMessage;
         if (status == 'i') {
           this.cartItems[index].quantity--;
