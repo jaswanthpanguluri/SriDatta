@@ -173,9 +173,9 @@ export class AppComponent implements OnInit {
     let data = {
       customerId: this.customerId,
       sessionId: this.sessionId,
-      cityName: this.city,
-      countryName: this.countryname,
-      currencySelected: this.currency
+      //cityName: this.city,
+      //countryName: this.countryname,
+      //currencySelected: this.currency
     }
 
     this._crud.headerShopingCart(data).subscribe(res => {

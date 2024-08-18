@@ -119,9 +119,9 @@ export class MidheaderComponent implements OnInit {
     let data = {
       customerId: this.customerId,
       sessionId: this.sessionId,
-      cityName: this.city,
-      countryName: this.countryname,
-      currencySelected: this.currency
+      //cityName: this.city,
+      //countryName: this.countryname,
+      //currencySelected: this.currency
     }
 
     this._curdService.headerShopingCart(data).subscribe(res => {
@@ -137,7 +137,8 @@ export class MidheaderComponent implements OnInit {
 
     this.searcherror = false;
     let c = localStorage.getItem('city');
-    this.route.navigateByUrl('/search_result' + '/' + item + '/' + c)
+    //this.route.navigateByUrl('/search_result' + '/' + item + '/' + c);
+    this.route.navigateByUrl('/search_result' + '/' + item);
     setTimeout(() => {
       this.searchkeyword = '';
       this.isVisible = false
@@ -151,7 +152,8 @@ export class MidheaderComponent implements OnInit {
     if (this.searchkeyword) {
       this.searcherror = false;
       let c = localStorage.getItem('city');
-      this.route.navigateByUrl('/search_result' + '/' + this.searchkeyword + '/' + c)
+      //this.route.navigateByUrl('/search_result' + '/' + this.searchkeyword + '/' + c)
+      this.route.navigateByUrl('/search_result' + '/' + this.searchkeyword);
       setTimeout(() => {
         this.searchkeyword = '';
         this.isVisible = false
