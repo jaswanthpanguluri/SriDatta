@@ -132,16 +132,18 @@
     </div>
 </section>
 
-<div class="row pt-5">
-    <ng-container *ngFor="let sb of shopByGender">
-        <div [ngClass]="{'mt-4 col-md-12': !sb.isSmall, 'col-md-6' : sb.isSmall }">
-            <figure>
-                <a href="javascript:void(0)">
-                    <img [src]="sb.imageName" alt="" class="img-fluid w-100">
-                </a>
-            </figure>
-        </div>
-    </ng-container>
+<div class="custom-container">
+    <div class="row pt-5">
+        <ng-container *ngFor="let sb of shopByGender">
+            <div [ngClass]="{'col-md-6 mt-4': !sb.isSmall, 'col-md-6' : sb.isSmall }">
+                <figure>
+                    <a href="javascript:void(0)">
+                        <img [src]="sb.imageName" alt="" class="img-fluid w-100">
+                    </a>
+                </figure>
+            </div>
+        </ng-container>
+    </div>
 </div>
 
 <section class="about-store mt-5">

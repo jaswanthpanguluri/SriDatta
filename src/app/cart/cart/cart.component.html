@@ -171,18 +171,17 @@
             data-bs-toggle="modal" data-bs-target="#AddonsProducts" (click)="addOnProducts('0')">Continue to
             Checkout</button>
           <button *ngIf="showcheckoutbtn" [disabled]="outofdatemessage"
-            class="default-btn d-block width100p border-0 filter-btn background-green font-white"
-            (click)="gotocheckout()">Continue to
-            Checkout</button>
+            class="default-btn d-block width100p  filter-btn background-green font-white"
+            (click)="gotocheckout()">Continue to Checkout</button>
           <div class="row mt-2">
             <div class="col-lg-12">
-              <button class="color-btn w-100 d-block cbtn mb-2" data-bs-toggle="modal" data-bs-target="#AddonsProducts"
+              <button class="color-btn w-100 d-block mb-2 b border-0" data-bs-toggle="modal" data-bs-target="#AddonsProducts"
                 (click)="addOnProducts('1')">
                 Addons
               </button>
             </div>
             <div class="col-lg-12">
-              <a routerLink="/" class="default-btn w-100 background-green font-white d-block cbtn mb-2">Continue to
+              <a routerLink="/" class="default-btn w-100 background-green font-white d-block mb-2">Continue to
                 Shopping</a>
             </div>
           </div>

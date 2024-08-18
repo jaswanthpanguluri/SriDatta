@@ -42,9 +42,9 @@
       <div class="col-lg-4 justify-content-end align-self-center text-end navrt">
         <a class="d-inline-block d-lg-none text-center text-black" (click)="toggleVisibilitySearch()">
           <div><span class="icon-magnifying-glass icomoon"></span></div>
-          <div><small class="text-uppercase font-semibold">Search</small></div>
+          <div class="d-none d-sm-block"><small class="text-uppercase font-semibold">Search</small></div>
         </a>
-        <a routerLink="/cart" class="d-inline-block text-center text-black">
+        <a routerLink="/cart" class="d-none d-sm-inline-block text-center text-black">
           <div class="rt-icon"><span class="icon-store icomoon"></span></div>
           <div class="rt-title"><small class="text-uppercase font-semibold">Stores</small></div>
         </a>
@@ -57,14 +57,14 @@
           <div class="rt-title"><small class="text-uppercase font-semibold">Cart</small></div>
           <span class="badge badge-light position-absolute semibold">{{count}}</span>
         </a>
-        <a class="dropdown user-dropdown" href="javascript:void(0)">
-          <div class="d-inline-block text-center text-black dropdown-toggle" data-bs-toggle="dropdown"
+        <a class="dropdown user-dropdown d-inline-block text-center text-black" href="javascript:void(0)">
+          <div class="  dropdown-toggle" data-bs-toggle="dropdown"
             aria-expanded="false">
             <div class="rt-icon"><span class="icon-account-icon icomoon"></span></div>
-            <div *ngIf="custName">
+            <div *ngIf="custName" class="rt-title">
               <small class="text-uppercase font-semibold custname">{{custName}}</small>
             </div>
-            <div *ngIf="!custName">
+            <div *ngIf="!custName" class="rt-title">
               <small class="text-uppercase font-semibold">Account</small>
             </div>
           </div>
