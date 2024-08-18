@@ -11,76 +11,74 @@ import { CurdService } from 'src/app/services/curd.service';
 
 // @HostListener('window:scroll', [])
 
-export class FooterComponent implements OnInit{
-  
+export class FooterComponent implements OnInit {
+
   shouldShowArrow: boolean = false;
   onWindowScroll() {
-    
+
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    
+
     this.shouldShowArrow = scrollPosition >= 200;
-    
+
   }
 
 
-  scrollToTop(){
+  scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  
-  footerlinks:any;
-  form:any;
+
+  footerlinks: any;
+  form: any;
 
   showLinks: boolean = false;
-  toggleLinks(m:any) {
-    m.show =!m.show
+  toggleLinks(m: any) {
+    m.show = !m.show
     this.showLinks = !this.showLinks;
   }
 
 
-constructor(private _crud:CurdService, private toastr: ToastrService, private fb:FormBuilder)
-{
-  this.form = this.fb.group({
+  constructor(private _crud: CurdService, private toastr: ToastrService, private fb: FormBuilder) {
+    this.form = this.fb.group({
 
-    emailId: ['', [Validators.required, Validators.email]],
-    
-  });
-}
+      emailId: ['', [Validators.required, Validators.email]],
+
+    });
+  }
   ngOnInit() {
     window.addEventListener('scroll', this.onWindowScroll.bind(this));
-  this.getFooters()
+    this.getFooters()
   }
 
 
-getFooters(): void {    
-  this._crud.getFooters().subscribe(res => {
- 
-   this.footerlinks=res;
-  })
-}
-
-
-subscribe()
-{
-  let data = {
-    "subscribeDetails": {
-      "emailId": this.form.get('emailId').value,
-      "subscribedOn":new Date(),
-      "status": true
-    }
+  getFooters(): void {
+    this._crud.getFooters().subscribe(res => {
+      if (!!res && res.length > 0)
+        this.footerlinks = res;
+    })
   }
-  this._crud.subscribe(data).subscribe(res => {
-    if (!res.isEroor) {
-      this.toastr.success(res.successMessage)
-    
-      this.form.get('emailId')!.setValue('')
 
+
+  subscribe() {
+    let data = {
+      "subscribeDetails": {
+        "emailId": this.form.get('emailId').value,
+        "subscribedOn": new Date(),
+        "status": true
+      }
     }
-    else {
-      this.toastr.error(res.errorMessage)
-    }
-   
-  });
-}
+    this._crud.subscribe(data).subscribe(res => {
+      if (!res.isEroor) {
+        this.toastr.success(res.successMessage)
+
+        this.form.get('emailId')!.setValue('')
+
+      }
+      else {
+        this.toastr.error(res.errorMessage)
+      }
+
+    });
+  }
 }
 
 
