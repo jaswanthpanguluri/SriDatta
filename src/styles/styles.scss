@@ -32,11 +32,11 @@ body {
 }
 
 .custom-container {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
 
   @include max(map-get($breakpoints, "sm")) {
-    width: 90%;
+    width: 95%;
   }
 }
 
@@ -48,7 +48,7 @@ body {
   font-size: $fsize;
   text-align: center;
   padding: 10px 25px 10px 25px;
-  @include transition(all, 0.3s ease); 
+  @include transition(all, 0.3s ease);
   position: relative;
 
   @include max(map-get($breakpoints, "sm")) {
@@ -183,7 +183,7 @@ body {
     }
 
     &:before {
-      content: "\e92a";
+      content: "\e938";
       font-family: "icomoon" !important;
       font-size: $fsize - 5;
       position: relative;
@@ -791,38 +791,46 @@ header.fixed-top {
   cursor: pointer;
 }
 
-.accordion-item{
-  .accordion-header{
-    .accordion-button{
-      &:focus{
-        box-shadow: none;        
+.accordion-item {
+  .accordion-header {
+    .accordion-button {
+      &:focus {
+        box-shadow: none;
       }
     }
   }
 }
 
-.title-section-div{
-  h2{
+.title-section-div {
+  h2 {
     font-size: clamp(1.3rem, 1.6vw, 1.6rem);
-    
-    &:before{
+
+    &:before {
       content: "\e909";
-      font-family: 'icomoon' !important;
+      font-family: "icomoon" !important;
       position: absolute;
-      left:-70px;
-      top:2px;
-      font-size:25px;
-      color:map-get($colors, gray);
+      left: -70px;
+      top: 2px;
+      font-size: 25px;
+      color: map-get($colors, gray);
+
+      @include max(map-get($breakpoints, "sm")){
+        display: none;
+      }
     }
-    &:after{
+    &:after {
       content: "\e909";
-      font-family: 'icomoon' !important;
+      font-family: "icomoon" !important;
       position: absolute;
-      right:-70px;
-      top:2px;
-      font-size:25px;
-      color:map-get($colors, gray);
+      right: -70px;
+      top: 2px;
+      font-size: 25px;
+      color: map-get($colors, gray);
       transform: rotate(-180deg);
+
+      @include max(map-get($breakpoints, "sm")){
+        display: none;
+      }
     }
   }
 }

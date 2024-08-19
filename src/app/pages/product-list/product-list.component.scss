@@ -12,8 +12,7 @@
     .filter-dropdowns {
       button.dropdown-toggle {
         background: none;
-        padding: 5px 7px;
-        border-radius: 5px;
+        padding: 5px 15px;        
         border: 1px solid map-get($colors, gray);
         font-size: $fsize - 1;
 

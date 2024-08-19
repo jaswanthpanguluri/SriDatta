@@ -2,13 +2,18 @@
 
 .profile-db-card {
   height: 100%;
-  h6 {
-    font-size: $fsize + 1;
 
-    @include max(map-get($breakpoints, "sm")) {
-      font-size: $fsize - 2;
+  .art-section {
+    width: 75%;
+    h6 {
+      font-size: $fsize + 1;
+
+      @include max(map-get($breakpoints, "sm")) {
+        font-size: $fsize - 2;
+      }
     }
   }
+
   &:hover {
     h6 {
       color: map-get($colors, primary);
@@ -24,7 +29,8 @@
   .icon {
     width: 75px;
     height: 75px;
-    background: map-get($colors, primary);
+    // background: map-get($colors, black);
+    border: 1px solid map-get($colors, black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,8 +43,7 @@
 
     .icomoon {
       font-size: $fsize * 3;
-      color: map-get($colors, white);
-
+      color: map-get($colors, black);
       @include max(map-get($breakpoints, "sm")) {
         font-size: $fsize + 5;
       }
@@ -48,7 +53,7 @@
   &:hover {
     .icon {
       background: darken(map-get($colors, primary), 10%);
-
+      border: none;
       .icomoon {
         color: map-get($colors, white);
       }
