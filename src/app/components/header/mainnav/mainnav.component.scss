@@ -29,8 +29,8 @@
       & {
         .nav-link {
           @include max(map-get($breakpoints, "md")) {
-            background: map-get($colors, primary);
-            margin-bottom: 15px;
+            background: map-get($colors, lightblue);
+            margin-bottom: 5px;
           }
         }
       }
@@ -92,6 +92,8 @@
         content: "+";
         border: none;
         font-size: $fsize + 3;
+        position: relative;
+        right:10px;
       }
     }
   }
@@ -156,7 +158,6 @@
     .main-div-links > div {
       border-right: 1px solid map-get($colors, lightgray);
       min-width: 225px;
-     
 
       @include max(map-get($breakpoints, "lg")) {
         min-height: auto;
@@ -224,7 +225,7 @@
 .navbar-toggler {
   @include max(map-get($breakpoints, "lg")) {
     position: absolute;
-    top: -95px;
+    top: -40px;
     left: 0;
     border: none;
     padding: 0;
