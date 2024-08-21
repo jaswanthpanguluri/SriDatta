@@ -30,7 +30,7 @@
                 <h2 class="section-title d-inline-block font-semibold position-relative">Our Collections</h2>
             </div>
             <ng-container *ngFor="let sb of smallBanners">
-                <div [ngClass]="{'col-md-12': !sb.isSmall, 'mt-4 col-md-4' : sb.isSmall }">
+                <div [ngClass]="{'col-md-12': !sb.isSmall, 'mt-4 col-md-4 col-sm-4' : sb.isSmall }">
                     <figure>
                         <a href="javascript:void(0)">
                             <img [src]="sb.imageName" alt="" class="img-fluid w-100">
