@@ -3,6 +3,10 @@
 .category-banners {
   padding: 30px 0;
 
+  @include max(map-get($breakpoints, "md")){
+    padding:0;
+  }
+
   .category-banner-item {
     cursor: pointer;
     margin-bottom: 20px;
