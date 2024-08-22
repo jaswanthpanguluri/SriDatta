@@ -223,7 +223,7 @@
 }
 
 .navbar-toggler {
-  @include max(map-get($breakpoints, "lg")) {
+  @include max(map-get($breakpoints, "xl")) {
     position: absolute;
     top: -40px;
     left: 0;

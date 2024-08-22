@@ -4,12 +4,12 @@
             <h2 class="section-title d-inline-block font-semibold position-relative">Shop by Category</h2>
         </div>
         <div class="row py-3">
-            <div class="col-lg-2 col-md-3 col-6" *ngFor="let category of iconicBanners">
-                <a href="javascript:void(0)" class="d-inline-block border mb-4">
+            <div class="col-lg-2 col-md-3 col-4" *ngFor="let category of iconicBanners">
+                <a href="javascript:void(0)" class="d-inline-block border mb-2 mb-md-4">
                     <figure class="cat-figure">
                         <img [src]="category.imageName" (error)="onImageError($event)" alt="" class="img-fluid">
                     </figure>
-                    <p class="text-center py-2 font-black">{{category.name}}</p>
+                    <p class="text-center py-1 font-black">{{category.name}}</p>
                 </a>
             </div>
         </div>

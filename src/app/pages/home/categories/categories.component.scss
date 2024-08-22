@@ -5,6 +5,11 @@
     img {
       height: 100%;
       width: 100%;
+    }   
+  }
+  p{
+    @include max(map-get($breakpoints, "md")){
+      font-size:$fsize - 3;
     }
   }
 }
@@ -30,7 +35,7 @@
       }
     }
     p {
-      font-size: $fsize - 1;
+      font-size: $fsize - 1;     
     }
   }
 }
