@@ -36,7 +36,7 @@
     align-items: center;
     @include transition(all, 0.3s ease);
 
-    @include max(map-get($breakpoints, "sm")) {
+    @include max(map-get($breakpoints, "md")) {
       width: 45px;
       height: 45px;
     }
@@ -44,7 +44,7 @@
     .icomoon {
       font-size: $fsize * 3;
       color: map-get($colors, black);
-      @include max(map-get($breakpoints, "sm")) {
+      @include max(map-get($breakpoints, "md")) {
         font-size: $fsize + 5;
       }
     }

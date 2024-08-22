@@ -135,7 +135,7 @@
 <div class="custom-container">
     <div class="row pt-5">
         <ng-container *ngFor="let sb of shopByGender">
-            <div [ngClass]="{'col-md-6 mt-4': !sb.isSmall, 'col-md-6' : sb.isSmall }">
+            <div [ngClass]="{'col-6 mt-4': !sb.isSmall, 'col-6' : sb.isSmall }">
                 <figure>
                     <a href="javascript:void(0)">
                         <img [src]="sb.imageName" alt="" class="img-fluid w-100">

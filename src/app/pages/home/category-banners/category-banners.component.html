@@ -25,12 +25,12 @@
             </ng-container>           -->
         </div>
 
-        <div class="row pt-md-2">
+        <div class="row pt-xl-2">
             <div class="title-section-div text-center py-0 py-md-2 mb-2">
                 <h2 class="section-title d-inline-block font-semibold position-relative">Our Collections</h2>
             </div>
             <ng-container *ngFor="let sb of smallBanners">
-                <div [ngClass]="{'col-md-12': !sb.isSmall, 'mt-4 col-md-4 col-sm-4' : sb.isSmall }">
+                <div [ngClass]="{'col-md-12': !sb.isSmall, 'mt-4 col-4' : sb.isSmall }">
                     <figure>
                         <a href="javascript:void(0)">
                             <img [src]="sb.imageName" alt="" class="img-fluid w-100">
