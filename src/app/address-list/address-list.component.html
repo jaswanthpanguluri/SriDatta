@@ -164,17 +164,15 @@
                             </div>
                         </div>
                         <div class="col-md-6" *ngIf="!checkoutaddress">
-                            <div class="form-floating">
-                                <select class="form-select" formControlName="cityName"
-                                    [ngClass]="{'is-invalid' : userForm.get('cityName')!.invalid && userForm.get('cityName')!.touched}">
-                                    <option [value]="cl.cityName" *ngFor="let cl of cityList">{{cl.cityName}}
-                                    </option>
-
-                                </select>
-                                <label for="">City <span class="font-red font-bold">*</span></label>
-                                <div class="msg-hint" *ngIf="userForm.get('cityName').invalid"> City Name is mandatory
-                                </div>
+                          <div class="form-floating">
+                            <input type="text" formControlName="cityName" class="form-control"
+                                   placeholder="City *"
+                                   [ngClass]="{'is-invalid' : userForm.get('cityName')!.invalid && userForm.get('cityName')!.touched}">
+                            <label for="">City <span class="font-red font-bold">*</span></label>
+                            <div class="msg-hint" *ngIf="userForm.get('cityName').invalid">
+                              City Name is mandatory
                             </div>
+                          </div>
                         </div>
 
 
@@ -314,19 +312,23 @@
                             </div>
                         </div>
                         <div class="col-sm-6" *ngIf="!checkoutaddress">
-                            <div class="form-floating mb-3">
-                                <select class="form-select"
+                          <div class="form-floating mb-3">
+                            <!--<select class="form-select"
                                     [ngClass]="{'is-invalid' : adduserForm.get('addcityName')!.invalid && adduserForm.get('addcityName')!.touched}"
                                     formControlName="addcityName">
-                                    <option [value]="cl.cityName" *ngFor="let cl of cityList">{{cl.cityName}}
-                                    </option>
+                              <option [value]="cl.cityName" *ngFor="let cl of cityList">
+                                {{cl.cityName}}
+                              </option>
 
-                                </select>
-                                <label for="">City <span class="font-red font-bold">*</span></label>
-                                <div class="msg-hint" *ngIf="addsubmitted && adduserForm.get('addcityName').invalid">
-                                    Enter City
-                                </div>
+                            </select>-->
+                            <input type="text" formControlName="addcityName" class="form-control"
+                                   placeholder="City *"
+                                   [ngClass]="{'is-invalid' : adduserForm.get('addcityName')!.invalid && adduserForm.get('addcityName')!.touched}">
+                            <label for="">City <span class="font-red font-bold">*</span></label>
+                            <div class="msg-hint" *ngIf="addsubmitted && adduserForm.get('addcityName').invalid">
+                              Enter City
                             </div>
+                          </div>
                         </div>
 
 

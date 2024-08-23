@@ -11,10 +11,10 @@ export class DeliverCitiesComponent {
 
   constructor(private titleService:Title, private meta:Meta)
   {
-    this.titleService.setTitle('Country Oven - Delivery Cities');
-    this.meta.updateTag({ name: 'description',  content: 'Country Oven - Delivery Cities' });
-    this.meta.updateTag({ name: 'keywords',  content: 'Country Oven - Delivery Cities' });
-    this.meta.updateTag({ name: 'classification',  content: 'Country Oven - Delivery Cities' });
+    this.titleService.setTitle('Sri Datta - Delivery Cities');
+    this.meta.updateTag({ name: 'description',  content: 'Sri Datta - Delivery Cities' });
+    this.meta.updateTag({ name: 'keywords',  content: 'Sri Datta - Delivery Cities' });
+    this.meta.updateTag({ name: 'classification',  content: 'Sri Datta - Delivery Cities' });
   
   }
 

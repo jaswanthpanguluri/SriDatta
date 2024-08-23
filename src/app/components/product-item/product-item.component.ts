@@ -58,12 +58,12 @@ if(this.isEggless)
 
 
     this.currency = localStorage.getItem('currency');
-    if (this.currency == 'INR') {
+    // if (this.currency == 'INR') {
       this.currencyClass = 'icon-inr'
-    }
-    else if (this.currency == 'USD') {
-      this.currencyClass = 'icon-dollar-currency-symbol'
-    }
+    // }
+    // else if (this.currency == 'USD') {
+    //   this.currencyClass = 'icon-dollar-currency-symbol'
+    // }
 
     this.city = localStorage.getItem('city')?.toLowerCase();
     

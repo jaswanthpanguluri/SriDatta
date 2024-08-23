@@ -49,9 +49,26 @@
         <section class="custom-container">
             <div class="products-list mt-3">
                 <div class="row g-2">
-                    <div class="col-md-3 col-6" *ngFor="let productitem of cat.productList  | slice:0:4">
-                        <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
-                    </div>
+                    <section class="home-banner-swiper">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                            <div class="row">
+                                <div class="col-md-3 col-6" *ngFor="let productitem of cat.productList  | slice:0:4">
+                                    <app-product-item [Productvalue]="productitem"
+                                        class="app-product-col"></app-product-item>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>
@@ -115,21 +132,23 @@
     </div>
 </section>
 
-<div class="row pt-5">
-    <ng-container *ngFor="let sb of shopByGender">
-        <div [ngClass]="{'mt-4 col-md-12': !sb.isSmall, 'col-md-6' : sb.isSmall }">
-            <figure>
-                <a href="javascript:void(0)">
-                    <img [src]="sb.imageName" alt="" class="img-fluid w-100">
-                </a>
-            </figure>
-        </div>
-    </ng-container>
+<div class="custom-container">
+    <div class="row pt-5">
+        <ng-container *ngFor="let sb of shopByGender">
+            <div [ngClass]="{'col-6 mt-4': !sb.isSmall, 'col-6' : sb.isSmall }">
+                <figure>
+                    <a href="javascript:void(0)">
+                        <img [src]="sb.imageName" alt="" class="img-fluid w-100">
+                    </a>
+                </figure>
+            </div>
+        </ng-container>
+    </div>
 </div>
 
-<section class="about-store mt-5">
-    <div class="custom-container ">
-        <div class="title-section-div text-center py-4">
+<section class="about-store mt-2 pt-md-5">
+    <div class="custom-container">
+        <div class="title-section-div text-center py-2 py-md-4">
             <h2 class="section-title d-inline-block font-semibold position-relative">About Our store</h2>
         </div>
         <div class="img-container">

@@ -5,9 +5,11 @@
   cursor: pointer;
   font-size: 26px;
 }
+
 .active {
   color: goldenrod;
 }
+
 .static-page {
   text-align: center;
 }
@@ -26,6 +28,6 @@
   }
 }
 
-.color-border-btn:disabled{
+.color-border-btn:disabled {
   opacity: .3;
 }

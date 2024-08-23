@@ -134,7 +134,7 @@ export class ProductsComponent implements OnInit {
           if (!localStorage.getItem('city')) {
             localStorage.setItem('city', params['cityname1'])
           }
-          if (params['PageName1'] == 'gifts-online') {
+          if (params['PageName1'] == 'platinum-online') {
             localStorage.setItem('city', params['cityname1'])
 
           }

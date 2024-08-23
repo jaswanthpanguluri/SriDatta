@@ -36,14 +36,14 @@ constructor(private route:ActivatedRoute,private _crud:CurdService, private rout
   ngOnInit() {
    
     this.currency=localStorage.getItem('currency');
-    if(this.currency=='INR')
-    {
+    // if(this.currency=='INR')
+    // {
       this.currencyClass='icon-inr'
-    }
-     else if(this.currency =='USA')
-     {
-      this.currencyClass='icon-dollar-currency-symbol'
-     }
+    // }
+    //  else if(this.currency =='USA')
+    //  {
+    //   this.currencyClass='icon-dollar-currency-symbol'
+    //  }
 
 
     this.route.paramMap.subscribe((params) => {

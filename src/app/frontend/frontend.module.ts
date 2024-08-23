@@ -24,20 +24,18 @@ import { StoresComponent } from '../pages/stores/stores.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from '../pages/products/products.component';
-import { CustomizedCakesComponent } from '../pages/customized-cakes/customized-cakes.component';
 import { NoproductsFoundComponent } from '../pages/noproducts-found/noproducts-found.component';
 import { TermsContentComponent } from '../pages/home/terms-content/terms-content.component';
 import { NotificationsComponent } from '../pages/home/notifications/notifications.component';
 import { TrackComponent } from '../pages/track/track.component';
 import { CorporateOrdersComponent } from '../pages/corporate-orders/corporate-orders.component';
- 
+
 import { NgxImageZoomModule } from 'ngx-image-zoom';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { CustomgiftsComponent } from '../pages/customgifts/customgifts.component';
 @NgModule({
   declarations: [
     FrontendComponent,
-   // HeaderComponent,
+    // HeaderComponent,
     // FooterComponent,
     HomeComponent,
     // TopheaderComponent,
@@ -45,7 +43,7 @@ import { CustomgiftsComponent } from '../pages/customgifts/customgifts.component
     // MainnavComponent,
     CategoriesComponent,
     CategoryBannersComponent,
-   // ProductItemComponent,
+    // ProductItemComponent,
     CategoryItemComponent,
     ProductListComponent,
     ProductDetailComponent,
@@ -54,16 +52,13 @@ import { CustomgiftsComponent } from '../pages/customgifts/customgifts.component
     ReviewsComponent,
     ContactComponent,
     CouponpartnersComponent,
-    FranchisesComponent,  
-    CustomizedCakesComponent,
+    FranchisesComponent,
     ProductsComponent,
     NoproductsFoundComponent,
     TermsContentComponent,
     NotificationsComponent,
     TrackComponent,
     CorporateOrdersComponent,
-    CustomgiftsComponent
-
   ],
   imports: [
     CommonModule,

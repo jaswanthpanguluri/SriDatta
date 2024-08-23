@@ -13,7 +13,6 @@ export class CategoryBannersComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    console.log(this.smallBanners)
   }
 
   ourcollectionsBanner: string = "../assets/images/ourcollections-banner.jpg";

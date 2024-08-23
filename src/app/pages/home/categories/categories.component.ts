@@ -13,7 +13,6 @@ export class CategoriesComponent {
   }
   @Input('iconicBanners') iconicBanners: any;
   ngonInit() {
-    console.log(this.iconicBanners);
   }
   categories = [
     { name: 'Rings', imageUrl: '../assets/images/categories/rings.jpg' },

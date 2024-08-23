@@ -56,16 +56,16 @@ else
 {
   this.countryCls='';
 }
-    if (this.currency == 'INR') {
+    // if (this.currency == 'INR') {
       this.currencyClass = 'icon-inr'
       this.walletamount=this.saveorderDetails.walletAmount;
     
-    }
-    else if (this.currency == 'USD') {
-      this.currencyClass = 'icon-dollar-currency-symbol'
-      this.walletamount=this.saveorderDetails.walletAmountUSD
+    // }
+    // else if (this.currency == 'USD') {
+    //   this.currencyClass = 'icon-dollar-currency-symbol'
+    //   this.walletamount=this.saveorderDetails.walletAmountUSD
      
-    }
+    // }
     
     this.PaymentPaypal()
   }

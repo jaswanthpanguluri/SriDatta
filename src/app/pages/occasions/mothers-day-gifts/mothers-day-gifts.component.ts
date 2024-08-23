@@ -11,7 +11,7 @@ import { Title, Meta } from '@angular/platform-browser';
 export class MothersDayGiftsComponent  {
   constructor(private titleService: Title, private meta: Meta) {
     this.titleService.setTitle('Order Special Mothers Day Gifts Online | Mothers Day Gifts to India ');
-    this.meta.updateTag({name: 'description', content: 'Order Mothers Day gifts online from Country Oven and have them delivered across India the same day and midnight.We offer a variety of personalized gifts, indulgent cakes, fresh flowers, and delightful gift hampers online.Order Mother’s Day gifts online and surprise your mom!' });
+    this.meta.updateTag({name: 'description', content: 'Order Mothers Day gifts online from Sri Datta and have them delivered across India the same day and midnight.We offer a variety of personalized gifts, indulgent cakes, fresh flowers, and delightful gift hampers online.Order Mother’s Day gifts online and surprise your mom!' });
     this.meta.updateTag({ name: 'keywords', content: 'Order Special Mothers Day Gifts Online | Mothers Day Gifts to India ' });
 
   }
