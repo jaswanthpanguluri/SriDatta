@@ -191,13 +191,13 @@
             <p class="text-end" *ngIf="firstlistItem && firstlistItem.totalAmount"><span [class]="currencyClass"></span>
               {{firstlistItem.totalAmount}}</p>
           </div>
-          <div class="d-flex justify-content-between py-2">
+          <!-- <div class="d-flex justify-content-between py-2">
             <p>Delivery Charges</p>
             <p class="text-end font-green" *ngIf="firstlistItem "> <ng-container
                 *ngIf="firstlistItem.deliveryCharges ==0">FREE</ng-container><ng-container
                 *ngIf="firstlistItem.deliveryCharges >0">{{firstlistItem.deliveryCharges}}</ng-container>
             </p>
-          </div>
+          </div> -->
           <div class="d-flex justify-content-between py-3 totalamount my-2">
             <h6 class="h6 font-semibold">Amount</h6>
             <p class="text-end font-semibold" *ngIf="firstlistItem && firstlistItem.grandTotal"><span

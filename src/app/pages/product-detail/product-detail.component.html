@@ -79,7 +79,7 @@
               </small>
             </p>
           </article>
-          <!-- safe instruction-->          
+          <!-- safe instruction-->
           <div class="py-2">
             <p><span class="icon-lock"></span> <small>100% Safe and Secure Payments</small></p>
           </div>
@@ -101,7 +101,8 @@
             <div class="offer-percentage align-self-center " *ngIf="productDetails?.discount">
               <small class="font-bold">({{productDetails?.discount}}% off)</small>
             </div>
-            <!-- <p class="align-self-center ps-2 small">Inclusive of all taxes</p> -->
+            <p class="align-self-center ps-2 small">Weight: <small
+                class="font-semibold">{{productDetails?.weightText}}</small></p>
           </div>
 
           <div *ngIf="isEggless" class="pb-2 eggless">
@@ -297,11 +298,12 @@
                     <span class="icon-cart"></span> Add
                     to Cart
                   </button>
-                  <!-- <span
+                  <span
                     class="displaytime  font-semibold  ms-md-3 ms-1 px-2 py-1 small rounded-pill align-self-center h6">
                     <span class="icon-circular-alarm-clock-tool d-inline-block me-1"></span>
-                    {{displayTime}} {{sameDayBlockMessage}}
-                  </span> -->
+                    {{productDetails?.leadTimeDays}}
+                    <!-- {{displayTime}} {{sameDayBlockMessage}} -->
+                  </span>
                 </div>
                 <div class="mt-3 d-md-flex addtocart-btn" *ngIf="courierProductMessage">
                   <span class="small font-green font-semibold">{{courierProductMessage}}</span>
