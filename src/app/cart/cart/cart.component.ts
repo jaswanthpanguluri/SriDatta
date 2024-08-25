@@ -66,7 +66,7 @@ export class CartComponent implements OnInit {
     this.currency = localStorage.getItem('currency');
 
     // if (this.currency == 'INR') {
-      this.currencyClass = 'icon-inr'
+    this.currencyClass = 'icon-inr'
     // }
     // else if (this.currency == 'USD') {
     //   this.currencyClass = 'icon-dollar-currency-symbol'
@@ -144,15 +144,15 @@ export class CartComponent implements OnInit {
           "productId": this.productId,
           "sessionId": this.cookieService.get('sessionID')
         }
-        this._crud.getBindDeliveryTimes(data).subscribe(res => {
+        // this._crud.getBindDeliveryTimes(data).subscribe(res => {
 
-          this.deliveryTime = res.deliveryTimingsDtos;
-          setTimeout(() => {
+        //   this.deliveryTime = res.deliveryTimingsDtos;
+        //   setTimeout(() => {
 
-            // this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
-          }, 100);
+        //     // this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
+        //   }, 100);
 
-        })
+        // })
       }, 100);
     });
   }
@@ -295,8 +295,7 @@ export class CartComponent implements OnInit {
         this.getCarts();
         this.cartItems[index].errmsg = "";
       }
-      else
-      {
+      else {
         this.cartItems[index].errmsg = res.errorMessage;
         if (status == 'i') {
           this.cartItems[index].quantity--;

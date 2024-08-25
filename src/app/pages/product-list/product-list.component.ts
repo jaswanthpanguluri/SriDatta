@@ -158,8 +158,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   getnewurl(urlcity: any) {
 
     this.getOldUrl = this.router.url;
-
-    let newurl = this.getOldUrl.replace(urlcity, this.cityname.toLowerCase());
+    let newurl = this.getOldUrl;
+    //let newurl = this.getOldUrl.replace(urlcity, this.cityname.toLowerCase());
     this.location.replaceState(newurl);
     this.addCanonicalLink(newurl)
   }
@@ -236,7 +236,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
           if (params['type'] == 'search_result') {
 
-            this.setCity(params['PageName'])
+            //this.setCity(params['PageName'])
+            this.PageName = params['PageName']
 
             this.getnewurl(params['PageName'])
           }
@@ -287,7 +288,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
           this.type = 'SE';
           this.cityname = params['PageName'];
           this.cityname = this.originalcityname;
-          this.PageName = params['cityname'];
+          //this.PageName = params['cityname'];
+          this.PageName = params['PageName'];
         }
 
 
@@ -362,9 +364,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
       this.loading = false;
 
       this.productData = res;
-      if (this.productData && this.productData.totalCount == 0 && data.productFilters.length == 0) {
-        this.router.navigateByUrl('/404')
-      }
+      // if (this.productData && this.productData.totalCount == 0 && data.productFilters.length == 0) {
+      //   this.router.navigateByUrl('/404')
+      // }
 
 
       if (this.productData && (this.productData.totalPages > this.productData.pageNumber)) {

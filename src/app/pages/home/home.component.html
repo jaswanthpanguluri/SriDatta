@@ -1,29 +1,29 @@
 <section class="home-banner-swiper">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <ng-container *ngFor="let b of banners; let i=index">
-                <button type="button" data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i"
-                    [class.active]="i === 0" aria-current="true" aria-label="Slide 1"></button>
-            </ng-container>
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <ng-container *ngFor="let b of banners; let i=index">
+        <button type="button" data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="i"
+          [class.active]="i === 0" aria-current="true" aria-label="Slide 1"></button>
+      </ng-container>
 
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item" *ngFor="let b of banners; let i = index" [class.active]="i === 0">
-                <img [src]="b.imageName" [alt]="b.seoName" (error)="onImageError($event)"
-                    (click)="gotoroute(b.type, b.seoName)" class="img-fluid w-100">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
+    <div class="carousel-inner">
+      <div class="carousel-item" *ngFor="let b of banners; let i = index" [class.active]="i === 0">
+        <img [src]="b.imageName" [alt]="b.seoName" (error)="onImageError($event)" (click)="gotoroute(b.type, b.seoName)"
+          class="img-fluid w-100">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </section>
 <app-categories *ngIf="iconicBanners" [iconicBanners]="iconicBanners"></app-categories>
 
@@ -31,148 +31,146 @@
 
 
 <ng-container *ngFor="let cat of productSecions">
-    <section class="product-row py-2 py-md-4">
-        <div class="section-heading">
-            <div class="custom-container">
-                <div class="title-section-div text-center py-4">
-                    <div>
-                        <h2 class="section-title d-inline-block font-semibold position-relative">{{cat.sectionType}}
-                        </h2>
-                    </div>
-                    <div class="mt-4">
-                        <a [href]="cat.sectionURL" class="color-btn">View All</a>
-                    </div>
-                </div>
-            </div>
+  <section class="product-row py-2 py-md-4">
+    <div class="section-heading">
+      <div class="custom-container">
+        <div class="title-section-div text-center py-4">
+          <div>
+            <h2 class="section-title d-inline-block font-semibold position-relative">{{cat.sectionType}}
+            </h2>
+          </div>
+          <div class="mt-4">
+            <a [href]="cat.sectionURL" class="color-btn">View All</a>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <section class="custom-container">
-            <div class="products-list mt-3">
-                <div class="row g-2">
-                    <section class="home-banner-swiper">
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                            <div class="row">
-                                <div class="col-md-3 col-6" *ngFor="let productitem of cat.productList  | slice:0:4">
-                                    <app-product-item [Productvalue]="productitem"
-                                        class="app-product-col"></app-product-item>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button"
-                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </section>
+    <section class="custom-container">
+      <div class="products-list mt-3">
+        <div class="row g-2">
+          <section class="home-banner-swiper">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div class="row">
+                <div class="col-md-3 col-6" *ngFor="let productitem of cat.productList  | slice:0:4">
+                  <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
                 </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
-        </section>
+          </section>
+        </div>
+      </div>
     </section>
+  </section>
 </ng-container>
 
 
 <section class="home-videos d-none">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-lg-2 col-md-4" *ngFor="let videoItem of homeVideos">
-                <div class="video-item">
-                    <a href="javascript:void(0)">
-                        <figure class="position-relative">
-                            <img [src]="videoItem.imageUrl" alt="" class="img-fluid w-100 rounded">
-                            <div
-                                class="playicon position-absolute d-flex justify-content-center align-items-center rounded-circle">
-                                <span class="icon-playicon icomoon font-white"></span>
-                            </div>
-                        </figure>
-                    </a>
-                </div>
-            </div>
+  <div class="custom-container">
+    <div class="row">
+      <div class="col-lg-2 col-md-4" *ngFor="let videoItem of homeVideos">
+        <div class="video-item">
+          <a href="javascript:void(0)">
+            <figure class="position-relative">
+              <img [src]="videoItem.imageUrl" alt="" class="img-fluid w-100 rounded">
+              <div class="playicon position-absolute d-flex justify-content-center align-items-center rounded-circle">
+                <span class="icon-playicon icomoon font-white"></span>
+              </div>
+            </figure>
+          </a>
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<section class="adv-banners mt-5">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-md-6" *ngFor="let videoItem of promotionBanner">
-                <a href="javascript:void(0)">
-                    <img [src]="videoItem.imageName" alt="" class="img-fluid w-100">
-                </a>
-            </div>
-        </div>
+<section class="adv-banners mt-5 cursor-none">
+  <div class="custom-container">
+    <div class="row">
+      <div class="col-md-6" *ngFor="let videoItem of promotionBanner">
+        <a href="javascript:void(0)" (click)="gotoroute(videoItem.type, videoItem.seoName)">
+          <img [src]="videoItem.imageName" alt="" class="img-fluid w-100">
+        </a>
+      </div>
     </div>
+  </div>
 </section>
 
 <section class="video-adv-section mt-5">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="video-adv-col">
-                    <figure class="position-relative">
-                        <img [src]="videoAdv" alt="" class="img-fluid w-100">
-                        <a href="javascript:void(0)"
-                            class="video-icon position-absolute top-50 start-50 d-flex justify-content-center align-items-center background-red color-white rounded-circle"><span
-                                class="icon-playicon icomoon text-white"></span></a>
-                    </figure>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <figure>
-                    <a href="javascript:void(0)">
-                        <img [src]="videoImgTwo" alt="" class="img-fluid">
-                    </a>
-                </figure>
-            </div>
+  <div class="custom-container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="video-adv-col">
+          <figure class="position-relative">
+            <img [src]="videoAdv" alt="" class="img-fluid w-100">
+            <a href="javascript:void(0)"
+              class="video-icon position-absolute top-50 start-50 d-flex justify-content-center align-items-center background-red color-white rounded-circle"><span
+                class="icon-playicon icomoon text-white"></span></a>
+          </figure>
         </div>
+      </div>
+      <div class="col-md-4">
+        <figure>
+          <a href="javascript:void(0)">
+            <img [src]="videoImgTwo" alt="" class="img-fluid">
+          </a>
+        </figure>
+      </div>
     </div>
+  </div>
 </section>
 
 <div class="row pt-5">
-    <ng-container *ngFor="let sb of shopByGender">
-        <div [ngClass]="{'mt-4 col-md-12': !sb.isSmall, 'col-md-6' : sb.isSmall }">
-            <figure>
-                <a href="javascript:void(0)">
-                    <img [src]="sb.imageName" alt="" class="img-fluid w-100">
-                </a>
-            </figure>
-        </div>
-    </ng-container>
+  <ng-container *ngFor="let sb of shopByGender">
+    <div [ngClass]="{'mt-4 col-md-12': !sb.isSmall, 'col-md-6' : sb.isSmall }">
+      <figure>
+        <a href="javascript:void(0)">
+          <img [src]="sb.imageName" alt="" class="img-fluid w-100">
+        </a>
+      </figure>
+    </div>
+  </ng-container>
 </div>
 
 <section class="about-store mt-5">
-    <div class="custom-container ">
-        <div class="title-section-div text-center py-4">
-            <h2 class="section-title d-inline-block font-semibold position-relative">About Our store</h2>
-        </div>
-        <div class="img-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <article class="position-relative">
-                            <h3 class="font-semibold pb-3">An Enduring Legacy</h3>
-                            <p class="font-regular">Sri Datta, The Fine Diamond Jewellery Destination, immerses you in
-                                an atmosphere of fine
-                                aesthetics, showcasing jewellery that is resonant with Indian tradition and inspired by
-                                a
-                                rich Belgian legacy. Every Sri Datta across India evokes elegance and style, with the
-                                interiors, an ode to exceptional finesse, global tastes and refined sensibilities.</p>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="custom-container ">
+    <div class="title-section-div text-center py-4">
+      <h2 class="section-title d-inline-block font-semibold position-relative">About Our store</h2>
     </div>
+    <div class="img-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <article class="position-relative">
+              <h3 class="font-semibold pb-3">An Enduring Legacy</h3>
+              <p class="font-regular">Sri Datta, The Fine Diamond Jewellery Destination, immerses you in
+                an atmosphere of fine
+                aesthetics, showcasing jewellery that is resonant with Indian tradition and inspired by
+                a
+                rich Belgian legacy. Every Sri Datta across India evokes elegance and style, with the
+                interiors, an ode to exceptional finesse, global tastes and refined sensibilities.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
 
 <div>
-    <div class="custom-container">
-        <app-terms-content></app-terms-content>
-    </div>
+  <div class="custom-container">
+    <app-terms-content></app-terms-content>
+  </div>
 </div>

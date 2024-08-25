@@ -50,9 +50,9 @@ export class HomeComponent implements OnInit {
     this.countryname = localStorage.getItem('country');
     this.currency = localStorage.getItem('currency');
     this.getBanners()
-    if (this.city) {
-      this.getProducts();
-    }
+    //if (this.city) {
+    this.getProducts();
+    // }
   }
 
   getBanners(): void {
@@ -102,37 +102,37 @@ export class HomeComponent implements OnInit {
   gotoroute(t: any, pname: any) {
 
     let c = localStorage.getItem('city')?.toLowerCase();
+    this.route.navigateByUrl('/' + t + '/' + pname);
+    // if (t == 'C') {
+    //   t = 'online-delivery';
+    //   // this.route.navigateByUrl('/'+ t + '/'+ c + '/' + pname)
+    //   this.route.navigateByUrl('/' + pname + '/' + c + '/' + t)
+    // } else if (t == 'SC') {
+    //   t = 'order';
+    //   this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
+    // }
+    // else if (t == 'OCC') {
+    //   t = 'send';
+    //   this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
+    // }
+    // else if (t == 'SPL') {
 
-    if (t == 'C') {
-      t = 'online-delivery';
-      // this.route.navigateByUrl('/'+ t + '/'+ c + '/' + pname)
-      this.route.navigateByUrl('/' + pname + '/' + c + '/' + t)
-    } else if (t == 'SC') {
-      t = 'order';
-      this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
-    }
-    else if (t == 'OCC') {
-      t = 'send';
-      this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
-    }
-    else if (t == 'SPL') {
+    //   this.route.navigateByUrl('/' + pname + '-' + c)
+    // }
+    // else if (t == 'FLV') {
 
-      this.route.navigateByUrl('/' + pname + '-' + c)
-    }
-    else if (t == 'FLV') {
-
-      let link = pname + '-to-' + c
-      this.route.navigateByUrl('/' + link)
-    }
-    else if (t == 'CTY') {
+    //   let link = pname + '-to-' + c
+    //   this.route.navigateByUrl('/' + link)
+    // }
+    // else if (t == 'CTY') {
 
 
-      this.route.navigateByUrl('/' + c + '/' + pname)
-    }
+    //this.route.navigateByUrl('/' + c + '/' + pname)
+    // }
 
-    else {
-      // t=t
-    }
+    // else {
+    //   // t=t
+    // }
 
 
   }

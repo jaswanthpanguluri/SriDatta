@@ -1,17 +1,17 @@
 <section class="category-banners mt-4">
 
-    <div class="custom-container">
-        <div class="row pt-4 g-2 justify-content-center d-none">
-            <div class="col-md-10 text-center">
-                <img src="../assets/images/slidegallery.png" class="img-fluid w-100">
-            </div>
-            <!-- <ng-container *ngFor="let sb of smallBanners">
+  <div class="custom-container">
+    <div class="row pt-4 g-2 justify-content-center d-none">
+      <div class="col-md-10 text-center">
+        <img src="../assets/images/slidegallery.png" class="img-fluid w-100">
+      </div>
+      <!-- <ng-container *ngFor="let sb of smallBanners">
                 <div class="col-md-6" [ngClass]="{'col-md-6': !sb.isSmall, 'col-6 col-md-3' : sb.isSmall }">
                     <div class="category-banner-item position-relative"  (click)="gotoroute(sb.type, sb.seoName)">
                         <figure>
                             <div class="figurediv position-relative">
                                 <img [src]="sb.imageName" class="img-fluid w-100">
-                               
+
                             </div>
                         </figure>
                         <article class="position-absolute">
@@ -23,24 +23,24 @@
                     </div>
                 </div>
             </ng-container>           -->
-        </div>
+    </div>
 
-        <div class="row pt-5">
-            <div class="title-section-div text-center py-4">
-                <h2 class="section-title d-inline-block font-semibold position-relative">Our Collections</h2>
-            </div>
-            <ng-container *ngFor="let sb of smallBanners">
-                <div [ngClass]="{'col-md-12': !sb.isSmall, 'mt-4 col-md-4' : sb.isSmall }">
-                    <figure>
-                        <a href="javascript:void(0)">
-                            <img [src]="sb.imageName" alt="" class="img-fluid w-100">
-                        </a>
-                    </figure>
-                </div>
-            </ng-container>
+    <div class="row pt-5">
+      <div class="title-section-div text-center py-4">
+        <h2 class="section-title d-inline-block font-semibold position-relative">Our Collections</h2>
+      </div>
+      <ng-container *ngFor="let sb of smallBanners">
+        <div [ngClass]="{'col-md-12': !sb.isSmall, 'mt-4 col-md-4' : sb.isSmall }">
+          <figure>
+            <a href="javascript:void(0)" (click)="gotoroute(sb.type, sb.seoName)">
+              <img [src]="sb.imageName" alt="" class="img-fluid w-100">
+            </a>
+          </figure>
         </div>
+      </ng-container>
+    </div>
 
-        <!-- <div class="row pt-5">
+    <!-- <div class="row pt-5">
             <div class="col-md-12">
                 <div class="title-section-div text-center py-4">
                     <h2 class="section-title d-inline-block font-semibold position-relative">Our Collections</h2>
@@ -69,5 +69,5 @@
                 </a>
             </div>
         </div> -->
-    </div>
+  </div>
 </section>

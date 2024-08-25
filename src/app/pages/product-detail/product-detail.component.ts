@@ -198,7 +198,7 @@ export class ProductDetailComponent implements OnInit {
   setcounntry() {
     this.currency = localStorage.getItem('currency');
     // if (this.currency == 'INR') {
-      this.currencyClass = 'icon-inr'
+    this.currencyClass = 'icon-inr'
     // }
     // else if (this.currency == 'USD') {
     //   this.currencyClass = 'icon-dollar-currency-symbol'
@@ -522,51 +522,51 @@ export class ProductDetailComponent implements OnInit {
             "ProductId": this.productId,
             "sessionId": this.cookieService.get('sessionID')
           }
-          this._crud.getBindDeliveryTimes(data).subscribe(res => {
+          // this._crud.getBindDeliveryTimes(data).subscribe(res => {
 
-            this.deliveryTime = res.deliveryTimingsDtos;
-
-
-            if (this.productDetails.previousSelectedTime && this.productDetails.previousSelectedTime != '') {
-              this.dynamicForm.get('deliveryTimes')?.setValue(this.productDetails.previousSelectedTime);
-            }
-            else {
-              this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
-            }
-
-            //   this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
-
-            /* pincode */
-
-            this.pincodeOptionsDto_array = res.deliveryPinCodes;
-            if (this.pincodeOptionsDto_array?.length > 0) {
-
-              this.showpincode = true;
-              this.addFormControl('pincodeOptionsDto');
-              setTimeout(() => {
-                this.dynamicForm.get('pincodeOptionsDto')?.setValue(null);
-
-                if (this.prevpincode != null) {
-
-                  this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
-                }
-              }, 1000);
+          //   this.deliveryTime = res.deliveryTimingsDtos;
 
 
+          //   if (this.productDetails.previousSelectedTime && this.productDetails.previousSelectedTime != '') {
+          //     this.dynamicForm.get('deliveryTimes')?.setValue(this.productDetails.previousSelectedTime);
+          //   }
+          //   else {
+          //     this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
+          //   }
+
+          //   //   this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
+
+          //   /* pincode */
+
+          //   this.pincodeOptionsDto_array = res.deliveryPinCodes;
+          //   if (this.pincodeOptionsDto_array?.length > 0) {
+
+          //     this.showpincode = true;
+          //     this.addFormControl('pincodeOptionsDto');
+          //     setTimeout(() => {
+          //       this.dynamicForm.get('pincodeOptionsDto')?.setValue(null);
+
+          //       if (this.prevpincode != null) {
+
+          //         this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
+          //       }
+          //     }, 1000);
 
 
 
 
 
 
-            } else {
-              this.showpincode = false;
-            }
-            /* pincode */
+
+
+          //   } else {
+          //     this.showpincode = false;
+          //   }
+          //   /* pincode */
 
 
 
-          })
+          // })
 
 
 
@@ -769,44 +769,44 @@ export class ProductDetailComponent implements OnInit {
       "ProductId": this.productId,
       "sessionId": this.cookieService.get('sessionID')
     }
-    this._crud.getBindDeliveryTimes(data).subscribe(res => {
+    // this._crud.getBindDeliveryTimes(data).subscribe(res => {
 
-      this.deliveryTime = res.deliveryTimingsDtos;
-
-
-      this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
+    //   this.deliveryTime = res.deliveryTimingsDtos;
 
 
-      /* pincode */
-
-      this.pincodeOptionsDto_array = res.deliveryPinCodes;
-      if (this.pincodeOptionsDto_array?.length > 0) {
-        this.showpincode = true;
-
-        if (this.dynamicForm.get('pincodeOptionsDto') !== null) {
-          this.addFormControl('pincodeOptionsDto');
-        }
-        setTimeout(() => {
-          this.dynamicForm.get('pincodeOptionsDto')?.setValue(null);
+    //   this.dynamicForm.get('deliveryTimes')?.setValue(this.deliveryTime[0].dtime);
 
 
-          if (this.prevpincode != null) {
+    //   /* pincode */
 
-            this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
-          }
+    //   this.pincodeOptionsDto_array = res.deliveryPinCodes;
+    //   if (this.pincodeOptionsDto_array?.length > 0) {
+    //     this.showpincode = true;
 
-
-        }, 1000);
-
-      } else {
-        this.showpincode = false;
-        this.dynamicForm.get('pincodeOptionsDto')?.clearValidators();
-        this.dynamicForm.get('pincodeOptionsDto')?.updateValueAndValidity();
-      }
-      /* pincode */
+    //     if (this.dynamicForm.get('pincodeOptionsDto') !== null) {
+    //       this.addFormControl('pincodeOptionsDto');
+    //     }
+    //     setTimeout(() => {
+    //       this.dynamicForm.get('pincodeOptionsDto')?.setValue(null);
 
 
-    })
+    //       if (this.prevpincode != null) {
+
+    //         this.dynamicForm.get('pincodeOptionsDto')?.setValue(this.prevpincode);
+    //       }
+
+
+    //     }, 1000);
+
+    //   } else {
+    //     this.showpincode = false;
+    //     this.dynamicForm.get('pincodeOptionsDto')?.clearValidators();
+    //     this.dynamicForm.get('pincodeOptionsDto')?.updateValueAndValidity();
+    //   }
+    //   /* pincode */
+
+
+    // })
   }
 
   //getProductReviews

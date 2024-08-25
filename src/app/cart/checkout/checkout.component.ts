@@ -82,7 +82,7 @@ export class CheckoutComponent implements OnInit {
 
 
     // if (this.currency == 'INR') {
-      this.currencyClass = 'icon-inr'
+    this.currencyClass = 'icon-inr'
     // }
     // else if (this.currency == 'USD') {
     //   this.currencyClass = 'icon-dollar-currency-symbol'
@@ -117,7 +117,7 @@ export class CheckoutComponent implements OnInit {
       this.addressId = event.e.addressId;
       this.reviewShow = true;
       this.zipCode = event.e.zipCode;
-      this.checkDeliveryTimes(this.zipCode)
+      //this.checkDeliveryTimes(this.zipCode)
     }
     else {
       this.reviewShow = false;
@@ -168,12 +168,12 @@ export class CheckoutComponent implements OnInit {
 
 
     }
-    this._crud.checkDeliveryTimes(data).subscribe(res => {
+    // this._crud.checkDeliveryTimes(data).subscribe(res => {
 
-      this.isReqired = res.isReqired;
-      this.isChanged = res.isChanged;
-      this.msg = res.message
-    })
+    //   this.isReqired = res.isReqired;
+    //   this.isChanged = res.isChanged;
+    //   this.msg = res.message
+    // })
 
   }
 
@@ -329,15 +329,15 @@ export class CheckoutComponent implements OnInit {
           "IsCustomGift": this.isCustomGift,
           "sessionId": this.cookieService.get('sessionID')
         }
-        this._crud.getBindDeliveryTimes(data).subscribe(res => {
+        // this._crud.getBindDeliveryTimes(data).subscribe(res => {
 
-          this.deliveryTime = res.deliveryTimingsDtos;
-          setTimeout(() => {
+        //   this.deliveryTime = res.deliveryTimingsDtos;
+        //   setTimeout(() => {
 
-            // this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
-          }, 100);
+        //     // this.userForm.get('deliveryTime')?.setValue(this.displaydeliveryTime)
+        //   }, 100);
 
-        })
+        // })
       }, 100);
     });
   }
@@ -354,11 +354,11 @@ export class CheckoutComponent implements OnInit {
       "IsCustomGift": this.isCustomGift,
       "sessionId": this.cookieService.get('sessionID')
     }
-    this._crud.getBindDeliveryTimes(data).subscribe(res => {
+    // this._crud.getBindDeliveryTimes(data).subscribe(res => {
 
-      this.deliveryTime = res.deliveryTimingsDtos;
+    //   this.deliveryTime = res.deliveryTimingsDtos;
 
-    })
+    // })
   }
 
 
