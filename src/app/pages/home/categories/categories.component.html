@@ -5,7 +5,8 @@
     </div>
     <div class="row py-3">
       <div class="col-lg-2 col-md-3 col-4" *ngFor="let category of iconicBanners">
-        <a href="javascript:void(0)" class="d-inline-block border mb-2 mb-md-4">
+        <a href="javascript:void(0)" class="d-inline-block border mb-2 mb-md-4"
+          (click)="gotoroute(category.type, category.seoName)">
           <figure class="cat-figure">
             <img [src]="category.imageName" (error)="onImageError($event)" alt="" class="img-fluid">
           </figure>

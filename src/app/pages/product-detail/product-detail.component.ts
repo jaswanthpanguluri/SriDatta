@@ -180,9 +180,9 @@ export class ProductDetailComponent implements OnInit {
         });
 
       } else {
-        if (params['cityname'] == 'send-online') {
-          this.getProductDetailsById();
-        }
+        //if (params['cityname'] == 'send-online') {
+        this.getProductDetailsById();
+        // }
       }
 
     });
