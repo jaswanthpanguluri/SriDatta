@@ -2,21 +2,26 @@
 
 .app-product-item {
   height: 100%;
-  @include transition(all, 0.2s ease); 
-  @include max(map-get($breakpoints, "md")) {   
+  @include transition(all, 0.2s ease);
+  @include max(map-get($breakpoints, "md")) {
     height: auto;
-  }  
+  }
   .product-item-figure {
     position: relative;
     width: 100%;
     overflow: hidden;
+    aspect-ratio: 1/1;
+    height: auto;
     img {
       border-radius: 10px;
-      @include transition(all, 0.2s ease);     
+      @include transition(all, 0.2s ease);
+      object-fit: contain;
+      // aspect-ratio: 1/1;      
+      padding: 1.5rem;
+      height: 100%;
       @include max(map-get($breakpoints, "sm")) {
         border-radius: 10px;
-      }    
-      
+      }
     }
     .seller-label {
       position: absolute;
