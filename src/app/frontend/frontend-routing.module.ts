@@ -21,12 +21,14 @@ import { DeliverCitiesComponent } from '../pages/deliver-cities/deliver-cities.c
 import { ReturnpolicyComponent } from '../pages/returnpolicy/returnpolicy.component';
 import { PrivacypolicyComponent } from '../pages/privacypolicy/privacypolicy.component';
 import { TermsandconditionsComponent } from '../pages/termsandconditions/termsandconditions.component';
+import { LifetimeComponent } from '../pages/lifetime-exchange/lifetime-exchange.component';
 import { NoproductsFoundComponent } from '../pages/noproducts-found/noproducts-found.component';
 import { NotificationsComponent } from '../pages/home/notifications/notifications.component';
 import { OopsComponent } from '../pages/404/404.component';
 import { RrevComponent } from '../pages/rrev/rrev.component';
 import { BakeryReviewsComponent } from '../pages/bakery-reviews/bakery-reviews.component';
 import { AboutAndMediaComponent } from '@page/about-and-media/about-and-media.component';
+import { DiamondguideComponent } from '../pages/diamond-guide/diamond-guide.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,7 @@ const routes: Routes = [
       { path: 'aboutus', component: AboutusComponent },
       { path: 'about-and-media', component: AboutAndMediaComponent },
       { path: 'content/ourstores', component: StoresComponent },
+      { path: 'store-locator', component: StoresComponent },
       { path: 'reviews', component: ReviewsComponent },
       { path: 'rrev/index/:id', component: RrevComponent },
       { path: 'bakeryreview', component: BakeryReviewsComponent },
@@ -53,12 +56,18 @@ const routes: Routes = [
       { path: 'content/customerservices', component: CustomerServicesComponent },
       { path: 'Help', component: HelpComponent },
       { path: 'content/faq', component: FaqComponent },
+      { path: 'diamond-guide', component: DiamondguideComponent },
+      { path: 'platinum-guide', component: DiamondguideComponent },
       { path: 'content/shipping', component: ShippingComponent },
       { path: 'deliverycities', component: DeliverCitiesComponent },
       { path: 'content/returnpolicy', component: ReturnpolicyComponent },
+      { path: 'returnpolicy', component: ReturnpolicyComponent },
       { path: 'content/privacypolicy', component: PrivacypolicyComponent },
       { path: 'content/termsandcondition', component: TermsandconditionsComponent },
+      { path: 'termsandcondition', component: TermsandconditionsComponent },
+      { path: 'lifetime-exchange', component: LifetimeComponent },
       { path: 'pages/Noproducts', component: NoproductsFoundComponent },
+
 
       { path: 'products-list', component: ProductListComponent },
       { path: ':type/:cityname/:PageName', component: ProductsComponent },

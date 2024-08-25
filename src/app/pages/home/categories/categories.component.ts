@@ -45,37 +45,38 @@ export class CategoriesComponent {
 
   gotoroute(t: any, pname: any) {
 
+
     let c = localStorage.getItem('city')
 
+    this.route.navigateByUrl('/' + t + '/' + pname);
+    // if (t == 'C') {
+    //   t = 'online-delivery';
+    //   this.route.navigateByUrl('/' + pname + '/' + c + '/' + t)
 
-    if (t == 'C') {
-      t = 'online-delivery';
-      this.route.navigateByUrl('/' + pname + '/' + c + '/' + t)
+    // } else if (t == 'SC') {
+    //   t = 'order';
+    //   this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
+    // }
+    // else if (t == 'OCC') {
+    //   t = 'send';
+    //   this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
+    // }
+    // else if (t == 'SPL') {
 
-    } else if (t == 'SC') {
-      t = 'order';
-      this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
-    }
-    else if (t == 'OCC') {
-      t = 'send';
-      this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
-    }
-    else if (t == 'SPL') {
+    //   this.route.navigateByUrl('/' + pname + '-' + c)
+    // }
+    // else if (t == 'FLV') {
 
-      this.route.navigateByUrl('/' + pname + '-' + c)
-    }
-    else if (t == 'FLV') {
+    //   let link = pname + '-to-' + c
+    //   this.route.navigateByUrl('/' + link)
+    // }
+    // else if (t == 'CTY') {
+    //   this.route.navigateByUrl('/' + c + '/' + pname)
+    // }
 
-      let link = pname + '-to-' + c
-      this.route.navigateByUrl('/' + link)
-    }
-    else if (t == 'CTY') {
-      this.route.navigateByUrl('/' + c + '/' + pname)
-    }
-
-    else {
-      t = t
-    }
+    // else {
+    //   t = t
+    // }
 
 
   }

@@ -1,29 +1,54 @@
 <div class="app-product-item">
-    <figure class="product-item-figure">
-        <!-- <a [routerLink]="'/product-detail/' + Productvalue.seoProductName" > -->
-        <a [routerLink]="'/'+city + '/send-online/' + Productvalue.seoProductName">
-            <!-- hyderabad/send-online/ -->
-            <img src="{{Productvalue.imageURL}}" alt="{{Productvalue.altProductName}}" title="{{Productvalue.altProductName}}" class="img-fluid w-100">
-            <span class="tagbadge" *ngIf="tagMsg" [class]="tagClass">{{tagMsg}}</span>
-        </a>
-        <!-- <span class="seller-label">{{Productvalue.productName}}</span> -->
-    </figure>
-    <div class="item-title p-2 p-md-3 bg-white">
-        <h5 class="text-center">
-            <a [routerLink]="'/'+city + '/send-online/' + Productvalue.seoProductName"
-                href="javascript:void(0)">{{Productvalue.productName}}</a>
-        </h5>
-        <div class="price d-flex py-md-2 justify-content-center">
-            <div class="offer-price font-semibold"><span class="icomoon font-semibold"
-                    [class]="currencyClass"></span>{{Productvalue.dicountPrice}}</div>
-            <ng-container *ngIf="Productvalue.discount > 0">
-                <div class="mrp font-semibold align-self-center px-2">
-                    <span class="icon-issr icomoon font-semibold"
-                        [class]="currencyClass"></span>{{Productvalue.productPrice}}
-                </div>
-                <div class="offer-percentage align-self-center"><small
-                        class="font-semibold">{{Productvalue.discount}}%</small></div>
-            </ng-container>
-        </div>        
+  <figure class="product-item-figure">
+    <!-- <a [routerLink]="'/product-detail/' + Productvalue.seoProductName" > -->
+    <a [routerLink]="'/send-online/' + Productvalue.seoProductName">
+      <!-- hyderabad/send-online/ -->
+      <img src="{{Productvalue.imageURL}}" alt="{{Productvalue.altProductName}}" title="{{Productvalue.altProductName}}"
+        class="img-fluid w-100">
+      <span class="tagbadge" *ngIf="tagMsg" [class]="tagClass">{{tagMsg}}</span>
+    </a>
+    <!-- <span class="seller-label">{{Productvalue.productName}}</span> -->
+  </figure>
+  <div class="item-title p-2 p-md-3 bg-white">
+    <h5 class="text-center">
+      <!-- <a [routerLink]="'/'+city + '/send-online/' + Productvalue.seoProductName"
+        href="javascript:void(0)">{{Productvalue.productName}}</a> -->
+      <a [routerLink]="'/send-online/' + Productvalue.seoProductName"
+        href="javascript:void(0)">{{Productvalue.productName}}</a>
+    </h5>
+    <div class="price d-flex py-md-2 justify-content-center">
+      <div class="offer-price font-semibold"><span class="icomoon font-semibold"
+          [class]="currencyClass"></span>{{Productvalue.dicountPrice}}</div>
+      <ng-container *ngIf="Productvalue.discount > 0">
+        <div class="mrp font-semibold align-self-center px-2">
+          <span class="icon-issr icomoon font-semibold" [class]="currencyClass"></span>{{Productvalue.productPrice}}
+        </div>
+        <div class="offer-percentage align-self-center"><small class="font-semibold">{{Productvalue.discount}}%</small>
+        </div>
+      </ng-container>
+
     </div>
+    <div class="clear-both"></div>
+
+    <div class="d-block price ">
+      <h5 class="text-center offer-percentage">
+        Weight: <small class="font-semibold">{{Productvalue.weightText}}</small>
+
+        <span class="displaytime  font-semibold  ms-md-3 ms-1 px-2 py-1 small rounded-pill align-self-center h6">
+          <span class="icon-circular-alarm-clock-tool d-inline-block me-1"></span>
+          {{Productvalue?.leadTimeDays}}
+        </span>
+      </h5>
+
+    </div>
+    <!--   <div class="d-block price ">
+      <span class="displaytime  font-semibold  ms-md-3 ms-1 px-2 py-1 small rounded-pill align-self-center h6">
+        <span class="icon-circular-alarm-clock-tool d-inline-block me-1"></span>
+        {{Productvalue?.leadTimeDays}}
+      </span>
+    <h5 class="text-center offer-percentage">
+        Delivery Time: <small class="font-semibold">{{Productvalue.leadTimeDays}}</small>
+      </h5>
+    </div>-->
+  </div>
 </div>
