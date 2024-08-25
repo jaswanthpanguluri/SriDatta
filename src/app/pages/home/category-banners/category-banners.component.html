@@ -32,7 +32,7 @@
       <ng-container *ngFor="let sb of smallBanners">
         <div [ngClass]="{'col-md-12': !sb.isSmall, 'mt-4 col-4' : sb.isSmall }">
           <figure>
-            <a href="javascript:void(0)">
+            <a href="javascript:void(0)" (click)="gotoroute(sb.type, sb.seoName)">
               <img [src]="sb.imageName" alt="" class="img-fluid w-100">
             </a>
           </figure>
