@@ -2,9 +2,11 @@
 
 .footer {
   background: map-get($colors, silverprimarylight);
+
   @include max(map-get($breakpoints, "sm")) {
     padding-bottom: 20px;
   }
+
   .movetop {
     width: 50px;
     height: 50px;
@@ -28,6 +30,7 @@
     &.show {
       opacity: 1;
     }
+
     &:hover {
       background: map-get($colors, primary);
 
@@ -44,6 +47,7 @@
 
   .bottom-footer {
     margin-bottom: 15px;
+
     @include max(map-get($breakpoints, "sm")) {
       margin-top: 20px;
     }
@@ -69,6 +73,7 @@
         flex-wrap: wrap;
       }
     }
+
     .links-col {
       padding-right: 50px;
 
@@ -94,6 +99,7 @@
             color: map-get($colors, black);
           }
         }
+
         .morelink {
           color: map-get($colors, primary);
         }
@@ -110,15 +116,18 @@
         @include max(map-get($breakpoints, "md")) {
           font-size: $fsize - 2;
         }
+
         &:hover {
           color: map-get($colors, primary);
         }
       }
     }
   }
+
   .end-footer {
     background: #fadcdc;
     padding: 15px 0 15px 0;
+
     .footer-social {
       a {
         color: map-get($colors, black);
@@ -169,8 +178,10 @@
   z-index: 9999;
 
   .loader {
-    border: 8px solid #f3f3f3; /* Light grey */
-    border-top: 8px solid (map-get($colors, primary)); /* Blue */
+    border: 8px solid #f3f3f3;
+    /* Light grey */
+    border-top: 8px solid (map-get($colors, primary));
+    /* Blue */
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -182,7 +193,12 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
+}
+
+.cursor-none {
+  pointer-events: none;
 }
