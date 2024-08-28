@@ -581,14 +581,14 @@ export class ProductDetailComponent implements OnInit {
           this.dynamicForm.get('flavourOptionsDto')?.setValue(null);
         }, 1000);
       }
-      if (this.voucherOptionsDto_array.length > 0) {
-        this.addFormControl('voucherOptionsDto');
-        setTimeout(() => {
+      // if (this.voucherOptionsDto_array.length > 0) {
+      //   this.addFormControl('voucherOptionsDto');
+      //   setTimeout(() => {
 
-          this.dynamicForm.get('voucherOptionsDto')?.setValue(this.voucherOptionsDto_array[0]);
-          this.selectedVocucher = this.voucherOptionsDto_array[0].optionValue
-        }, 1000);
-      }
+      //     this.dynamicForm.get('voucherOptionsDto')?.setValue(this.voucherOptionsDto_array[0]);
+      //     this.selectedVocucher = this.voucherOptionsDto_array[0].optionValue
+      //   }, 1000);
+      // }
 
       if (this.weightOptionsDto_array.length > 0) {
         this.addFormControl('weightOptionsDto');

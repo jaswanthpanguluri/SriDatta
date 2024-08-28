@@ -15,7 +15,7 @@ import { Select2Module } from 'ng-select2-component';
 import { ProductItemComponent } from '../components/product-item/product-item.component';
 import { StickyRibbonComponent } from '../components/sticky-ribbon/sticky-ribbon.component';
 import { NgxPayPalModule } from 'ngx-paypal';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
      positionClass: 'toast-bottom-center',
      preventDuplicates: true,
       progressBar: true,
-    })    
+    }),
+    CarouselModule
   ],
 
   exports: [

@@ -2,9 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { CurdService } from 'src/app/services/curd.service';
-
-
-
+import { OwlOptions,BreakpointOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,19 +12,55 @@ export class HomeComponent implements OnInit {
   banners: any;
   iconicBanners: any;
   smallBanners: any;
-  productSecions: any;
+  productSecions: any=[];
   city: any;
   countryname: any;
   currency: any;
   showLines: number = 3;
   promotionBanner: any;
   shopByGender: any;
-
+  customOptions: BreakpointOptions = {
+    nav: true,
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    autoplay: true,
+    margin: 15,
+    navSpeed: 700,
+    navText: ['<i class="fa fa-caret-right"></i>', '<i class="fa fa-caret-left"></i>'],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },    
+  }
+  productSecions1: any=[];
+  currencyClass: any;
+  stock: any;
+  isNewArriaval: any;
+  isEggless: any;
+  tagClass: any;
+  tagMsg: any;
   showMore() {
     this.showLines += 3; // Increase by desired number of lines
   }
-  constructor(private _crud: CurdService, private route: Router, private renderer: Renderer2, private meta: Meta, private titleService: Title) {
-
+  constructor(private _crud: CurdService,
+    private route: Router,
+    private renderer: Renderer2,
+    private meta: Meta,
+    private titleService: Title) {
+    this.getProducts();
   }
 
   addLoader() {
@@ -51,7 +85,6 @@ export class HomeComponent implements OnInit {
     this.currency = localStorage.getItem('currency');
     this.getBanners()
     //if (this.city) {
-    this.getProducts();
     // }
   }
 
@@ -92,8 +125,10 @@ export class HomeComponent implements OnInit {
       //currencySelected: this.currency
     }
     this._crud.getProducts(data).subscribe(res => {
-      this.removeLoader();
-      this.productSecions = res
+      if (!!res) {
+        this.removeLoader();
+        this.productSecions=res
+      }
     }, (error) => {
       this.removeLoader()
     })

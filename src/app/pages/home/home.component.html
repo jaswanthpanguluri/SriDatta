@@ -49,25 +49,12 @@
     <section class="custom-container">
       <div class="products-list mt-3">
         <div class="row g-2">
-          <section class="home-banner-swiper">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-              <div class="row">
-                <div class="col-md-3 col-6" *ngFor="let productitem of cat.productList  | slice:0:4">
-                  <app-product-item [Productvalue]="productitem" class="app-product-col"></app-product-item>
-                </div>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
-          </section>
+          <div class="row">
+              <owl-carousel-o [options]="customOptions">
+                <ng-template carouselSlide *ngFor="let Productvalue1 of cat.productList"> <app-product-item
+                    [Productvalue]="Productvalue1" class="app-product-col"></app-product-item></ng-template>
+              </owl-carousel-o>
+          </div>
         </div>
       </div>
     </section>
