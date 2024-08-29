@@ -12,7 +12,7 @@
               <div class="align-self-center">
                 <p>
                   <span>Expected Deliver Date: </span>
-                  <span class="font-primary d-inline-block font-semibold">{{displaydeliveryDate}}</span>
+                  <span class="font-primary d-inline-block font-semibold">{{cartItems[0].leadTimeDays}}</span>
                 </p>
               </div>
               <!-- <span
@@ -175,8 +175,8 @@
             (click)="gotocheckout()">Continue to Checkout</button>
           <div class="row mt-2">
             <div class="col-lg-12">
-              <button class="color-btn w-100 d-block mb-2 b border-0" data-bs-toggle="modal" data-bs-target="#AddonsProducts"
-                (click)="addOnProducts('1')">
+              <button class="color-btn w-100 d-block mb-2 b border-0" data-bs-toggle="modal"
+                data-bs-target="#AddonsProducts" (click)="addOnProducts('1')">
                 Addons
               </button>
             </div>
