@@ -19,20 +19,20 @@ export class HomeComponent implements OnInit {
   showLines: number = 3;
   promotionBanner: any;
   shopByGender: any;
-  customOptions: BreakpointOptions = {
+  customOptions: OwlOptions = {
     nav: true,
     loop: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: true,
     dots: true,
-    autoplay: true,
+    autoplay: false,
     margin: 15,
     navSpeed: 700,
-    navText: ['<i class="fa fa-caret-right"></i>', '<i class="fa fa-caret-left"></i>'],
+    navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
     responsive: {
       0: {
-        items: 1
+        items: 2
       },
       400: {
         items: 2

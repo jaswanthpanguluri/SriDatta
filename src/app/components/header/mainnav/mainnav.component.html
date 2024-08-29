@@ -83,7 +83,7 @@
                                         <ng-container *ngIf="menu.subCategoryList.length ">
                                             <!-- (click)="gotoroute(item.type, item.seoTitle)" -->
                                             <div class="mobmenu"> <a href="javascript:;"
-                                                    [href]="environment.path + item.urlPath"
+                                                    [href]="environment.path + '/'+item.type+'/'+item.seoTitle"
                                                     (click)="gotoroute(item.type, item.seoTitle)"
                                                     data-bs-dismiss="offcanvas"
                                                     *ngFor="let item of menu.subCategoryList.slice(0, menu.subCategoryList.length / 2)">{{
@@ -91,7 +91,7 @@
                                                         *ngIf="item.isHighligted">New</span></a>
                                             </div>
                                             <div class="background-white mobmenu"> <a href="javascript:;"
-                                                    [href]="environment.path + item.urlPath"
+                                                [href]="environment.path + '/'+item.type+'/'+item.seoTitle"
                                                     (click)="gotoroute(item.type, item.seoTitle)"
                                                     data-bs-dismiss="offcanvas"
                                                     *ngFor="let item of menu.subCategoryList.slice(menu.subCategoryList.length / 2)">{{
