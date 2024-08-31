@@ -40,6 +40,7 @@ export class StoreAppointmentComponent {
       emailId: ['', [Validators.required, Validators.email]],
       address: ['', [Validators.maxLength(this.maxAddressLength)]],
       message: ['', Validators.required],
+      storeDate: ['', Validators.required],
       appointmentDate: [''],
     });
   }
@@ -57,6 +58,17 @@ export class StoreAppointmentComponent {
   removeLoader() {
     this.renderer.removeClass(document.body, 'bodyloader');
   }
+  convertToISO(dateString) {
+    // Split the input date string into day, month, and year
+    const [day, month, year] = dateString.split('-');
+
+    // Create a new Date object using the extracted values
+    const date = day + '-' + month + '-' + year + 'T07:40:06.895Z';
+
+    // Convert the Date object to ISO string
+    return date;
+  }
+
   submit(): void {
     this.submitted = true;
     if (this.form.valid) {
@@ -68,13 +80,13 @@ export class StoreAppointmentComponent {
         "appointmentDetails":
         {
           "name": this.form.get('name')?.value,
-         // "lastname": this.form.get('lastname')?.value,
+          // "lastname": this.form.get('lastname')?.value,
           //"age": this.form.get('age')?.value,
           "mobileNumber": this.form.get('mobileNumber')?.value.toString(),
           "emailId": this.form.get('emailId')?.value,
           "address": this.form.get('address')?.value,
           "message": this.form.get('message')?.value,
-          "appointmentDate": "2023-09-15T06:01:52.768Z"
+          "appointmentDate": this.convertToISO(this.form.controls.storeDate.value)
         }
 
 

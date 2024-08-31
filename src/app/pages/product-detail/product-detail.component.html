@@ -7,7 +7,7 @@
           <ol class="breadcrumb pb-0 mb-0" *ngIf="productDetails">
             <li class="breadcrumb-item homebreadcrumb"><a routerLink="/">Home</a></li>
             <li class="breadcrumb-item" *ngIf="breadcatTitle"><a
-                href="{{productDetails?.seoCategoryURL}}">{{breadTitle}}</a></li>
+                href="{{productDetails?.seoCategoryURL}}">{{productDetails?.categoryName}}</a></li>
             <li class="breadcrumb-item" aria-current="page" *ngIf="breadTitle"><a
                 href="{{productDetails?.seoSubCategoryURL}}">{{breadTitle}}</a></li>
           </ol>
@@ -89,6 +89,12 @@
       <div class="col-md-7">
         <div class="product-detail-right">
           <h1 class="font-semibold">{{productDetails?.productName}}</h1>
+          <div class="product-detail-rating pt-2" *ngIf="productDetails?.productRating">
+            <div class="d-flex">
+               <div class="d-inline-block px-2 background-green font-white rounded-1">{{productDetails?.productRating}}<span class="icon-star icomoon"></span> </div>
+               <a href="javascript:void(0)" class="d-inline-block ps-2">350 Reviews </a>
+            </div>
+          </div>
           <div class="price d-flex py-2">
             <div class="offer-price font-semi-bold" id="elementId">
               <span class="icomoon font-bold" [class]="currencyClass"></span>{{productPrice}}
@@ -569,6 +575,35 @@
 
 
     <!--/ product detail-->
+     <!-- reviews-->
+     <section class="reviews-product-detail mt-2 mt-md-5">
+      <h5 class="font-bold pb-3 mb-2 h5 border-bottom">Customers Saying</h5>
+      <div class="reviews-users pt-3">
+
+        <ng-container *ngFor="let r of reviewData">
+          <div class="user-review-item p-3 border rounded mb-2 background-white">
+            <div class="d-flex justify-content-between">
+              <div class="rating-stars">
+                <span *ngFor="let number of [0,1,2,3,4]; index as i" class="icon-star"  [class.font-primary]="r.avgReviewRate > i"></span>
+
+              </div>
+              <span class="small">{{r.reviewDate}}</span>
+            </div>
+            <div class="py-2">
+              <h6 class="font-bold h6 pb-2">{{r.title}}</h6>
+              <p class="font-gray pb-2">{{r.review}}</p>
+              <p>
+                <span class="font-bold">{{r.customerName}}</span><small class="small d-inline-block ps-2">
+                  <i class="bi bi-check-lg"></i>
+                  Invoice
+                  No:{{r.orderId}}
+                </small>
+              </p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </section>
     <!-- you may also like -->
     <section class="you-may-also-like my-5" *ngIf="allProducts?.length > 0">
       <h5 class="font-bold pb-3 mb-2 h5 border-bottom ">You may also like</h5>
