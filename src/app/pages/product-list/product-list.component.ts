@@ -120,7 +120,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.renderer.removeClass(document.body, 'bodyloader');
   }
   filterclear() {
-    window.location.reload();
+    //window.location.reload();
+    this.ngOnInit();
   }
 
   ngOnDestroy() {
@@ -257,14 +258,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
 
         if (this.typeName == 'online-delivery' || this.PageName == 'online-delivery') {
-          this.type = 'online-delivery';
+          this.type = 'C';
           // this.PageName=this.PageName;
 
 
           this.PageName = params['type'];
 
         } else if (this.typeName == 'order') {
-          this.type = 'order';
+          this.type = 'SC';
 
         }
         else if (this.typeName == 'send') {
