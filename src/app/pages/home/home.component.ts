@@ -2,7 +2,7 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { CurdService } from 'src/app/services/curd.service';
-import { OwlOptions,BreakpointOptions } from 'ngx-owl-carousel-o';
+import { OwlOptions, BreakpointOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   banners: any;
   iconicBanners: any;
   smallBanners: any;
-  productSecions: any=[];
+  productSecions: any = [];
   city: any;
   countryname: any;
   currency: any;
@@ -29,7 +29,8 @@ export class HomeComponent implements OnInit {
     autoplay: false,
     margin: 15,
     navSpeed: 700,
-    navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
+    //navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>'],
+    navText: ['<span aria-label="Previous">‹</span>', '<span aria-label="Next">›</span>'],
     responsive: {
       0: {
         items: 2
@@ -43,9 +44,9 @@ export class HomeComponent implements OnInit {
       940: {
         items: 4
       }
-    },    
+    },
   }
-  productSecions1: any=[];
+  productSecions1: any = [];
   currencyClass: any;
   stock: any;
   isNewArriaval: any;
@@ -127,7 +128,7 @@ export class HomeComponent implements OnInit {
     this._crud.getProducts(data).subscribe(res => {
       if (!!res) {
         this.removeLoader();
-        this.productSecions=res
+        this.productSecions = res
       }
     }, (error) => {
       this.removeLoader()
@@ -136,11 +137,11 @@ export class HomeComponent implements OnInit {
 
   gotoroute(t: any, pname: any) {
 
-     if (t == 'online-delivery') {
-       this.route.navigateByUrl('/' + pname + '/' + t)
-     } else if (t == 'order') {
-       this.route.navigateByUrl('/' + t + '/' + pname)
-     }
+    if (t == 'online-delivery') {
+      this.route.navigateByUrl('/' + pname + '/' + t)
+    } else if (t == 'order') {
+      this.route.navigateByUrl('/' + t + '/' + pname)
+    }
 
 
   }

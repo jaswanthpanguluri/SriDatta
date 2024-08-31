@@ -7,9 +7,11 @@
 @import url("https://cdn.jsdelivr.net/npm/xzoom@1.0.14/src/xzoom.css");
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
 body {
   @include siteMain;
   touch-action: manipulation;
+
   p,
   h1,
   .h1 h2 .h2,
@@ -28,6 +30,7 @@ body {
     padding: 0;
     list-style: none;
   }
+
   a {
     text-decoration: none;
   }
@@ -67,9 +70,11 @@ body {
     background: darken(map-get($colors, primary), 10%);
   }
 }
+
 .color-btn:disabled {
   opacity: 0.3 !important;
 }
+
 .color-border-btn {
   background: map-get($colors, white);
   color: map-get($colors, primary);
@@ -110,6 +115,7 @@ body {
     background: map-get($colors, green);
     font-size: $fsize - 2;
   }
+
   .review-count {
     color: map-get($colors, primary);
     font-size: $fsize - 2;
@@ -131,15 +137,18 @@ body {
       box-shadow: none;
       outline: none;
     }
+
     &::placeholder {
       font-size: $fsize - 1;
     }
   }
+
   .form-select {
     &:focus {
       box-shadow: none;
       outline: none;
     }
+
     &::placeholder {
       font-size: $fsize - 1;
     }
@@ -151,6 +160,7 @@ body {
     box-shadow: none;
     outline: none;
   }
+
   &::placeholder {
     font-size: $fsize - 1;
   }
@@ -163,6 +173,7 @@ body {
     padding-bottom: 15px;
     font-size: $fsize - 1;
   }
+
   ul {
     li {
       font-size: $fsize - 1;
@@ -174,9 +185,11 @@ body {
   li {
     font-size: $fsize - 3;
     text-transform: capitalize;
+
     @include max(map-get($breakpoints, "sm")) {
       font-size: $fsize - 4;
     }
+
     &:first-child {
       &:before {
         content: "";
@@ -191,19 +204,23 @@ body {
       position: relative;
       top: 3px;
     }
+
     a {
       color: map-get($colors, black);
     }
   }
+
   .active {
     color: map-get($colors, primary);
   }
+
   .breadcrumb-item.homebreadcrumb {
     @include max(map-get($breakpoints, "md")) {
       display: none;
     }
   }
-  .breadcrumb-item.homebreadcrumb + .breadcrumb-item {
+
+  .breadcrumb-item.homebreadcrumb+.breadcrumb-item {
     @include max(map-get($breakpoints, "sm")) {
       &:before {
         content: "";
@@ -235,12 +252,15 @@ body {
       align-self: center;
     }
   }
+
   .icomoon {
     font-size: $fsize;
+
     @include max(map-get($breakpoints, "sm")) {
       font-size: $fsize - 4;
     }
   }
+
   .mrp {
     font-size: $fsize + 3;
     color: map-get($colors, lighten(black, 50%));
@@ -250,6 +270,7 @@ body {
       font-size: $fsize - 3;
     }
   }
+
   .offer-percentage {
     small {
       color: map-get($colors, primary);
@@ -270,9 +291,11 @@ body {
     font-size: $fsize - 2;
   }
 }
+
 .applycoupons {
   border: 1px dotted map-get($colors, black);
 }
+
 .totalamount {
   border-top: 1px dotted map-get($colors, black);
   border-bottom: 1px dotted map-get($colors, black);
@@ -297,6 +320,7 @@ body {
 
   p {
     display: none;
+
     @include min(map-get($breakpoints, "md")) {
       display: block;
     }
@@ -318,8 +342,10 @@ body {
       text-transform: lowercase;
     }
   }
+
   .filter-links {
     display: none;
+
     @include min(map-get($breakpoints, "md")) {
       display: block;
     }
@@ -369,7 +395,8 @@ body {
       padding-bottom: 0;
     }
   }
-  ul > li {
+
+  ul>li {
     margin: 0;
     padding: 0;
     font-size: $fsize - 1;
@@ -386,6 +413,7 @@ body {
     font-size: $fsize + 5;
     font-weight: map-get($font-weights, bold);
     padding-bottom: 5px;
+
     @include max(map-get($breakpoints, "sm")) {
       font-size: $fsize + 1;
     }
@@ -412,6 +440,7 @@ body {
   a {
     background: map-get($colors, lightblue);
     text-transform: capitalize;
+
     &:hover {
       background: map-get($colors, primary);
       color: map-get($colors, white);
@@ -434,6 +463,7 @@ ol {
     .addresssection {
       min-height: 110px;
     }
+
     p {
       font-size: $fsize - 1;
     }
@@ -442,6 +472,7 @@ ol {
 
 .select-city-parent {
   position: relative;
+
   .select2-selection--single {
     height: 50px !important;
     line-height: 50px;
@@ -474,6 +505,7 @@ header.fixed-top {
   font-size: 12px;
   color: red;
 }
+
 .stickyribbon {
   position: fixed;
   top: calc(50% - 90px);
@@ -507,9 +539,11 @@ header.fixed-top {
   .call-customercare {
     background: #0081fd;
   }
+
   .msg {
     background: #f5c100;
   }
+
   .notifications {
     background: #d966a4;
   }
@@ -545,6 +579,7 @@ header.fixed-top {
   @include max(map-get($breakpoints, "sm")) {
     padding: 10px;
   }
+
   .modal-content {
     // height: calc(60vh - 100px);
     background: #fff;
@@ -609,13 +644,16 @@ header.fixed-top {
   0% {
     transform: scale(1, 1);
   }
+
   50% {
     transform: scale(1.5, 1.5);
   }
+
   100% {
     transform: scale(1, 1);
   }
 }
+
 .poplayer {
   position: fixed;
   top: 0;
@@ -628,6 +666,7 @@ header.fixed-top {
   background: rgba(0, 0, 0, 0.7);
   transition: transform 250ms, opacity 400ms;
 }
+
 .centerpopup {
   position: relative;
   width: 430px;
@@ -681,6 +720,7 @@ header.fixed-top {
       font-size: $fsize - 2;
     }
   }
+
   input {
     @include max(map-get($breakpoints, "md")) {
       padding: 0.5rem;
@@ -721,13 +761,16 @@ header.fixed-top {
 .ngxImageZoomFullContainer {
   left: 100% !important;
 }
+
 .ngxImageZoomFullContainer {
   padding-left: 20px;
   width: 550px !important;
   height: 470px !important;
 }
+
 .left-sidewrap {
   width: 90px;
+
   @include max(map-get($breakpoints, "lg")) {
     width: 60px !important;
   }
@@ -736,6 +779,7 @@ header.fixed-top {
     width: 100% !important;
   }
 }
+
 .leftsideimg {
   & img {
     width: 80px !important;
@@ -748,11 +792,14 @@ header.fixed-top {
     }
   }
 }
+
 .left-sidecontainer {
   display: flex;
 }
+
 .right-sidewrap {
   flex: 1;
+
   & .ngxImageZoomContainer {
     max-width: 100% !important;
     width: 100% !important;
@@ -763,13 +810,36 @@ header.fixed-top {
       max-width: 100% !important;
     }
   }
+
   & .ngxImageZoomFullContainer {
     padding-left: 20px;
     width: 450px !important;
   }
 }
-.owl-nav {
+
+// .owl-nav {
+//   display: none !important;
+// }
+.owl-dots {
   display: none !important;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-prev,
+.owl-next {
+  position: absolute !important;
+  top: 36% !important;
+  transform: translateY(-50%) !important;
+  background-color: black !important;
+  color: white !important;
+}
+
+.owl-prev {
+  left: -2rem !important;
+}
+
+.owl-next {
+  right: -2rem !important;
 }
 
 .login-keypoints {
@@ -781,6 +851,7 @@ header.fixed-top {
       margin-right: 15px;
       color: map-get($colors, primary);
     }
+
     article {
       p {
         font-size: $fsize - 2;
@@ -816,10 +887,11 @@ header.fixed-top {
       font-size: 25px;
       color: map-get($colors, gray);
 
-      @include max(map-get($breakpoints, "sm")){
+      @include max(map-get($breakpoints, "sm")) {
         display: none;
       }
     }
+
     &:after {
       content: "\e909";
       font-family: "icomoon" !important;
@@ -830,7 +902,7 @@ header.fixed-top {
       color: map-get($colors, gray);
       transform: rotate(-180deg);
 
-      @include max(map-get($breakpoints, "sm")){
+      @include max(map-get($breakpoints, "sm")) {
         display: none;
       }
     }
