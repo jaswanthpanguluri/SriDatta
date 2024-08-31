@@ -258,14 +258,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
 
         if (this.typeName == 'online-delivery' || this.PageName == 'online-delivery') {
-          this.type = 'C';
+          //this.type = 'C';
           // this.PageName=this.PageName;
-
-
+          this.type = 'online-delivery';
           this.PageName = params['type'];
 
+
         } else if (this.typeName == 'order') {
-          this.type = 'SC';
+          // this.type = 'SC';
+          this.type = 'order';
 
         }
         else if (this.typeName == 'send') {
