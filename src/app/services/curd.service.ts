@@ -324,7 +324,10 @@ export class CurdService {
 
     return this.http.post(`${environment.apiUrl}/franchises`, obj)
   }
+  poststoreAppointment(obj: any): Observable<any> {
 
+    return this.http.post(`${environment.apiUrl}/franchises/StoreAppointment`, obj)
+  }
 
   postcustomize(obj: any): Observable<any> {
 

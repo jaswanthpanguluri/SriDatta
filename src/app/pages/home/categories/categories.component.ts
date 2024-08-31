@@ -49,11 +49,11 @@ export class CategoriesComponent {
     let c = localStorage.getItem('city')
 
     this.route.navigateByUrl('/' + t + '/' + pname);
-    // if (t == 'C') {
+    // if (t == 'online-delivery') {
     //   t = 'online-delivery';
     //   this.route.navigateByUrl('/' + pname + '/' + c + '/' + t)
 
-    // } else if (t == 'SC') {
+    // } else if (t == 'order') {
     //   t = 'order';
     //   this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
     // }

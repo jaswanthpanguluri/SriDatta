@@ -178,11 +178,11 @@ export class ProductsComponent implements OnInit {
 
 
         if (this.typeName == 'online-delivery') {
-          this.type = 'C';
+          this.type = 'online-delivery';
           this.showproductDetails = false;
           this.showlist = true;
         } else if (this.typeName == 'order') {
-          this.type = 'SC';
+          this.type = 'order';
           this.showproductDetails = false;
           this.showlist = true;
         }

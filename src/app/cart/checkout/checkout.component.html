@@ -8,8 +8,11 @@
             <div class="row">
               <div class="col-md-12 align-self-center">
                 <div class="d-flex justify-content-between">
-                  <p><span class="font-semibold font-primary">1.</span> Logged In as: <strong>
-                      {{custName}}</strong></p>
+                  <p>
+                    <span class="font-semibold font-primary">1.</span> Logged In as: <strong>
+                      {{custName}}
+                    </strong>
+                  </p>
                   <!-- <span>+</span> -->
                 </div>
               </div>
@@ -29,29 +32,36 @@
 
         <div class="box-list card">
           <div class="tabheading card-header border-bottom-0 bg-transparent d-flex justify-content-between"
-            (click)="addressShow =!addressShow" *ngIf="addressId">
+               (click)="addressShow =!addressShow" *ngIf="addressId">
             <div>
               <span class="font-semibold font-primary">2</span>. Delivery to:
-              <span class="font-semibold">{{addressName}} </span> <span class="font-semibold">,
-                &nbsp;{{city}}</span>
+              <span class="font-semibold">{{addressName}} </span> <span class="font-semibold">
+                ,
+                &nbsp;{{city}}
+              </span>
             </div>
             <!-- <span>+</span> -->
           </div>
 
           <section class="tabcontentwrap" *ngIf="addressShow">
-            <div style="display: flex;" class="addressflex"> <span class="font-semibold font-primary">2</span>. &nbsp;
+            <div style="display: flex;" class="addressflex">
+              <span class="font-semibold font-primary">2</span>. &nbsp;
               <app-address-list [zipcode]="prevzipcode" [selectedAddressId]="addressId"
-                (sendAddId)="getaddressId($event)" [checkoutaddress]="true"></app-address-list>
+                                (sendAddId)="getaddressId($event)" [checkoutaddress]="true"></app-address-list>
             </div>
           </section>
         </div>
         <div class="box-list card">
           <div class="tabheading card-header border-bottom-0 bg-transparent" (click)="reviewShow =!reviewShow">
             <!-- <strong>{{addressName}} </strong> <strong>,  &nbsp;{{city}}</strong> -->
-            <ng-container *ngIf="clickpayment && !reviewShow "><span class="font-semibold font-primary">3.
-                &nbsp;</span> Delivery Date :
+            <ng-container *ngIf="clickpayment && !reviewShow ">
+              <span class="font-semibold font-primary">
+                3.
+                &nbsp;
+              </span> Delivery Date :
               <span class="font-semibold">{{displaydeliveryDate }}</span> Delivery Time:
-              <span class="font-semibold">{{displaydeliveryTime}}</span></ng-container>
+              <span class="font-semibold">{{displaydeliveryTime}}</span>
+            </ng-container>
             <ng-container *ngIf="!clickpayment || reviewShow ">
               <div class="d-flex justify-content-between">
                 <p> <span class="font-semibold font-primary">3. </span> <span>Review Order</span></p>
@@ -78,22 +88,27 @@
                         <small>Product Id: <strong>{{items.productId}}</strong></small>
                       </p>
                       <ul class="list-style-desc mt-2">
-                        <li *ngIf="items.additionalVoucher"><small> Voucher :</small>
+                        <li *ngIf="items.additionalVoucher">
+                          <small> Voucher :</small>
                           <strong>{{items.additionalVoucher}}</strong>
                         </li>
-                        <li *ngIf="items.egglessPrice"><small> Eggless Price:</small>
+                        <li *ngIf="items.egglessPrice">
+                          <small> Eggless Price:</small>
                           <strong>
                             <span [class]="currencyClass"></span>
                             {{items.egglessPrice}}
                           </strong>
                         </li>
-                        <li *ngIf="items.flavour"><small>Flavour :</small>
+                        <li *ngIf="items.flavour">
+                          <small>Flavour :</small>
                           <strong>{{items.flavour}}</strong>
                         </li>
-                        <li *ngIf="items.additionalNumber"><small>>Number :</small>
+                        <li *ngIf="items.additionalNumber">
+                          <small>>Number :</small>
                           <strong>{{items.additionalNumber}}</strong>
                         </li>
-                        <li *ngIf="items.message"><small>Message:</small>
+                        <li *ngIf="items.message">
+                          <small>Message:</small>
                           <strong>{{items.message}}</strong>
                         </li>
                       </ul>
@@ -108,13 +123,14 @@
             </div>
             <div class="row">
               <div class="col-md-12 pb-2">
-                <p class="small">Delivery Schedule : <span class="font-semibold">{{displaydeliveryDate
-                    }} <ng-container *ngIf="!isReqired">
-                      {{displaydeliveryTime}}</ng-container></span>
+                <p class="small">
+                  Expected Deliver Days : <span class="font-semibold">
+                    {{cartItems[0].leadTimeDays}}
+                  </span>
                   <!-- <button class="color-btn border-0 px-2 py-1 small ms-2" data-bs-toggle="modal"
-                                        data-bs-target="#DeliveryModal" (click)="openDatetime()"><span
-                                            class="icon-edit icomoon"></span> &nbsp; Edit
-                                    </button> -->
+                        data-bs-target="#DeliveryModal" (click)="openDatetime()"><span
+                            class="icon-edit icomoon"></span> &nbsp; Edit
+                    </button> -->
                 </p>
 
                 <!-- <div class="error error-message" *ngIf="isReqired && !isChanged">
@@ -125,9 +141,12 @@
               <div class="col-md-6">
                 <!-- <p>Delivery City:<strong>{{city}}</strong></p> -->
                 <ng-container *ngIf="couponappled && couponData.couponType =='Instant'">
-                  <div> Discount Applicable Amount: <span [class]="currencyClass"></span>
-                    {{couponData.discountApplicableAmount}}</div>
-                  <div>Discount Amount : <span [class]="currencyClass"></span>
+                  <div>
+                    Discount Applicable Amount: <span [class]="currencyClass"></span>
+                    {{couponData.discountApplicableAmount}}
+                  </div>
+                  <div>
+                    Discount Amount : <span [class]="currencyClass"></span>
                     {{couponData.maxDiscount}}
                   </div>
                 </ng-container>
@@ -139,7 +158,7 @@
                       <div class="col-8">
                         <div class="form-group">
                           <input [readonly]="couponappled" type="text" class="form-control rounded-0"
-                            [ngClass]="{'is-invalid' :errorcode }" formControlName="couponcode" placeholder="Coupon*">
+                                 [ngClass]="{'is-invalid' :errorcode }" formControlName="couponcode" placeholder="Coupon*">
                           <a *ngIf="couponappled" class="icon-close icomoon" (click)="removeApplycode()"></a>
                           <div class="invalid-feedback mt-0 d-block" *ngIf="errorcode">
                             <small>{{errorcodemessage}}</small>
@@ -148,7 +167,9 @@
                       </div>
                       <div class="col-4">
                         <button type="submit" [disabled]="!couponForm.valid || couponappled"
-                          class="color-border-btn py-1 btn">Apply</button>
+                                class="color-border-btn py-1 btn">
+                          Apply
+                        </button>
                       </div>
 
 
@@ -160,11 +181,17 @@
               </div>
               <div class="col-md-6 text-start text-md-end">
                 <div class=" totalAmountwrap pb-2 pt-2 pt-md-0">
-                  <div class="totalAmount">Payable Amount : <strong><span [class]="currencyClass"></span>
-                      {{totalAmount}}</strong></div>
+                  <div class="totalAmount">
+                    Payable Amount : <strong>
+                      <span [class]="currencyClass"></span>
+                      {{totalAmount}}
+                    </strong>
+                  </div>
                 </div>
-                <button (click)="SaveOrderDetails()" class="color-btn border-0">Continue
-                  payment</button>
+                <button (click)="SaveOrderDetails()" class="color-btn border-0">
+                  Continue
+                  payment
+                </button>
                 <!-- [disabled]="isReqired" -->
               </div>
 
@@ -172,10 +199,13 @@
           </section>
         </div>
         <div class="box-list card">
-          <div class="tabheading card-header border-bottom-0 bg-transparent"><span
-              class="font-semibold font-primary">4.</span> Payment</div>
-          <section class="tabcontentwrap" *ngIf="paymentstrip && addressId"> <app-payment [amount]="finalamount"
-              [saveorderDetails]="savedorderdetails"></app-payment></section>
+          <div class="tabheading card-header border-bottom-0 bg-transparent">
+            <span class="font-semibold font-primary">4.</span> Payment
+          </div>
+          <section class="tabcontentwrap" *ngIf="paymentstrip && addressId">
+            <app-payment [amount]="finalamount"
+                         [saveorderDetails]="savedorderdetails"></app-payment>
+          </section>
         </div>
         <!-- <app-user-address></app-user-address> -->
       </div>
@@ -188,8 +218,10 @@
           <h6 class="h6 font-black font-medium align-self-center pb-3">Price Details</h6>
           <div class="d-flex justify-content-between py-2">
             <p>Price ({{cartCount}} item(s))</p>
-            <p class="text-end" *ngIf="firstlistItem && firstlistItem.totalAmount"><span [class]="currencyClass"></span>
-              {{firstlistItem.totalAmount}}</p>
+            <p class="text-end" *ngIf="firstlistItem && firstlistItem.totalAmount">
+              <span [class]="currencyClass"></span>
+              {{firstlistItem.totalAmount}}
+            </p>
           </div>
           <!-- <div class="d-flex justify-content-between py-2">
             <p>Delivery Charges</p>
@@ -200,15 +232,18 @@
           </div> -->
           <div class="d-flex justify-content-between py-3 totalamount my-2">
             <h6 class="h6 font-semibold">Amount</h6>
-            <p class="text-end font-semibold" *ngIf="firstlistItem && firstlistItem.grandTotal"><span
-                [class]="currencyClass"></span>
-              {{firstlistItem.grandTotal}}</p>
+            <p class="text-end font-semibold" *ngIf="firstlistItem && firstlistItem.grandTotal">
+              <span [class]="currencyClass"></span>
+              {{firstlistItem.grandTotal}}
+            </p>
           </div>
           <ng-container *ngIf="couponappled && couponData.couponType =='Instant'">
             <div class="d-flex justify-content-between py-2">
               <p>Discount Applicable Amount:</p>
-              <p class="text-end"><span [class]="currencyClass"></span>
-                {{couponData.discountApplicableAmount}}</p>
+              <p class="text-end">
+                <span [class]="currencyClass"></span>
+                {{couponData.discountApplicableAmount}}
+              </p>
             </div>
             <div class="d-flex justify-content-between py-2">
               <p>Discount Amount:</p>
@@ -233,7 +268,7 @@
 
 <!-- Update delivery date -->
 <div class="modal fade " id="DeliveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
@@ -244,11 +279,12 @@
         <div class="modal-body">
           <div class="col-md-12 pb-2" *ngIf="deliveryDates_array?.length">
             <label>Select Delivery Date </label>
-            <div class="form-group d-flex p-2  background-lightprimary rounded mb-2"> <span
-                class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
+            <div class="form-group d-flex p-2  background-lightprimary rounded mb-2">
+              <span class="icon-calendar font-primary icomoon h5 d-inline-block pe-2 align-self-center"></span>
               <select class="form-select" formControlName="deliveryDate" (change)="getBindDeliveryTimes($event)">
                 <option *ngFor="let o of deliveryDates_array" [value]="o.deliveryDateValue">
-                  {{o.deliveryDateText}}</option>
+                  {{o.deliveryDateText}}
+                </option>
               </select>
             </div>
           </div>
@@ -275,7 +311,8 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="color-btn border-0" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="color-border-btn" (click)="updateDateandtime()">Update
+          <button type="submit" class="color-border-btn" (click)="updateDateandtime()">
+            Update
           </button>
         </div>
       </form>

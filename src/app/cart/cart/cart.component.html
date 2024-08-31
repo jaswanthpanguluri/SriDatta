@@ -11,7 +11,7 @@
             <div class="ps-3 align-self-center d-sm-flex">
               <div class="align-self-center">
                 <p>
-                  <span>Expected Deliver Date: </span>
+                  <span>Expected Deliver Days: </span>
                   <span class="font-primary d-inline-block font-semibold">{{cartItems[0].leadTimeDays}}</span>
                 </p>
               </div>
@@ -57,7 +57,7 @@
           </p>
           <div class="row">
             <div class="col-md-2 col-3">
-              <a [routerLink]="'/' + cityName + '/send-online/' + CartItem.seoProductName">
+              <a [routerLink]="'/send-online/' + CartItem.seoProductName">
                 <img src="{{CartItem.produtImage}}" alt="" class="img-fluid">
               </a>
             </div>

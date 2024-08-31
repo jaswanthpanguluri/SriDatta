@@ -4,6 +4,7 @@ import { AboutusComponent } from '../pages/aboutus/aboutus.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { CouponpartnersComponent } from '../pages/couponpartners/couponpartners.component';
 import { FranchisesComponent } from '../pages/franchises/franchises.component';
+import { StoreAppointmentComponent } from '../pages/store-appointment/store-appointment.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { ProductDetailComponent } from '../pages/product-detail/product-detail.component';
 import { ProductListComponent } from '../pages/product-list/product-list.component';
@@ -39,6 +40,7 @@ const routes: Routes = [
 
 
       { path: 'franchise', component: FranchisesComponent },
+      { path: 'store-appointment', component: StoreAppointmentComponent },
       { path: 'home', redirectTo: '/' },
       { path: 'careers', component: CareersComponent },
       { path: 'corporateorders', component: CorporateOrdersComponent },

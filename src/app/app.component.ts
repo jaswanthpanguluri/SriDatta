@@ -125,7 +125,7 @@ export class AppComponent implements OnInit {
 
 
 
-  title = 'sridutta';
+  title = 'Welcome to Sridatta Jewellers';
 
 
 

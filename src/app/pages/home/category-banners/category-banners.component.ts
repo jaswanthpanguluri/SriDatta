@@ -27,11 +27,11 @@ export class CategoryBannersComponent implements OnInit {
     let c = localStorage.getItem('city')?.toLowerCase();
 
     this.route.navigateByUrl('/' + t + '/' + pname);
-    // if (t == 'C') {
+    // if (t == 'online-delivery') {
     //   t = 'online-delivery';
     //   // this.route.navigateByUrl('/'+ t + '/'+ c + '/' + pname)
     //   this.route.navigateByUrl('/' + pname + '/' + c + '/' + t)
-    // } else if (t == 'SC') {
+    // } else if (t == 'order') {
     //   t = 'order';
     //   this.route.navigateByUrl('/' + t + '/' + c + '/' + pname)
     // }

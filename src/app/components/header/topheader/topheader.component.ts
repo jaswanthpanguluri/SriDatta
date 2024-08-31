@@ -28,12 +28,12 @@ gotoroute( t:any, pname:any)
 let c=localStorage.getItem('city')   
 
 
-  if(t == 'C')
+  if(t == 'online-delivery')
   {
     t='online-delivery';
     this.route.navigateByUrl('/'+ t + '/'+ c + '/' + pname)
     
-  } else if(t=='SC')
+  } else if(t=='order')
   {
     t='order';
     this.route.navigateByUrl('/'+ t + '/'+ c + '/' + pname)

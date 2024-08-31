@@ -15,6 +15,7 @@ import { AboutusComponent } from '../pages/aboutus/aboutus.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { CouponpartnersComponent } from '../pages/couponpartners/couponpartners.component';
 import { FranchisesComponent } from '../pages/franchises/franchises.component';
+import { StoreAppointmentComponent } from '../pages/store-appointment/store-appointment.component';
 import { CategoriesComponent } from '../pages/home/categories/categories.component';
 import { CategoryBannersComponent } from '../pages/home/category-banners/category-banners.component';
 import { ProductDetailComponent } from '../pages/product-detail/product-detail.component';
@@ -53,6 +54,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     ContactComponent,
     CouponpartnersComponent,
     FranchisesComponent,
+    StoreAppointmentComponent,
     ProductsComponent,
     NoproductsFoundComponent,
     TermsContentComponent,
