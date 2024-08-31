@@ -590,7 +590,7 @@ export class ProductDetailComponent implements OnInit {
       //   }, 1000);
       // }
 
-      if (this.weightOptionsDto_array.length > 0) {
+      if (this.weightOptionsDto_array && this.weightOptionsDto_array.length > 0) {
         this.addFormControl('weightOptionsDto');
         setTimeout(() => {
           this.dynamicForm.get('weightOptionsDto')?.setValue(this.weightOptionsDto_array[0]);
@@ -602,7 +602,7 @@ export class ProductDetailComponent implements OnInit {
 
 
 
-      if (this.numberOptionsDto_array.length > 0) {
+      if (this.numberOptionsDto_array && this.numberOptionsDto_array.length > 0) {
         this.addFormControl('numberOptionsDto');
         setTimeout(() => {
           // this.dynamicForm.get('numberOptionsDto')?.setValue(this.numberOptionsDto_array[0].optionValue);
