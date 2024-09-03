@@ -93,7 +93,7 @@
   </div>
 </section>
 
-<section class="video-adv-section mt-5">
+<!-- <section class="video-adv-section mt-5">
   <div class="custom-container">
     <div class="row">
       <div class="col-md-8">
@@ -115,14 +115,14 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <div class="custom-container">
   <div class="row pt-5">
     <ng-container *ngFor="let sb of shopByGender">
       <div [ngClass]="{'col-6 mt-4': !sb.isSmall, 'col-6' : sb.isSmall }">
         <figure>
-          <a href="javascript:void(0)">
+          <a href="javascript:void(0)" (click)="gotoroute(sb.type, sb.seoName)">
             <img [src]="sb.imageName" alt="" class="img-fluid w-100">
           </a>
         </figure>
