@@ -47,6 +47,8 @@ export class ProductDetailComponent implements OnInit {
   sNo: any;
   breadTitle: any;
   breadcatTitle: any;
+  breadcatTitleLink: any;
+  breadsubcatTitleLink: any;
   currency: any;
   currencyClass: any;
   stockQuantityStatus: boolean = false;
@@ -420,6 +422,8 @@ export class ProductDetailComponent implements OnInit {
       this.titleService.setTitle(res.title);
       this.breadTitle = res.subCategoryName;
       this.breadcatTitle = res.categoryName;
+      this.breadcatTitleLink = res.categoryName;
+      this.breadsubcatTitleLink = res.subCategoryName;
       this.meta.updateTag({ name: 'description', content: res.metaDescription });
       this.meta.updateTag({ name: 'keywords', content: res.metaKeywords });
       this.productDetails = res;
@@ -890,6 +894,20 @@ export class ProductDetailComponent implements OnInit {
     }
 
 
+  }
+  gotoHome() {
+    this.router.navigateByUrl('/');
+  }
+  gotoLink(url: any) {
+    var s1 = url.substring(1);
+    //this.router.navigateByUrl('/' + s1);
+    this.router.navigate([url])
+  }
+  routeCategory(e: any) {
+    this.router.navigateByUrl(e.toLowerCase() + '/online-delivery');
+  }
+  routeSubCategory(e: any) {
+    this.router.navigateByUrl('/order/' + e.toLowerCase());
   }
 
 }

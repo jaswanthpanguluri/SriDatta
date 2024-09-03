@@ -141,6 +141,9 @@ export class HomeComponent implements OnInit {
       this.route.navigateByUrl('/' + pname + '/' + t)
     } else if (t == 'order') {
       this.route.navigateByUrl('/' + t + '/' + pname)
+    } else if (t == 'OCC') {
+      t = 'send';
+      this.route.navigateByUrl('/' + t + '/' + pname)
     }
 
 

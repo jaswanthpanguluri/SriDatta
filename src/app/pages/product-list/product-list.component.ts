@@ -44,6 +44,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   showloadmore: boolean = false;
   private paramMapSubscription: Subscription = new Subscription;
   private paramMapSubscription1: Subscription = new Subscription;
+  public myTimeout: any = null;
 
   isVisible: boolean = false;
   toggleVisibility() {
@@ -133,12 +134,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
     if (this.paramMapSubscription1) {
       this.paramMapSubscription1.unsubscribe();
     }
+
+    clearTimeout(this.myTimeout);
   }
   ngOnInit(): void {
     this.addLoader();
     this.paramMapSubscription = this.route.paramMap.subscribe((params: any) => {
       if (params['params']['cityname'] != 'send-online') {
-        setTimeout(() => {
+        this.myTimeout = setTimeout(() => {
 
           this.filters = [];
           this.isfilters = false;
@@ -158,11 +161,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   getnewurl(urlcity: any) {
 
-    this.getOldUrl = this.router.url;
-    let newurl = this.getOldUrl;
+    //this.getOldUrl = this.router.url;
+    //let newurl = this.getOldUrl;
     //let newurl = this.getOldUrl.replace(urlcity, this.cityname.toLowerCase());
-    this.location.replaceState(newurl);
-    this.addCanonicalLink(newurl)
+    //this.location.replaceState(newurl);
+    //this.addCanonicalLink(newurl)
   }
 
 
