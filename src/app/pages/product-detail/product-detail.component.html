@@ -5,11 +5,20 @@
       <div class="col-md-12">
         <nav aria-label="breadcrumb" class="align-self-center py-3">
           <ol class="breadcrumb pb-0 mb-0" *ngIf="productDetails">
-            <li class="breadcrumb-item homebreadcrumb"><a routerLink="/">Home</a></li>
+            <li class="breadcrumb-item homebreadcrumb"><a class="cursor-pointer" (click)="gotoHome()">Home</a></li>
+            <!-- <li class="breadcrumb-item" *ngIf="breadcatTitle">
+              <a class="cursor-pointer"
+                (click)="gotoLink(productDetails?.seoCategoryURL)">{{productDetails?.categoryName}}</a>
+            </li> -->
+            <!-- <li class="breadcrumb-item" aria-current="page" *ngIf="breadTitle">
+              <a class="cursor-pointer" (click)="gotoLink(productDetails?.seoSubCategoryURL)">{{breadTitle}}</a>
+            </li> -->
+
             <li class="breadcrumb-item" *ngIf="breadcatTitle"><a
-                href="{{productDetails?.seoCategoryURL}}">{{productDetails?.categoryName}}</a></li>
-            <li class="breadcrumb-item" aria-current="page" *ngIf="breadTitle"><a
-                href="{{productDetails?.seoSubCategoryURL}}">{{breadTitle}}</a></li>
+                (click)="routeCategory(breadcatTitleLink)">{{breadcatTitle}}</a></li>
+            <li class="breadcrumb-item" aria-current="page" *ngIf="breadTitle">
+              <a class="cursor-pointer" (click)="routeSubCategory(breadsubcatTitleLink)">{{breadTitle}}</a>
+            </li>
           </ol>
         </nav>
       </div>
@@ -91,8 +100,9 @@
           <h1 class="font-semibold">{{productDetails?.productName}}</h1>
           <div class="product-detail-rating pt-2" *ngIf="productDetails?.productRating">
             <div class="d-flex">
-               <div class="d-inline-block px-2 background-green font-white rounded-1">{{productDetails?.productRating}}<span class="icon-star icomoon"></span> </div>
-               <a href="javascript:void(0)" class="d-inline-block ps-2">350 Reviews </a>
+              <div class="d-inline-block px-2 background-green font-white rounded-1">
+                {{productDetails?.productRating}}<span class="icon-star icomoon"></span> </div>
+              <a href="javascript:void(0)" class="d-inline-block ps-2">350 Reviews </a>
             </div>
           </div>
           <div class="price d-flex py-2">
@@ -575,8 +585,8 @@
 
 
     <!--/ product detail-->
-     <!-- reviews-->
-     <section class="reviews-product-detail mt-2 mt-md-5">
+    <!-- reviews-->
+    <section class="reviews-product-detail mt-2 mt-md-5">
       <h5 class="font-bold pb-3 mb-2 h5 border-bottom">Customers Saying</h5>
       <div class="reviews-users pt-3">
 
@@ -584,7 +594,8 @@
           <div class="user-review-item p-3 border rounded mb-2 background-white">
             <div class="d-flex justify-content-between">
               <div class="rating-stars">
-                <span *ngFor="let number of [0,1,2,3,4]; index as i" class="icon-star"  [class.font-primary]="r.avgReviewRate > i"></span>
+                <span *ngFor="let number of [0,1,2,3,4]; index as i" class="icon-star"
+                  [class.font-primary]="r.avgReviewRate > i"></span>
 
               </div>
               <span class="small">{{r.reviewDate}}</span>

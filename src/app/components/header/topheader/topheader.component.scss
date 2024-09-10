@@ -9,6 +9,7 @@
   @include max(map-get($breakpoints, "lg")) {
     display: none;
   }
+
   p {
     font-size: $fsize - 1;
   }
@@ -24,10 +25,12 @@
       font-size: $fsize + 1;
       padding-top: 2px;
     }
+
     p {
       font-size: $fsize - 1;
     }
   }
+
   .nav {
     .nav-link {
       color: map-get($colors, darkgray);
@@ -44,16 +47,21 @@
 
 .header-contacts {
   display: flex;
+
   a {
     font-size: $fsize - 1;
     color: map-get($colors, white);
     margin-right: 25px;
     display: flex;
 
-    .icomoon{
-      margin:-1px 5px 0 0;
+    .icomoon {
+      margin: -1px 5px 0 0;
       display: inline-block;
       align-self: center;
     }
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
