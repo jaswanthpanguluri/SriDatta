@@ -13,6 +13,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
+  PageName: any;
   showpincode: boolean = false;
   prevpincode: any;
   productName: any;
@@ -182,8 +183,15 @@ export class ProductDetailComponent implements OnInit {
         });
 
       } else {
+        if (params['type'] == 'search_result') {
+
+          //this.setCity(params['PageName'])
+          this.PageName = params['PageName']
+        }else{
+          this.getProductDetailsById();
+        }
         //if (params['cityname'] == 'send-online') {
-        this.getProductDetailsById();
+       
         // }
       }
 
