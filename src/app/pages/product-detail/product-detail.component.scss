@@ -38,9 +38,11 @@
     article {
       width: 65%;
       padding: 20px 0 0 25px;
+
       h3 {
         font-size: $fsize;
       }
+
       p {
         color: map-get($colors, gray);
         padding-top: 10px;
@@ -59,6 +61,7 @@
 
 .product-detail-right {
   font-size: $fsize - 1;
+
   h1 {
     font-size: $fsize + 7;
 
@@ -66,6 +69,7 @@
       font-size: $fsize + 3;
     }
   }
+
   .price {
     .offer-price {
       font-size: $fsize * 2;
@@ -75,6 +79,7 @@
       }
     }
   }
+
   .basic-features,
   .form-select {
     font-size: $fsize - 1;
@@ -94,6 +99,7 @@
       border-bottom: 1px dashed map-get($colors, primary);
     }
   }
+
   .list-style-desc {
     li {
       list-style-type: disc;
@@ -124,9 +130,11 @@
     border-radius: 5px;
   }
 }
+
 .right-sidewrap {
   position: relative;
 }
+
 .tagbadge {
   position: absolute;
   top: 0;
@@ -138,15 +146,19 @@
   border-radius: 2px;
   z-index: 99;
 }
+
 .greencls {
   background: green;
 }
+
 .errorcls {
   background: #ff0000;
 }
+
 .clr-green {
   color: green;
 }
+
 .bluecls {
   background: #005bc2;
 }
@@ -171,6 +183,7 @@
       border-radius: 0;
     }
   }
+
   .nav-link.active {
     background: map-get($colors, darkyellow);
     color: map-get($colors, black);
@@ -197,6 +210,7 @@
 .breadcrumb a {
   cursor: pointer;
 }
+
 .is-invalid {
   border: 1px solid red;
 }
@@ -214,11 +228,13 @@
       right: 0;
     }
   }
+
   .displaytime {
     // background:map-get($colors, lightgreen);
     color: map-get($colors, green);
     line-height: 12px;
     background: #f6ff00;
+
     @include max(map-get($breakpoints, "sm")) {
       text-align: center;
       display: inline-block;
@@ -241,11 +257,25 @@ app-noproducts-found {
 .form-select {
   font-family: sans-serif;
 }
-.reviews-users{
+
+.reviews-users {
   display: flex;
   flex-wrap: wrap;
-  .user-review-item{
-    width:33%;
-    margin:0 2px;
+
+  .user-review-item {
+    width: 33%;
+    margin: 0 2px;
+  }
+}
+
+.breadcrumb-item {
+  font-size: $fsize - 2;
+
+  a {
+    cursor: pointer;
+
+    &:hover {
+      color: #bf0067 !important;
+    }
   }
 }
