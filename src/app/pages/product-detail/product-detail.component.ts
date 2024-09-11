@@ -76,6 +76,7 @@ prevpincode:any;
   customerId: any = 0; 
   courierProductMessage:any;
   fewStockMessage:any;
+  PageName: any;
   customOptions: OwlOptions = {
     loop: false,
     autoplayTimeout: 3000,
@@ -187,10 +188,16 @@ if(params['cityname'] == 'send-online')
 });
 
       }  else{
+        if (params['type'] == 'search_result') {
+          this.PageName = params['PageName']
+          this.getnewurl(params['PageName'])
+        } else {
         if(params['cityname'] == 'send-online')
-{
-        this.getProductDetailsById();
-}
+          {
+                  this.getProductDetailsById();
+          }
+        }
+        
       }
          
     });
