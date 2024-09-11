@@ -187,11 +187,15 @@ export class ProductDetailComponent implements OnInit {
 
           //this.setCity(params['PageName'])
           this.PageName = params['PageName']
-        }else{
-          this.getProductDetailsById();
+        } else {
+          if (params['type'] == 'send-online') {
+            this.getProductDetailsById();
+          } else {
+
+          }
         }
         //if (params['cityname'] == 'send-online') {
-       
+
         // }
       }
 
