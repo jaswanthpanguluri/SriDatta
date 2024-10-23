@@ -263,8 +263,16 @@ app-noproducts-found {
   flex-wrap: wrap;
 
   .user-review-item {
-    width: 33%;
-    margin: 0 2px;
+    width: 48%;
+    margin: 0 4px;
+
+    @include max(map-get($breakpoints, "lg")){
+      width:48%;      
+    }
+
+    @include max(map-get($breakpoints, "sm")){
+      width:100%;
+    } 
   }
 }
 
