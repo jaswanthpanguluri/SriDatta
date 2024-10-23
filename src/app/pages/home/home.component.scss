@@ -51,6 +51,10 @@
   .carousel-item {
     img {
       cursor: pointer;
+      max-height: 450px;
+      // aspect-ratio: 1/1;
+      object-fit: cover;
+      height: auto;
     }
   }
 }
