@@ -435,7 +435,7 @@ export class ProductDetailComponent implements OnInit {
       this.breadTitle = res.subCategoryName;
       this.breadcatTitle = res.categoryName;
       this.breadcatTitleLink = res.categoryName;
-      this.breadsubcatTitleLink = res.subCategoryName;
+      this.breadsubcatTitleLink = res.seoSubCategoryURL;
       this.meta.updateTag({ name: 'description', content: res.metaDescription });
       this.meta.updateTag({ name: 'keywords', content: res.metaKeywords });
       this.productDetails = res;
@@ -919,7 +919,7 @@ export class ProductDetailComponent implements OnInit {
     this.router.navigateByUrl(e.toLowerCase() + '/online-delivery');
   }
   routeSubCategory(e: any) {
-    this.router.navigateByUrl('/order/' + e.toLowerCase());
+    this.router.navigateByUrl(e.toLowerCase());
   }
 
 }

@@ -102,7 +102,7 @@
             <div class="d-flex">
               <div class="d-inline-block px-2 background-green font-white rounded-1">
                 {{productDetails?.productRating}}<span class="icon-star icomoon"></span> </div>
-              <a href="javascript:void(0)" class="d-inline-block ps-2">350 Reviews </a>
+              <!--<a href="javascript:void(0)" class="d-inline-block ps-2">350 Reviews </a>-->
             </div>
           </div>
           <div class="price d-flex py-2">
@@ -115,7 +115,7 @@
             <div class="offer-percentage align-self-center " *ngIf="productDetails?.discount">
               <small class="font-bold">({{productDetails?.discount}}% off)</small>
             </div>
-            <p class="align-self-center ps-2 small">Weight(g): <small
+            <p class="align-self-center ps-2 small" *ngIf="productDetails?.weightText">Weight(g): <small
                 class="font-semibold font-primary">{{productDetails?.weightText}}</small></p>
           </div>
 
